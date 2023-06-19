@@ -1,0 +1,74 @@
+<html>
+<head>
+
+<title>DioInit</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+
+<h1>DioInit</h1>
+<h2>Function</h2>
+Retrieves the device ID then the device can be accessed.<br>
+<p>
+<h2>Format</h2>
+Ret = DioInit(DeviceName, &Id);<br>  
+<p>
+<h2>Parameters</h2>
+DeviceName [C:char *]<br> 
+Specifies the device name set with the setup tool(config).<br>
+Device name is maximum 50 characters(NULL is included).<br>
+<p>
+Id [C:short]<br> 
+Returns the device ID. By using this device ID, you can access to the device in the following functions.<br>
+<p>
+<h2>Return Values</h2> 
+Ret [C:long]<br> 
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>Normal Complete</td></tr>
+<tr><td>DIO_ERR_INI_MEMORY</td><td>3</td><td>Failed in memory allocation.</td></tr>
+<tr><td>DIO_ERR_INI_REGISTRY</td><td>4</td><td>Failed in accessing the setting file.</td></tr>
+<tr><td>DIO_ERR_INI_BOARD_ID</td><td>5</td><td>Board ID is duplicated.</td></tr>
+<tr><td>DIO_ERR_DLL_DEVICE_NAME</td><td>10000</td><td>Device name which isn't registered in setting file is specified.</td></tr>
+<tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>Driver cannot be called (failed in ioctl).</td></tr>
+<tr><td>DIO_ERR_DLL_CREATE_FILE</td><td>10003</td><td>Failed in creating file (open failed).</td></tr>
+<tr><td>DIO_ERR_INFO_INVALID_DEVICE</td><td>10050</td><td>Specified device name isn't found. Please check the spelling.</td></tr>
+<tr><td>DIO_ERR_INFO_NOT_FIND_DEVICE</td><td>10051</td><td>The usable device isn't found.</td></tr>
+</table>
+The other errors: </a><a href="error_code.htm" target="contents">(See also: Error code details)</a><br>
+<p>
+<h2>Initial Values</h2>
+None<br>
+<p>
+<h2>Remarks</h2>
+Retrieves the device ID then the device can be accessed.
+By using this device ID, you can access the device in the following functions.
+If you want to access more than one device, you need to provide several variables to store ID.
+After DioInit normal completed, each function can be used until DioExit is called.
+<br>
+<p>
+<h2>Restrictions</h2>
+The number of processes to access a board is 16 at most.
+But for the board supporting BusMaster, there is only 1 process to access it.
+There is no restriction on accessing from several threads in the same process.
+<br>
+<p>
+<h2>Example</h2>
+Initial a device "DIO000", Id is retrieved.<br>
+<p>
+<pre>
+C     Ret = DioInit(&quot;DIO000&quot;, &amp;Id);
+</pre>
+<h2>See Also</h2>
+<a href="DioExit.htm" target="contents">DioExit</a><br>
+
+</BODY>
+</HTML>

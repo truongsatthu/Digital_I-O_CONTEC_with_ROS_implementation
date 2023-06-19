@@ -1,0 +1,89 @@
+<html>
+<head>
+<!--見出しと同じものをタイトルにします-->
+<title>DioSetInterruptEvent</title>
+<!--META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=shift-jis"-->
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<!---------------------------------------------------------------------------------
+ここにコンテンツを記載
+-------------------------------------------------------------------------------->
+
+<!--ページが長くなったときにトップへ戻るジャンプを付ける場合のリンク名です-->
+<a name=TOPIC_TOP>
+<!-===============================================================================-->
+<!-見出し-->
+<!-===============================================================================-->
+<h1>DioSetInterruptEvent</h1>
+<h2>■機能</h2>
+割り込みイベント要因を設定します。<br>
+<p>
+<h2>■書式</h2>
+Ret = DioSetInterruptEvent(Id, BitNo, Logic);<br>
+<p>
+<h2>■引数</h2>
+Id [C:short]<br>
+DioInitで取得したデバイスIDを指定します。<br>
+<p>
+BitNo [C:short]<br>
+入力論理ビット番号を指定します。<br>
+このビット番号は、ハードウェア上で割り込みとして使用可能なビットでなければなりません。<br>
+<p>
+Logic [C:short]<br>
+割り込み論理を以下の定義値の何れかで指定します。<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="250">意味</th>
+</tr>
+<tr><td>DIO_INT_NONE</td><td>0</td><td>割り込みをマスクする</td></tr>
+<tr><td>DIO_INT_RISE</td><td>1</td><td>入力値0->1</td></tr>
+<tr><td>DIO_INT_FALL</td><td>2</td><td>入力値1->0</td></tr>
+</table>
+
+<h2>■戻り値</h2>
+Ret [C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="250">意味</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>正常終了</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>無効なIDが指定されました。</td></tr>
+<tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>ドライバを呼び出せません(ioctlに失敗)。</td></tr>
+<tr><td>DIO_ERR_SYS_NOT_SUPPORTED</td><td>20001</td><td>このデバイスではこの関数は使用できません。</td></tr>
+<tr><td>DIO_ERR_SYS_INT_BIT</td><td>20200</td><td>割り込みビットが指定可能範囲外です。</td></tr>
+<tr><td>DIO_ERR_SYS_INT_LOGIC</td><td>20201</td><td>割り込み論理が指定可能範囲外です。</td></tr>
+</table>
+その他のエラー：<a href="error_code.htm" target="contents">（参照：エラーコード詳細）</a><br>
+<p>
+
+<h2>■説明</h2>
+割り込みイベントを開始／停止する場合に指定します。<br>
+割り込みを実際に受け付けるのはコールバック関数になります。<br>
+コールバック関数はDioSetInterruptCallBackProcで指定します。<br>
+<p>
+USBデバイスの場合、割り込みイベントを受け付けることができるのは1プロセスのみです。<br>
+同一のデバイスから複数プロセスに対してメッセージを送出することはできません。<br>
+なお、この機能を使用するためには、ハードウェアが割り込みをサポートしている必要があります<br>
+<p>
+<h2>■使用例</h2>
+<pre>
+C       Ret = DioSetInterruptEvent(Id, BitNo, DIO_INT_RISE);
+</pre>
+<p>
+<h2>■関連項目</h2>
+<a href="DioSetInterruptCallBackProc.htm" target="contents">DioSetInterruptCallBackProc</a><br>
+<a href="interrupt.htm" target="contents">割り込み</a><br>
+<p>
+<!---------------------------------------------------------------------------------
+コンテンツここまで
+-------------------------------------------------------------------------------->
+</BODY>
+</HTML>

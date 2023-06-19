@@ -1,0 +1,506 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)-->
+<!--(Document created with RoboEditor. )============================-->
+<!--(==============================================================)-->
+
+<head>
+
+<title>Wireless I/O Specifications</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=windows-1252">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=824>
+<meta name=layout-width content=997>
+
+
+<!--(Links)=========================================================-->
+
+<link rel="StyleSheet" href="../../MS_Help.css">
+
+
+
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<h1>Wireless I/O Specifications</h1>
+
+<p>This page explains the specification of wireless I/O.</p>
+
+<p><span style="font-weight: bold;">Wireless I/O configuration</span><br>
+<br>
+The basic configuration when using wireless I/O products is as follows.</p>
+
+<p>Personal computer --- Ethernet --- Gateway (Master unit) --- 920 MHz 
+ --- Terminal (Slave unit)</p>
+
+<p><span style="font-weight: bold;">How to acquire data from a personal computer</span><br>
+<br>
+The following two methods are available for acquiring data from a personal 
+ computer.</p>
+
+<p>-<span class=short_text
+			id=result_box0
+			lang=en> Acquire data stored in the parent machine</span><span 
+ id=result_box1
+	lang=en><br>
+The flow acquiring the data stored in the master unit is as follows.</span><br>
+<br>
+1.<span id=result_box2
+		lang=en>Send an instruction to retrieve the saved data from the 
+ PC to the gateway.</span><br>
+2.<span class=short_text
+		id=result_box3
+		lang=en>The gateway sends its own data to the PC.</span><br>
+<span id=result_box4
+		lang=en><br>
+Apart from the above flow, the slave unit periodically transmits data to 
+ the master unit.</span><span id=result_box5
+								lang=en><br>
+The data saved by the master unit is updated when data is received from 
+ the slave unit.</span><span id=result_box6
+							lang=en><br>
+The interval at which the slave unit transmits data to the master unit 
+ can be changed by setting the slave unit.</span><span id=result_box7
+														lang=en><br>
+Please change the setting with Setup Tool (config).</span></p>
+
+<p>-<span class=short_text
+			id=result_box8
+			lang=en> Acquire data stored in slave unit</span><span id=result_box9
+	lang=en><br>
+The flow acquiring the data stored in the slave unit is as follows.</span><br>
+<br>
+1.Send an instruction to retrieve the slave unit data from the PC to the 
+ master unit.<br>
+2.The master unit requests data from the slave unit.<br>
+3.The slave unit sends the current data to the master unit.<br>
+4.The master unit transmits the data acquired from the slave unit to the 
+ PC.</p>
+
+<p style="font-weight: bold;">Features of 920 MHz</p>
+
+<p>When communicating at 920 MHz, the transmission time is restricted by 
+ the transmission output/channel.<br>
+Please refer to the table below for transmission time limit.</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells
+		style="x-cell-content-align: top;
+				width: 49.415%;
+				border-spacing: 0px;
+				border-spacing: 0px;"
+		cellspacing=0
+		width=49.415%>
+<col style="width: 13.203%;">
+<col style="width: 17.021%;">
+<col style="width: 20.975%;">
+<col style="width: 21.369%;">
+<col style="width: 27.432%;">
+
+<tr style="x-cell-content-align: top; height: 17px;"
+	valign=top>
+<td rowspan=2
+	colspan=1
+	style="width: 13.203%;
+			border-left-width: 1px;
+			border-left-color: Black;
+			border-left-style: Solid;
+			border-top-style: Solid;
+			border-top-color: Black;
+			border-top-width: 1px;
+			border-right-width: 1px;
+			border-right-color: Black;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: Black;
+			border-bottom-width: 1px;
+			padding-right: 10px;
+			padding-left: 10px;
+			x-cell-content-align: center;
+			background-color: #c0c0c0;"
+	bgcolor=#C0C0C0
+	valign=middle
+	width=13.203%>
+<p>Transmission output</td>
+<td rowspan=2
+	colspan=1
+	style="width: 17.021%;
+			border-top-style: Solid;
+			border-top-color: Black;
+			border-top-width: 1px;
+			border-right-width: 1px;
+			border-right-color: Black;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: Black;
+			border-bottom-width: 1px;
+			padding-right: 10px;
+			padding-left: 10px;
+			x-cell-content-align: center;
+			background-color: #c0c0c0;"
+	bgcolor=#C0C0C0
+	valign=middle
+	width=17.021%>
+<p>Channel No.</td>
+<td rowspan=2
+	colspan=1
+	style="width: 20.975%;
+			border-top-style: Solid;
+			border-top-color: Black;
+			border-top-width: 1px;
+			border-right-width: 1px;
+			border-right-color: Black;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: Black;
+			border-bottom-width: 1px;
+			padding-right: 10px;
+			padding-left: 10px;
+			x-cell-content-align: center;
+			background-color: #c0c0c0;"
+	bgcolor=#C0C0C0
+	valign=middle
+	width=20.975%>
+<p>Transmission time</td>
+<td rowspan=1
+	colspan=2
+	style="width: 48.801%;
+			border-top-style: Solid;
+			border-top-color: Black;
+			border-top-width: 1px;
+			border-right-width: 1px;
+			border-right-color: Black;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: Black;
+			border-bottom-width: 1px;
+			padding-right: 10px;
+			padding-left: 10px;
+			background-color: #c0c0c0;"
+	bgcolor=#C0C0C0
+	width=48.801%>
+<p style="text-align: center;"
+	align=center>Limit</td>
+<td_null></tr>
+
+<tr style="x-cell-content-align: top; height: 5px;"
+	valign=top>
+<td_null>
+<td_null>
+<td_null>
+<td style="width: 21.369%;
+			border-right-width: 1px;
+			border-right-color: Black;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: Black;
+			border-bottom-width: 1px;
+			padding-right: 10px;
+			padding-left: 10px;
+			background-color: #c0c0c0;"
+	bgcolor=#C0C0C0
+	width=21.369%>
+<p>Pause time after one transmission</td>
+<td style="width: 27.432%;
+			border-right-width: 1px;
+			border-right-color: Black;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: Black;
+			border-bottom-width: 1px;
+			padding-right: 10px;
+			padding-left: 10px;
+			background-color: #c0c0c0;"
+	bgcolor=#C0C0C0
+	width=27.432%>
+<p>Max. sum total limit of transmission time per hour</td></tr>
+
+<tr style="x-cell-content-align: top; height: 16px;"
+	valign=top>
+<td colspan=1
+	rowspan=1
+	style="width: 13.203%;
+			border-left-width: 1px;
+			border-left-color: Black;
+			border-left-style: Solid;
+			border-right-width: 1px;
+			border-right-color: Black;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: Black;
+			border-bottom-width: 1px;
+			padding-right: 10px;
+			padding-left: 10px;"
+	width=13.203%>
+<p>1mW</td>
+<td colspan=1
+	rowspan=1
+	style="width: 17.021%;
+			border-right-width: 1px;
+			border-right-color: Black;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: Black;
+			border-bottom-width: 1px;
+			padding-right: 10px;
+			padding-left: 10px;"
+	width=17.021%>
+<p>1 to 5</td>
+<td colspan=1
+	rowspan=1
+	style="width: 20.975%;
+			border-right-width: 1px;
+			border-right-color: Black;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: Black;
+			border-bottom-width: 1px;
+			padding-right: 10px;
+			padding-left: 10px;"
+	width=20.975%>
+<p>100ms less</td>
+<td colspan=1
+	rowspan=1
+	style="width: 21.369%;
+			border-right-width: 1px;
+			border-right-color: Black;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: Black;
+			border-bottom-width: 1px;
+			padding-right: 10px;
+			padding-left: 10px;"
+	width=21.369%>
+<p>100ms</td>
+<td colspan=1
+	rowspan=1
+	style="width: 27.432%;
+			border-right-width: 1px;
+			border-right-color: Black;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: Black;
+			border-bottom-width: 1px;
+			padding-right: 10px;
+			padding-left: 10px;"
+	width=27.432%>
+<p>3.5s</td></tr>
+
+<tr style="x-cell-content-align: top; height: 16px;"
+	valign=top>
+<td colspan=1
+	rowspan=4
+	style="width: 13.203%;
+			border-left-width: 1px;
+			border-left-color: Black;
+			border-left-style: Solid;
+			border-right-width: 1px;
+			border-right-color: Black;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: Black;
+			border-bottom-width: 1px;
+			padding-right: 10px;
+			padding-left: 10px;
+			x-cell-content-align: center;"
+	valign=middle
+	width=13.203%>
+<p>1mW to 20mW</td>
+<td colspan=1
+	rowspan=1
+	style="width: 17.021%;
+			border-right-width: 1px;
+			border-right-color: Black;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: Black;
+			border-bottom-width: 1px;
+			padding-right: 10px;
+			padding-left: 10px;"
+	width=17.021%>
+<p>62 to 77</td>
+<td colspan=1
+	rowspan=1
+	style="width: 20.975%;
+			border-right-width: 1px;
+			border-right-color: Black;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: Black;
+			border-bottom-width: 1px;
+			padding-right: 10px;
+			padding-left: 10px;"
+	width=20.975%>
+<p>50ms less</td>
+<td colspan=1
+	rowspan=1
+	style="width: 21.369%;
+			border-right-width: 1px;
+			border-right-color: Black;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: Black;
+			border-bottom-width: 1px;
+			padding-right: 10px;
+			padding-left: 10px;"
+	width=21.369%>
+<p>50ms</td>
+<td colspan=1
+	rowspan=1
+	style="width: 27.432%;
+			border-right-width: 1px;
+			border-right-color: Black;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: Black;
+			border-bottom-width: 1px;
+			padding-right: 10px;
+			padding-left: 10px;"
+	width=27.432%>
+<p>No limit</td></tr>
+
+<tr style="x-cell-content-align: top; height: 16px;"
+	valign=top>
+<td_null>
+<td colspan=1
+	rowspan=3
+	style="width: 17.021%;
+			border-right-width: 1px;
+			border-right-color: Black;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: Black;
+			border-bottom-width: 1px;
+			padding-right: 10px;
+			padding-left: 10px;
+			x-cell-content-align: center;"
+	valign=middle
+	width=17.021%>
+<p>33 to 61</td>
+<td colspan=1
+	rowspan=1
+	style="width: 20.975%;
+			border-right-width: 1px;
+			border-right-color: Black;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: Black;
+			border-bottom-width: 1px;
+			padding-right: 10px;
+			padding-left: 10px;"
+	width=20.975%>
+<p>200ms over 400ms less</td>
+<td colspan=1
+	rowspan=1
+	style="width: 21.369%;
+			border-right-width: 1px;
+			border-right-color: Black;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: Black;
+			border-bottom-width: 1px;
+			padding-right: 10px;
+			padding-left: 10px;"
+	width=21.369%>
+<p>10 times the transmission time</td>
+<td colspan=1
+	rowspan=3
+	style="width: 27.432%;
+			border-right-width: 1px;
+			border-right-color: Black;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: Black;
+			border-bottom-width: 1px;
+			padding-right: 10px;
+			padding-left: 10px;
+			x-cell-content-align: center;"
+	valign=middle
+	width=27.432%>
+<p>360s</td></tr>
+
+<tr style="x-cell-content-align: top; height: 16px;"
+	valign=top>
+<td_null>
+<td_null>
+<td colspan=1
+	rowspan=1
+	style="width: 20.975%;
+			border-right-width: 1px;
+			border-right-color: Black;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: Black;
+			border-bottom-width: 1px;
+			padding-right: 10px;
+			padding-left: 10px;"
+	width=20.975%>
+<p>6ms over 200ms less</td>
+<td colspan=1
+	rowspan=1
+	style="width: 21.369%;
+			border-right-width: 1px;
+			border-right-color: Black;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: Black;
+			border-bottom-width: 1px;
+			padding-right: 10px;
+			padding-left: 10px;"
+	width=21.369%>
+<p>2ms</td>
+<td_null></tr>
+
+<tr style="x-cell-content-align: top; height: 16px;"
+	valign=top>
+<td_null>
+<td_null>
+<td style="width: 20.975%;
+			border-right-width: 1px;
+			border-right-color: Black;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: Black;
+			border-bottom-width: 1px;
+			padding-right: 10px;
+			padding-left: 10px;"
+	width=20.975%>
+<p>6ms less</td>
+<td style="width: 21.369%;
+			border-right-width: 1px;
+			border-right-color: Black;
+			border-right-style: Solid;
+			border-bottom-style: Solid;
+			border-bottom-color: Black;
+			border-bottom-width: 1px;
+			padding-right: 10px;
+			padding-left: 10px;"
+	width=21.369%>
+<p>No limit</td>
+<td_null></tr>
+</table>
+
+<p>As there is a limit on 920 MHz, please be careful when accessing the 
+ slave unit from the PC continuously when acquiring data of the slave unit.<br>
+When acquiring the saved data from the PC to the master unit, since there 
+ is no access to the slave unit, the limit of 920 MHz is not a problem.<br>
+However, please note that the data stored in the master unit is not real 
+ time information of the slave unit.</p>
+
+</body>
+
+</html>

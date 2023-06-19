@@ -1,0 +1,57 @@
+<html>
+<head>
+
+<title>Installation procedure</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+
+<h1>Installation procedure</h1>
+<p>
+This driver is provided in a compressed file. You can use the following
+command in shell to copy/extract it.<br>
+<p>
+When the module is compiled, Linux kernel's source tree is necessary.
+Beforehand, open the source code from the distribution CD.<br>
+<p>
+If you want to change the library install path to a location, such as /usr/local/lib, 
+you should find the Makefile and change the install path in advance.<br>
+<p>
+-XXX is driver's version.<br>
+<p>
+It is required to startup with root authority for install.<br>
+<p>
+<pre>
+<h2>1)Copy the compressed file and extract it.</h2>
+ # cd
+ # mount /dev/cdrom /mnt/cdrom
+ # cp /mnt/cdrom/linux/dio/cdioXXX.tgz ./
+ # tar xvfz cdioXXX.tgz
+ ................
+
+<h2>2)Execute make, prepare to install the driver.</h2>
+ # cd contec/cdio
+ # make
+ ................
+ # make install
+ ................
+
+<h2>3)Setup the being used board by using setup tool (configuration).</h2>
+ # cd config
+ # ./config
+ ..... Setup the following .........
+
+<h2>4)Start the driver by start script of driver.</h2>
+ # ./contec_dio_start.sh
+</pre>
+<p>
+Start and stop the driver by executing contec_dio_start.sh and contec_dio_stop.sh.<br>
+If you want to start driver when the system started, please add the processing contents of
+start script to /etc/rc.d/rc.local.<br>
+<p>
+
+</BODY>
+</HTML>

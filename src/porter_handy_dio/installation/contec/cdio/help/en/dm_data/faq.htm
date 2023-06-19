@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Q&A</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+
+<h1>Q&A</h1>
+<p>
+<h2><a href="../data/faq.htm" target="contents">Basic function</a><br></h2>
+<h2>BusMaster function</a><br></h2>
+<p>
+<h2>Q:How many MByte can be set for data buffer used in sampling/generating at most?</h2>
+A:The value depends on the system you use, the following result reference value is based on the state which the other application isn't run.<br>
+<br>
+CPU:Pentium4 2.40GHz<br>
+Memory:512MByte<br>
+Distribution: RedHat Linux 9<br>
+Condition: Buffer can be normally set by DioDmSetBuff().<br>
+Result:  63MByte<br>
+<br>
+Notice: In Red Hat Professional Workstation, it can set up only to 15MByte.<br>
+<br>
+<h2>Q:How many can be set for sampling clock at most in infinite transfer?</h2>
+A:The value depends on the system you use, the following result reference value is based on the state which the other application isn't run.<br>
+<br>
+CPU:Pentium4 2.40GHz<br>
+Distribution: RedHat Linux 9<br>
+Condition: In input infinitely transfers, transfer can process which uses internal clock and does not occur "FifoFull" error.<br>
+Result:  13.3MHz<br>
+<br>
+CPU:Pentium4 2.40GHz<br>
+Distribution: RedHat Linux 9<br>
+Condition: In output infinitely transfers, transfer can process which uses internal clock and does not occur "FifoEmpty" error.<br>
+Result:  6.6MHz<br>
+<br>
+<h2>Q:In generating, the data is outputted with a delay of 10ms after doing DioDmStart.</h2>
+A:In generating, by default, a Wait of 10ms would be invoked in order to wait for data to stand in Fifo. But, sometimes the wait may not be invoked if the output data are few. When Wait becomes a problem, please change the following item of the setting file "contec_dio.conf" under a config directory.<br>
+<br>
+Modify "WaitTimeWhenOutput:Number:10" by 10ms unit and restart the driver.
+<br>
+</BODY>
+</HTML>

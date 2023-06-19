@@ -1,0 +1,8 @@
+prefix=/home/tim/DIGITAL-INPUT-OUTPUT/install
+
+Name: porter_handy_dio
+Description: Description of porter_handy_dio
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/tim/DIGITAL-INPUT-OUTPUT/install/lib 
+Requires: 

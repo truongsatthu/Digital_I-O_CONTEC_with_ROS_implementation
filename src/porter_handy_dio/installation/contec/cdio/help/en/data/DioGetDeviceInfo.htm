@@ -1,0 +1,80 @@
+<html>
+<head>
+
+<title>DioGetDeviceInfo</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+
+<h1>DioGetDeviceInfo</h1>
+<h2>Function</h2>
+Retrieves the information of device.<br>
+<p>
+<h2>Format</h2>
+Ret = DioGetDeviceInfo(Device, InfoType, Param1, Param2, Param3);<br> 
+<p>
+<h2>Parameters</h2>
+Device [C:char*]<br>
+Specifies the device name. (For example: PIO-32/32L(PCI))<br>
+<p>
+InfoType [C:short]<br>
+Specifies the type of retrieved information. Select the type of information as the following define value.<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Meaning</th>
+<th width="60">Parameter</th>
+</tr>
+<tr><td>IDIO_DEVICE_TYPE</td><td>0</td><td>Device type</td><td>Param1(short)</td></tr>
+<tr><td>IDIO_NUMBER_OF_8255</td><td>1</td><td>Number of 8255 chips</td><td>Param1(int)</td></tr>
+<tr><td>IDIO_IS_8255_BOARD</td><td>2</td><td>8255 chip present/absent</td><td>Param1(int)</td></tr>
+<tr><td>IDIO_NUMBER_OF_DI_BIT</td><td>3</td><td>Number of input bits</td><td>Param1(short)</td></tr>
+<tr><td>IDIO_NUMBER_OF_DO_BIT</td><td>4</td><td>Number of output bits</td><td>Param1(short)</td></tr>
+<tr><td>IDIO_NUMBER_OF_DI_PORT</td><td>5</td><td>Number of input ports</td><td>Param1(short)</td></tr>
+<tr><td>IDIO_NUMBER_OF_DO_PORT</td><td>6</td><td>Number of output ports</td><td>Param1(short)</td></tr>
+<tr><td>IDIO_IS_POSITIVE_LOGIC</td><td>7</td><td>Is it positive logic</td><td>Param1(int)</td></tr>
+<tr><td>IDIO_IS_ECHO_BACK</td><td>8</td><td>Echo back is available</td><td>Param1(int)</td></tr>
+<tr><td>IDIO_NUM_OF_PORT</td><td>9</td><td>Number of occupied ports</td><td>Param1(short)</td></tr>
+</table>
+<p>
+Param1, Param2, Param3 [C:void *]<br>
+Specifies parameters that match with the type of information in address.<br>
+Please specify NULL for those unnecessary item.<br>
+<p>
+<h2>Return Values</h2>
+Ret [C:long]
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>Normal Complete</td></tr>
+<tr><td>DIO_ERR_INFO_INVALID_DEVICE</td><td>10050</td><td>Specified device name isn't found.</td></tr>
+<tr><td>DIO_ERR_INFO_NOT_FIND_DEVICE</td><td>10051</td><td>The usable device isn't found.</td></tr>
+<tr><td>DIO_ERR_INFO_INVALID_INFOTYPE</td><td>10052</td><td>The specified device information type is outside the range.</td></tr>
+</table>
+The other errors: </a><a href="error_code.htm" target="contents">(See also: Error code details)</a><br>
+<p>
+<h2>Initial Values</h2>
+None<br>
+<p>
+<h2>Remarks</h2>
+Retrieve the information of device.<br>
+<p>
+<h2>Example</h2>
+<pre>
+C       Ret = DioGetDeviceInfo(&quot;PIO-32/32L(PCI)&quot;, IDIO_NUMBER_OF_DI_PORT, &amp;InpPortNum, NULL, NULL);
+</pre>
+<p>
+<h2>See Also</h2>
+None
+<p>
+
+</BODY>
+</HTML>

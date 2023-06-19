@@ -1,0 +1,46 @@
+<html>
+<head>
+
+<title>Synchronization control connector (SC connector)</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+
+<a name=TOPIC_TOP>
+
+<h1>Synchronization control connector (SC connector)</h1>
+<p>
+Synchronization control connectors (SC connector) provide a simple method of synchronizing
+ board operations by sharing the start, clock, and stop signals of a number of boards
+  (same type, different type).<br>
+It is used when the number of board channels need to be increased or if digital I/O and 
+analog I/O need to be executed simultaneously.<br>
+<br>
+Synchronization signal lines from EXTSIG1 to EXTSIG3 are prepared for the synchronization control connector. 
+The board where those signals are output is called the master, and receiving side boards are called slaves. 
+Only one unit should be set as a master within a synchronized board group, with all others set as slaves.<br>
+<br>
+Slaves can be operated by synchronizing signals from the master by allocating synchronization signal lines 
+from EXTSIG1 to EXTSIG3 to the start, clock, and stop conditions.<br>
+<br>
+What kind of signal is allocated to synchronization signal lines should be set at the master side.
+ For example, the external start and internal clock of the board are available for this signal.
+Refer to the DioDmSetSetMasterCfg function specification for details of the signal types that
+ can be output on the synchronization signal lines.
+<br>
+<br>
+Whether or not input of the synchronization signal lines is to be valid, and 
+which synchronization signal lines from EXTSIG1 to EXTSIG3 are to be used 
+for the sampling conditions of start, clock, and stop, are set at the slave side.
+Signals other than synchronization signal lines can be used for the sampling conditions of the slaves.
+For example, only the synchronization control connector signal is used for start and stop signals, 
+and an internal clock that differs from the master can be used for the clock.<br>
+<br>
+Synchronization control connectors are CN2 and CN3 connectors on the board.
+Use a connector attached on the board to connect the lines.<br>
+<p>
+
+</BODY>
+</HTML>

@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>DioDmGetStatus</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+
+<h1>DioDmGetStatus</h1>
+<h2>Function</h2>
+Acquires transfer status.<br>
+<p>
+<h2>Format</h2>
+Ret =DioDmGetStatus(Id, Dir, &Status, &Err);<br>
+<p>
+<h2>Parameters</h2>
+Id [C:short]<br>
+Specifies the device ID retrieved from DioInit.<br>
+<br>
+Dir [C:unsigned long]<br>
+Specify transfer direction.<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIODM_DIR_IN</td><td>0x01</td><td>Input</td></tr>
+<tr><td>DIODM_DIR_OUT</td><td>0x02</td><td>Output</td></tr>
+</table>
+<br>
+Status [C:unsigned long *]<br>
+Status information (status, warning) is returned.<br>
+Refer to 
+<a href="dm_status_code.htm" target="contents">Status list</a>
+for status details.<br>
+<br>
+Err [C:unsigned long *]<br>
+Error information is returned.<br>
+Refer to
+<a href="dm_error_code.htm" target="contents">Error list</a>
+for error information details.<br>
+<p>
+<h2>Return values</h2>
+Ret [C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>Normal Complete</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>Invalid ID is specified.</td></tr>
+<tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>Driver cannot be called (failed in ioctl).</td></tr>
+<tr><td>DIO_ERR_DLL_BUFF_ADDRESS</td><td>10100</td><td>Invalid data buffer address.</td></tr>
+<tr><td>DIO_ERR_SYS_DIRECTION</td><td>50000</td><td>I/O direction is outside of the setting range.</td></tr>
+</table>
+The other errors: <a href="../data/error_code.htm" target="contents">(See also: Error code details)</a><br>
+<p>
+<h2>Initial value</h2>
+None<br>
+<p>
+<h2>Remarks</h2>
+Each status and error exists per input/output or board.<br>
+Status must be checked after completion of transfer.<br>
+<br>
+<p>
+<h2>Example</h2>
+<p>
+<pre>
+C       Ret =DioDmGetStatus(Id, DIODM_DIR_IN, &Status, &Err);
+</pre>
+<h2>See also</h2>
+None
+<p>
+</BODY>
+</HTML>

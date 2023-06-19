@@ -1,0 +1,121 @@
+<html>
+<head>
+<title>Return value list</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+<h1>Return value list</h1>
+<p>
+<h2>Initialization error</h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="400">Description</th>
+</tr>
+<tr>
+<td>DIO_ERR_SUCCESS</td>
+<td>0</td>
+<td>Normal Complete</td>
+</tr>
+</tr><td>DIO_ERR_INI_RESOURCE</td><td>1</td><td>Failed in the acquisition of resource.</td></tr>
+</tr><td>DIO_ERR_INI_INTERRUPT</td><td>2</td><td>Failed in the registration of interrupt routine.<br>
+Make sure whether IRQ duplicates with another device.</td></tr>
+</tr><td>DIO_ERR_INI_MEMORY</td><td>3</td><td>Failed in memory allocation. This error hardly occurs.<br>If it occurred, please increase memory.</td></tr>
+</tr><td>DIO_ERR_INI_REGISTRY</td><td>4</td><td>Failed in accessing the setting file.</td></tr>
+</tr><td>DIO_ERR_INI_BOARD_ID</td><td>5</td><td>Board ID is duplicated.</td></tr>
+</table>
+<p>
+<h2>Library error</h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="400">Description</th>
+</tr>
+</tr><td>DIO_ERR_DLL_DEVICE_NAME</td><td>10000</td><td>Device name which isn't registered in setting file is specified.</td></tr>
+</tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>Invalid ID is specified. Make sure whether initialization, function normally complete.<br>And, make sure the scope of variable in which ID is stored.</td></tr>
+</tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>Driver cannot be called (failed in ioctl).<br>
+Make sure whether initialization function normally complete.<br>
+And, make sure the scope of variable which ID is stored.</td></tr>
+</tr><td>DIO_ERR_DLL_CREATE_FILE</td><td>10003</td><td>Failed in creating file (open failed).<br>
+Make sure whether the device driver is started by lsmod.</td></tr>
+</tr><td>DIO_ERR_DLL_CLOSE_FILE</td><td>10004</td><td>Failed in closing file (close failed).<br>
+It is possible that you have executed the exit processing of the device which wasn't initialized.</td></tr>
+</tr><td>DIO_ERR_DLL_CREATE_THREAD</td><td>10005</td><td>Failed in creating thread.</td></tr>
+</tr><td>DIO_ERR_INFO_INVALID_DEVICE</td><td>10050</td><td>Specified device name isn't found. Please check the spelling.</td></tr>
+</tr><td>DIO_ERR_INFO_NOT_FIND_DEVICE</td><td>10051</td><td>The usable device isn't found.</td></tr>
+</tr><td>DIO_ERR_INFO_INVALID_INFOTYPE</td><td>10052</td><td>The specified device information type is outside the range.<br>
+It is an error in getting information function. Make sure the parameter.</td></tr>
+</tr><td>DIO_ERR_DLL_BUFF_ADDRESS</td><td>10100</td><td>Invalid data buffer address.<br>
+Buffer address is NULL(0). Make sure the source code of application.</td></tr>
+</tr><td>DIO_ERR_DLL_TRG_KIND</td><td>10300</td><td>Trigger type is outside the specified range.<br>
+Error in the parameter of trigger function. Please use the defined value.</td></tr>
+</tr><td>DIO_ERR_DLL_CALLBACK</td><td>10400</td><td>Invalid address of callback function.</td></tr>
+</tr><td>DIO_ERR_DLL_DIRECTION</td><td>10500</td><td>I/O direction is outside of the setting range.</td></tr>
+
+</table>
+<p>
+
+<h2>Driver error</h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="400">Description</th>
+</tr>
+</tr><td>DIO_ERR_SYS_MEMORY</td><td>20000</td><td>Failed in memory. This error hardly occurs. If this error has occurred, please install more memory.</td></tr>
+</tr><td>DIO_ERR_SYS_NOT_SUPPORTED</td><td>20001</td><td>This function cannot be used in this device.<br>
+If the input function was executed for the devices without input port or the output function was executed for the devices without output port, even if Echo Back function is executed, this error occurs.</td></tr>
+</tr><td>DIO_ERR_SYS_BOARD_EXECUTING</td><td>20002</td><td>It cannot perform because the device is executing.<br>
+When the device is being accessed in background, the error would occurs if the processing of foreground cannot execute. It doesn't occur at present.</td></tr>
+</tr><td>DIO_ERR_SYS_USING_OTHER_PROCESS</td><td>20003</td><td>It cannot perform because the other process is using the device.<br>
+Confirm the restrictions in using the multi-processes.</td></tr>
+</tr><td>DIO_ERR_SYS_NOT_SUPPORT_KERNEL</td><td>20004</td><td>It is not supporting in the kernel of this version.</td></tr>
+</tr><td>DIO_ERR_SYS_PORT_NO</td><td>20100</td><td>Port number is outside of the specified available range.<br>
+Please confirm the number of device I/O ports and the using parameter in program.</td></tr>
+</tr><td>DIO_ERR_SYS_PORT_NUM</td><td>20101</td><td>Number of ports is outside of the specified available range.<br>
+Up to 256 I/O ports are available.</td></tr>
+</tr><td>DIO_ERR_SYS_BIT_NO</td><td>20102</td><td>Bit number is outside of the specified available range.<br>
+Please confirm the number of device's I/O bits and the using parameter in program.</td></tr>
+</tr><td>DIO_ERR_SYS_BIT_NUM</td><td>20103</td><td>Number of bits is outside of the specified available range.<br>
+Up to 256 I/O bits are available.</td></tr>
+</tr><td>DIO_ERR_SYS_BIT_DATA</td><td>20104</td><td>Bit data is neither 0 nor 1.<br>
+Error in bit output. Please confirm the using parameter in program.</td></tr>
+</tr><td>DIO_ERR_SYS_INT_BIT</td><td>20200</td><td>Interrupt bit is outside of the specified available range.</td></tr>
+</tr><td>DIO_ERR_SYS_INT_LOGIC</td><td>20201</td><td>Interrupt logic is outside of the specified available range.<br>
+Interrupt logic either rising or falling. Please use the defined value.</td></tr>
+</tr><td>DIO_ERR_SYS_TIM</td><td>20300</td><td>Timer value is outside of the specified range. Error in trigger function.</td></tr>
+</tr><td>DIO_ERR_SYS_TRG_LOGIC</td><td>20202</td><td>Trigger logic is outside of the specified range.</td></tr>
+</tr><td>DIO_ERR_SYS_FILTER</td><td>20400</td><td>Filter time constant is outside of the specified range.</td></tr>
+</tr><td>DIO_ERR_SYS_8255</td><td>20500</td><td>8255 chip number is outside of the specified range. </td></tr>
+</tr><td>DIO_ERR_SYS_DIRECTION</td><td>50000</td><td>I/O direction is outside of the setting range.</td></tr>
+</tr><td>DIO_ERR_SYS_SIGNAL</td><td>50001</td><td>Outside the range of the signal.</td></tr>
+</tr><td>DIO_ERR_SYS_START</td><td>50002</td><td>Outside the range of the start conditions.</td></tr>
+</tr><td>DIO_ERR_SYS_CLOCK</td><td>50003</td><td>Clock condition is outside of the setting range.</td></tr>
+</tr><td>DIO_ERR_SYS_CLOCK_VAL</td><td>50004</td><td>Clock value is outside of the setting range.</td></tr>
+</tr><td>DIO_ERR_SYS_CLOCK_UNIT</td><td>50005</td><td>Unit of clock value is outside of the setting range.</td></tr>
+</tr><td>DIO_ERR_SYS_STOP</td><td>50006</td><td>Stop condition is outside of the setting range.</td></tr>
+</tr><td>DIO_ERR_SYS_STOP_NUM</td><td>50007</td><td>Stop number is outside of the setting range.</td></tr>
+</tr><td>DIO_ERR_SYS_RESET</td><td>50008</td><td>Reset content is outside of the setting range.</td></tr>
+</tr><td>DIO_ERR_SYS_LEN</td><td>50009</td><td>Data number is outside of the setting range</td></tr>
+</tr><td>DIO_ERR_SYS_RING</td><td>50010</td><td>Buffer repetition use setup is outside of the setting range.</td></tr>
+</tr><td>DIO_ERR_SYS_COUNT</td><td>50011</td><td>Data transfer number is outside of the setting range.</td></tr>
+</tr><td>DIO_ERR_DM_BUFFER</td><td>50100</td><td>Buffer was too large and has not secured.<br>
+Buffer was too large and cannot set to board.<br>
+Please decrease the buffer size.</td></tr>
+</tr><td>DIO_ERR_DM_LOCK_MEMORY</td><td>50101</td><td>Memory could not be locked.<br>
+Memory has not been locked.<br>
+Increase implemental memory or decrease buffer size.</td></tr>
+</tr><td>DIO_ERR_DM_PARAM</td><td>50102</td><td>Parameter error<br>
+Some parameters of function are outside of the specified range.<br>
+Confirm the parameter value.</td></tr>
+</tr><td>DIO_ERR_DM_SEQUENCE</td><td>50103</td><td>Procedure error of execution<br>
+Execution procedure of function is wrong.<br>Refer to sample for rewriting execution procedure.</td></tr>
+</table>
+<p>
+</BODY>
+</HTML>

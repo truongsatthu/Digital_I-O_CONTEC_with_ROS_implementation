@@ -1,0 +1,76 @@
+<html>
+<head>
+<!--見出しと同じものをタイトルにします-->
+<title>DioSetInterruptCallBackProc</title>
+<!--META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=shift-jis"-->
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<!---------------------------------------------------------------------------------
+ここにコンテンツを記載
+-------------------------------------------------------------------------------->
+
+<!--ページが長くなったときにトップへ戻るジャンプを付ける場合のリンク名です-->
+<a name=TOPIC_TOP>
+<!-===============================================================================-->
+<!-見出し-->
+<!-===============================================================================-->
+<h1>DioSetInterruptCallBackProc</h1>
+<h2>■機能</h2>
+割り込みイベントコールバック関数を指定します。<br>
+<p>
+<h2>■書式</h2>
+Ret = DioSetInterruptCallBackProc(Id, CallBack, Param);<br>
+<p>
+<h2>■引数</h2>
+Id [C:short]<br>
+DioInitで取得したデバイスIDを指定します。<br>
+<p>
+CallBack [C:PDIO_INT_CALLBACK]<br>
+コールバック関数のアドレスを指定します。<br>
+コールバック関数は関数ポインタで指定しますが、指定方法は言語により
+異なりますので、注意してください。<br>
+<p>
+Param [C:void *]<br>
+コールバック関数に渡したい任意のパラメータを指定します。<br>
+<p>
+<h2>■戻り値</h2>
+Ret [C:long]<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="250">意味</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>正常終了</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>無効なIDが指定されました。</td></tr>
+<tr><td>DIO_ERR_DLL_CALLBACK</td><td>10400</td><td>コールバック関数のアドレスが無効です。</td></tr>
+</table>
+その他のエラー：<a href="error_code.htm" target="contents">（参照：エラーコード詳細）</a><br>
+<p>
+
+<h2>■説明</h2>
+割り込み機能は、ハードウェア機能を使用して、指定したビットの入力値の変化を監視する機能です。<br>
+ビットの入力値が0から1、もしくは1から0になったとき、コールバックを通じてアプリケーションに
+変化があったことを通知します。<br>
+割り込みコールバック設定を行った後、割り込みイベント設定を行い、割り込みが発生すると、
+設定したコールバック関数が呼び出されます。<br>
+<p>
+<h2>■使用例</h2>
+<pre>
+C       Ret = DioSetInterruptCallBackProc(Id, CallBack, Param);
+</pre>
+<p>
+<h2>■関連項目</h2>
+<a href="DioSetInterruptEvent.htm" target="contents">DioSetInterruptEvent</a><br>
+<a href="interrupt.htm" target="contents">割り込み</a><br>
+<a href="PDIO_INT_CALLBACK.htm" target="contents">PDIO_INT_CALLBACK</a><br>
+<p>
+
+<!---------------------------------------------------------------------------------
+コンテンツここまで
+-------------------------------------------------------------------------------->
+</BODY>
+</HTML>

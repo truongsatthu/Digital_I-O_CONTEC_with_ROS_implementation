@@ -1,0 +1,17 @@
+body {
+	font-family: Helvetica; background-color: #ffffff;font-size: 12pt;
+	line-height: 120%
+}
+
+h1 {font-family: Helvetica; font-weight: bold;	margin-bottom: 12px;
+	color: #800040;	border-bottom-style: none;	font-size: 16pt;
+}
+
+h2 {font-family: Helvetica; font-weight: bold;	font-size: 12.0pt;
+	color: #000080;	margin-bottom: 5px;
+}
+
+h3 {font-family: Helvetica; font-weight: bold;	font-size: 12.0pt;
+	color: #000080;	margin-bottom: 15px;
+}
+

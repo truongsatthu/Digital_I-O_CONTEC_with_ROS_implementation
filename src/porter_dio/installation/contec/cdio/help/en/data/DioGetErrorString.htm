@@ -1,0 +1,58 @@
+<html>
+<head>
+
+<title>DioGetErrorString</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+
+<h1>DioGetErrorString</h1>
+<h2>Function</h2>
+Retrieves the error string from error code.<br>
+<p>
+<h2>Format</h2>
+Ret = DioGetErrorString(ErrorCode , ErrorString);<br> 
+<p>
+<h2>Parameters</h2>
+ErrorCode [C:long]<br>
+Specifies the return value of each function.<br>
+<p>
+ErrorString [C:char *]<br>
+Sets the base address of buffer for storing error string.<br>
+The max length of string is 256.<br>
+<p>
+<h2>Return Values</h2>
+Ret [C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>Normal Complete</td></tr>
+<tr><td>DIO_ERR_DLL_BUFF_ADDRESS</td><td>10100</td><td>Invalid data buffer address.</td></tr>
+</table>
+The other errors: </a><a href="error_code.htm" target="contents">(See also: Error code details)</a><br>
+<p>
+<h2>Initial Values</h2>
+None<br>
+<p>
+<h2>Remarks</h2>
+Utility function that returns the string in explicit description from error code.<br>
+Please use the error process.<br>
+<p>
+<h2>Example</h2>
+<pre>
+C       Ret = DioGetErrorString(ErrorCode, &amp;ErrorString[0]);
+</pre>
+<p>
+<h2>See Also</h2>
+None<br>
+<p>
+
+</BODY>
+</HTML>

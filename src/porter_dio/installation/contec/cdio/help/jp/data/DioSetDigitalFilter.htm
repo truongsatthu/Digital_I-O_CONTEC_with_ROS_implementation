@@ -1,0 +1,124 @@
+<html>
+<head>
+<!--見出しと同じものをタイトルにします-->
+<title>DioSetDigitalFilter</title>
+<!--META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=shift-jis"-->
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<!---------------------------------------------------------------------------------
+ここにコンテンツを記載
+-------------------------------------------------------------------------------->
+
+<!--ページが長くなったときにトップへ戻るジャンプを付ける場合のリンク名です-->
+<a name=TOPIC_TOP>
+<!-===============================================================================-->
+<!-見出し-->
+<!-===============================================================================-->
+<h1>DioSetDigitalFilter</h1>
+<h2>■機能</h2>
+デジタルフィルタを設定します。<br>
+<p>
+<h2>■書式</h2>
+Ret = DioSetDigitalFilter(Id, FilterValue);<br>
+<p>
+<h2>■引数</h2>
+Id [C:short]<br>
+DioInitで取得したデバイスIDを指定します。<br>
+<p>
+FilterValue [C:short]<br>
+フィルタ係数を指定します。<br>
+フィルタ係数は、デバイスの種類によって以下の表のようになります。<br>
+<p>
+PIO多点シリーズ:PIO-64/64L(PCI), PI-128L(PCI)<br>
+PIO Hシリーズ:PIO-XX(XX)H (PIO-32/32B(PCI)Hは除く), PI-XX(XX)H, PIO-16/16RY(PCI), DIO-XXXX-PE, DI-XX-PE<br>
+DIO-XXXXLX-USB<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="60">係数</th>
+<th width="60">値</th>
+<th width="60">係数</th>
+<th width="60">値</th>
+</tr>
+<tr><td>0</td><td>フィルタなし</td><td>　</td><td>　</td></tr>
+<tr><td>1</td><td>0.25[μs]</td><td>11</td><td>256[μs]</td></tr>
+<tr><td>2</td><td>0.50[μs]</td><td>12</td><td>512[μs]</td></tr>
+<tr><td>3</td><td>1.0[μs]</td><td>13</td><td>1.024[ms]</td></tr>
+<tr><td>4</td><td>2.0[μs]</td><td>14</td><td>2.048[ms]</td></tr>
+<tr><td>5</td><td>4.0[μs]</td><td>15</td><td>4.096[ms]</td></tr>
+<tr><td>6</td><td>8.0[μs]</td><td>16</td><td>8.192[ms]</td></tr>
+<tr><td>7</td><td>16[μs]</td><td>17</td><td>16.384[ms]</td></tr>
+<tr><td>8</td><td>32[μs]</td><td>18</td><td>32.768[ms]</td></tr>
+<tr><td>9</td><td>64[μs]</td><td>19</td><td>65.536[ms]</td></tr>
+<tr><td>10</td><td>128[μs]</td><td>20</td><td>131.072[ms]</td></tr>
+</table>
+<p>
+
+ASIC搭載PCIバスボード:	PIO-32/32L(PCI), PIO-32/32T(PCI), PIO-32/32F(PCI),PIO-32/32B(PCI)H,<br>
+			PIO-16/16L(PCI), PIO-16/16T(PCI), PIO-16/16TB(PCI), PIO-16/16B(PCI),<br>
+			PI-64L(PCI), PI-32L(PCI), PI-32B(PCI)<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="60">係数</th>
+<th width="60">値</th>
+<th width="60">係数</th>
+<th width="60">値</th>
+</tr>
+<tr><td>0</td><td>フィルタなし</td><td>　</td><td>　</td></tr>
+<tr><td>1</td><td>0.125[μs]</td><td>11</td><td>128[μs]</td></tr>
+<tr><td>2</td><td>0.25[μs]</td><td>12</td><td>256[μs]</td></tr>
+<tr><td>3</td><td>0.50[μs]</td><td>13</td><td>512[μs]</td></tr>
+<tr><td>4</td><td>1.0[μs]</td><td>14</td><td>1.024[ms]</td></tr>
+<tr><td>5</td><td>2.0[μs]</td><td>15</td><td>2.048[ms]</td></tr>
+<tr><td>6</td><td>4.0[μs]</td><td>16</td><td>4.096[ms]</td></tr>
+<tr><td>7</td><td>8.0[μs]</td><td>17</td><td>8.192[ms]</td></tr>
+<tr><td>8</td><td>16[μs]</td><td>18</td><td>16.384[ms]</td></tr>
+<tr><td>9</td><td>32[μs]</td><td>19</td><td>32.768[ms]</td></tr>
+<tr><td>10</td><td>64[μs]</td><td>20</td><td>65.536[ms]</td></tr>
+</table>
+
+<h2>■戻り値</h2>
+Ret[C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="250">意味</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>正常終了</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>無効なIDが指定されました。</td></tr>
+<tr><td>DIO_ERR_SYS_FILTER</td><td>20400</td><td>フィルタ時定数が指定範囲外です。</td></tr>
+</table>
+その他のエラー：<a href="error_code.htm" target="contents">（参照：エラーコード詳細）</a><br>
+
+<h2>■初期値</h2>
+フィルタ係数=0です。デジタルフィルタは無効になっています。<br>
+<p>
+<h2>■説明</h2>
+デジタルフィルタは、入力ビットが指定の一定時間ONまたはOFFでないと入力値が変化しない
+ようにするハードウェア機能です。<br>
+デジタルフィルタを使用することにより、ノイズやチャタリング
+による無効な入力信号をカットできます。<br>
+係数としてどの位の時間を指定するかは、外部に接続する
+機器のチャタリングの長さや、有効とする信号の長さ等に合わせて選択してください。<br>
+<p>
+<h2>■使用例</h2>
+<pre>
+C       Ret = DioSetDigitalFilter(Id, FilterValue);
+</pre>
+<h2>■関連項目</h2>
+<a href="DioInpByte.htm" target="contents">DioInpByte</a><br>
+<a href="DioInpBit.htm" target="contents">DioInpBit</a><br>
+<a href="DioInpMultiByte.htm" target="contents">DioInpMultiByte</a><br>
+<a href="DioInpMultiBit.htm" target="contents">DioInpMultiBit</a><br>
+<a href="DioSetInterruptEvent.htm" target="contents">DioSetInterruptEvent</a><br>
+
+<!---------------------------------------------------------------------------------
+コンテンツここまで
+-------------------------------------------------------------------------------->
+</BODY>
+</HTML>

@@ -1,0 +1,143 @@
+<html>
+<head>
+
+<title>Setup Tool(configuration)</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+
+<h1>Setup Tool(configuration)</h1>
+<p>
+Configuration is a tool for setting Device Name to be used for accessing the device, and it is also used for hardware setting and firmware update of some devices.<br>
+Because of character-based tool, you can perform the setting operation by selecting the command with numbers or alphabets from the menu.
+
+<p>
+For API-DIO(LNX), the device can be used when the driver is started and 
+the setting file(contec_dio.conf) is copied to /proc.<br>
+Start and stop device driver by executing driver start script (contec_dio_start.sh) and driver stop script
+(contec_dio_stop.sh).<br>
+Configuration generates the setting file and these script files. For the processing details,
+refer to the script file.
+
+<p>
+<h2 style="color: #800040;">Start option</h2>
+While the Setup menu switch between Japanese and English depending on environment variable LANG,
+ you can select the menu language by specifying the option when the Setup is started.<br>
+<pre style="padding-left:2em">
+-j : Show the menu in Japanese
+-e : Show the menu in English
+</pre>
+
+<p>
+<h2 style="color: #800040;">Example of start screen</h2>
+When you start up the configuration, the following screen will be displayed.
+<pre style="padding-left:2em">
+#./config
+----------------------------------
+CONTEC API-DIO(LNX) Configuration
+----------------------------------
+Message : Auto detecting devices.
+............................................................................
+-------------------------------------------------------------------------------
+ Devices list
+-------------------------------------------------------------------------------
+    DeviceName  Product Name        ID            IP/Master IP    Status
+[1]:  DIO000    PIO-32/32L(PCI)H    0
+[2]:  DIO001    CPSN-DI-08L         0             192.168.0.101
+-------------------------------------------------------------------------------
+[#]:Select device     [o]:List sort           [r]:Redetect devices list
+[d]:Delete device     [a]:Add device manually
+[s]:Save settings     [q]:Exit
+Please select the device to set up.
+Please input >
+</pre>
+
+<h2 style="color: #800040;">Configuration command</h2>
+The commands used in the configuration are as follows.<br>
+<u>The commands that can be executed depend on the target device.</u></p>
+
+<h2 style="padding-left:1em">
+Change DeviceName</h2>
+<div style="padding-left:2em">
+Set the device name.<br>
+It can not have the same name as any other device.<br>
+When specifying a device from an application, specify this DeviceName.</div>
+
+<h2 style="padding-left:1em">
+Network settings</h2>
+<div style="padding-left:2em">
+Configure the wired LAN network.</div>
+
+<h2 style="padding-left:1em">
+920MHz wireless settings</h2>
+<div style="padding-left:2em">
+Make settings related to 920MHz wireless communication.<br>
+<b>Wireless Channel</b><br><div style="padding-left:1em">
+Set the channel used for 920 MHz band communication.<br></div>
+<b>PAN ID</b><br><div style="padding-left:1em">
+Set the PAN ID used for 920 MHz band communication.<br>
+It is fixed to 0 when Device Mode of "Other settings" is set to "CONPROSYS mode"<br></div>
+<b>Tx Power</b><br><div style="padding-left:1em">
+Set transmission output.<br>
+Normally, it uses the initial value of 20 (mW).<br></div>
+<b>Bit Rate</b><br><div style="padding-left:1em">
+Set the bit rate (communication speed).<br>
+Normally, it uses the initial value of 100 (kbps).<br></div>
+<b>Request Timeout</b><br><div style="padding-left:1em">
+Set the communication timeout time between the master unit and slave unit.<br>
+Normally, it uses the initial value of 3000 (msec).<br></div>
+<b>Encryption Key</b><br><div style="padding-left:1em">
+Set the encryption key used for communication between the master unit and the slave unit.<br>
+It is specified with 32 digit hexadecimal number, and the initial value is all 0.<br>
+In order for the master unit and the slave unit to communicate, the same value must be set in Encryption Key.<br></div>
+</div>
+
+<h2 style="padding-left:1em">
+FailSafe settings</h2>
+<div style="padding-left:2em">
+Configure the fail-safe function<br>
+<b>Event Trigger</b><br><div style="padding-left:1em">
+Sets the condition to activate fail-safe state.<br>
+Linkdown is conditional on link down of the network such as disconnection of the LAN cable.<br>
+NoAccess is conditional on condition that there is no access for a certain period of time.<br></div>
+<b>Failsafe OutBit</b><br><div style="padding-left:1em">
+Set the output terminal to output with the fail-safe function.<br>
+It specifies by hexadecimal number, and it outputs from the output terminal with bit 1.<br>
+Setting example: To use output terminals 0, 1, 2, 3, set F<br></div>
+<b>Pattern Setting</b><br><div style="padding-left:1em">
+Set the output data to be output with the fail-safe function.<br>
+Set 0 or 1 output in hexadecimal from the output terminal set with "FailSafe OutBit".<br>
+Setting example: To set the output of output terminals 0, 1, 2, 3 to "0, 1, 0, 1", set A<br></div>
+<b>Start wait time</b><br><div style="padding-left:1em">
+Set the time to disable the fail-safe function after turning on the power.<br>
+The fail-safe function is enabled after the set time has elapsed.<br></div>
+</div>
+
+<h2 style="padding-left:1em">
+Other settings</h2>
+<div style="padding-left:2em">
+<b>Unit ID</b><br><div style="padding-left:1em">
+When using the same product, it is necessary to set the Unit ID uniquely.<br></div>
+<b>Device ID</b><br><div style="padding-left:1em">
+When using several slave units with one master unit, it is necessary to set the Device ID uniquely.<br></div>
+<b>Digital Filter</b><br><div style="padding-left:1em">
+Set the digital filter value at power on of this device.<br>
+When using this device with API-DIO(WDM) driver, it is possible to set the digital filter at any time by API function separately from this setting.<br></div>
+<b>Data Interval</b><br><div style="padding-left:1em">
+Sets the time interval at which the input value of this device is transmitted to its master unit.<br></div>
+<b>Device Mode</b><br><div style="padding-left:1em">
+Normally it is used in the initial value "Wireless I/O mode".<br>
+Select "CONPROSYS mode" when using it as a slave of our product CONPROSYS series.<br></div>
+<b>Modbus Function</b><br><div style="padding-left:1em">
+Set enable / disable of Modbus function.<br>
+It is compatible with Modbus TCP Slave and can collect and control data from upper communication equipment with Modbus master function.<br>
+The default value is Enabled.<br></div>
+</div>
+
+<p>&nbsp;</p>
+
+</BODY>
+</HTML>

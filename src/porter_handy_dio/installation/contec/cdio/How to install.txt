@@ -1,0 +1,54 @@
+=====================================================================
+=              Linux Driver for Digital Input/Output                =
+=                                       API-DIO(LNX)      Ver6.50   =
+=                                                  CONTEC Co.,Ltd.  =
+=====================================================================
+
+Note
+==========
+  To install and setup the driver, it is required to startup with root authority.
+  Copy the installation file to where you want to locate it.
+
+How to install
+==================
+If you want to change the library install path to a location, such as /usr/local/lib,
+you should find the Makefile and change the install path in advance.
+ ................
+ # cd contec/cdio
+ # make
+ ................
+ # make install
+ ................
+ # cd config
+ # ./config
+ ..... Setup the following .........
+ # ./contec_dio_start.sh
+
+Start and stop the driver by executing contec_dio_start.sh and contec_dio_stop.sh.
+If you want to start driver when the system started, please add the processing contents of
+start script to /etc/rc.d/rc.local.
+
+How to uninstall
+======================
+  Perform the shell script for uninstallation to uninstall this product.
+
+ # cd contec/cdio
+ # ./cdio_uninstall.sh
+ ...................
+ #
+ For details, please refer to cdio_uninstall.sh script
+
+Sample programs
+====================
+  The sample programs are contained in the following directory by language.
+  /<User Directory>/contec/cdio/samples
+
+ The explanation of directory
+
+  /inc
+    Include the function define file in C/C++. When you create the program in C/C++, incule this file.
+    And, don't edit this file.
+
+  /console
+    Sample program source code in C language and Makefile.
+

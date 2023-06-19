@@ -1,0 +1,93 @@
+<html>
+<head>
+<!--見出しと同じものをタイトルにします-->
+<title>DioSetTrgEvent</title>
+<!--META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=shift-jis"-->
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<!---------------------------------------------------------------------------------
+ここにコンテンツを記載
+-------------------------------------------------------------------------------->
+
+<!--ページが長くなったときにトップへ戻るジャンプを付ける場合のリンク名です-->
+<a name=TOPIC_TOP>
+<!-===============================================================================-->
+<!-見出し-->
+<!-===============================================================================-->
+<h1>DioSetTrgEvent</h1>
+<h2>■機能</h2>
+トリガイベント要因を設定します。<br>
+<p>
+<h2>■書式</h2>
+Ret = DioSetTrgEvent(Id, BitNo, Logic, Tim);<br>
+<p>
+<h2>■引数</h2>
+Id [C:short]<br>
+DioInitで取得したデバイスIDを指定します。<br>
+<p>
+BitNo [C:short]<br>
+入力論理ビット番号を指定します。<br>
+<p>
+Logic [C:short]<br>
+トリガ論理を以下の定義値の論理和で指定します。<br>
+<p>
+Tim [C:long]<br>
+トリガ監視周期をms単位で指定します。<br>
+指定可能範囲:10(ms)以上long最大値まで<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="250">意味</th>
+</tr>
+<tr><td>DIO_TRG_NONE</td><td>0</td><td>トリガをマスクする</td></tr>
+<tr><td>DIO_TRG_RISE</td><td>1</td><td>入力値0->1</td></tr>
+<tr><td>DIO_TRG_FALL</td><td>2</td><td>入力値1->0</td></tr>
+</table>
+<p>
+<h2>■戻り値</h2>
+Ret [C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="250">意味</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>正常終了</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>無効なIDが指定されました。</td></tr>
+<tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>ドライバを呼び出せません(ioctlに失敗)。</td></tr>
+<tr><td>DIO_ERR_DLL_TRG_KIND</td><td>10300</td><td>トリガ種類が指定範囲外です。</td></tr>
+<tr><td>DIO_ERR_SYS_NOT_SUPPORTED</td><td>20001</td><td>このデバイスではこの関数は使用できません。</td></tr>
+<tr><td>DIO_ERR_SYS_BOARD_EXECUTING</td><td>20002</td><td>デバイスが動作中のため実行できません。</td></tr>
+<tr><td>DIO_ERR_SYS_TIM</td><td>20300</td><td>タイマ値が指定範囲外です。</td></tr>
+</table>
+その他のエラー：<a href="error_code.htm" target="contents">（参照：エラーコード詳細）</a><br>
+<p>
+
+<h2>■説明</h2>
+トリガイベントを開始／停止する場合に指定します。<br>
+トリガ監視機能は、システムタイマを使用して、指定したビットの入力値の変化を監視する機能です。<br>
+ビットの入力値が0から1、もしくは1から0になったとき、コールバックを通じてアプリケーションに
+ビット変化があったことが通知されます。<br>
+コールバック関数はDioSetTrgCallBackProcで指定します。<br>
+トリガは、同時に発生した場合、下位のビットから順に通知されます。<br>
+<p>
+<h2>■使用例</h2>
+<pre>
+C       Ret = DioSetTrgEvent(Id, BitNo, DIO_TRG_RISE | DIO_TRG_RISE, Tim);
+</pre>
+<p>
+<h2>■関連項目</h2>
+<a href="DioSetTrgEvent.htm" target="contents">DioSetTrgEvent</a><br>
+<a href="DioSetTrgCallBackProc.htm" target="contents">DioSetTrgCallBackProc</a><br>
+<a href="trigger.htm" target="contents">トリガ機能</a><br>
+<p>
+<!---------------------------------------------------------------------------------
+コンテンツここまで
+-------------------------------------------------------------------------------->
+</BODY>
+</HTML>

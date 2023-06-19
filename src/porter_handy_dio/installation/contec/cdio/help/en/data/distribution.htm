@@ -1,0 +1,48 @@
+<html>
+<head>
+
+<title>About application distribution (Build the execution environment)</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+
+<h1>About application distribution (Build the execution environment)</h1>
+<p>
+The following files are required for executing the application in which the API-DIO(LNX) are used.<br>
+<p>
+<pre>
+config/contec_dio.conf .......... Setting file
+config/180-cdiousb.rules ........ Rules file
+config/contec_dio_start.sh ...... Driver start script
+config/contec_dio_stop.sh ....... Driver stops script
+config/cdio.o ................... Device driver
+config/cdiousb.o ................ Device driver
+/usr/lib/libcdio.so ............. Shared library
+/usr/lib/libcdio.so.1.0 ......... Shared library
+</pre>
+<p>
+Setting file, device driver, driver start script are put in same path.<br>
+Please put the setting file and device driver in the same path as the 
+start script. If you edit the driver start script and specify the device driver in full path, the device driver
+and setting file can be put in another location.<br>
+<p>
+You must copy the setting file to /proc after the driver is started by insmod command.<br>
+<p>
+You can copy libcdio.so.1.0 to /usr/lib, make the symbolic link to /usr/lib/libcdio.so, the shared library
+can be used when ldconfig command is executed.<br>
+For details, refer to cdio/library/makefile.<br>
+<p>
+Linux driver includes the kernel version, device driver files are put in each kernel version folder
+because version is checked when the insmod command is performed. <br>
+There is no problem if the kernel version of development environment is same as the executing environment,
+but if the kernel version of development environment is different from the executing environment, please note it.<br>
+You need use the driver module fitted to the executing environment.<br>
+<p>
+If you want to start driver when the system start, please set to start the device driver in /etc/rc.d/rc.local.<br>
+<p>
+
+</BODY>
+</HTML>

@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>DioDmSetStartTrg</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+<h1>DioDmSetStartTrg</h1>
+<h2>Function</h2>
+Sets the start conditions for sampling and generating.<br>
+<p>
+<h2>Format</h2>
+Ret =DioDmSetStartTrg(Id, Dir, Start);<br>
+<p>
+<h2>Parameters</h2>
+Id [C:short]<br>
+Specifies the device ID retrieved from DioInit.<br>
+<br>
+Dir [C:unsigned long]<br>
+Set transfer direction.<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIODM_DIR_IN</td><td>0x01</td><td>Input</td></tr>
+<tr><td>DIODM_DIR_OUT</td><td>0x02</td><td>Output</td></tr>
+</table>
+<br>
+Start [C:unsigned long]<br>
+Set start conditions.<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIODM_START_SOFT</td><td>1</td><td>Software start</td></tr>
+<tr><td>DIODM_START_EXT_RISE</td><td>2</td><td>External rising trigger</td></tr>
+<tr><td>DIODM_START_EXT_FALL</td><td>3</td><td>External falling trigger</td></tr>
+<tr><td>DIODM_START_PATTERN</td><td>4</td><td>Pattern matching (Input only)</td></tr>
+<tr><td>DIODM_START_EXTSIG_1</td><td>5</td><td>SC connector EXTSIG1</td></tr>
+<tr><td>DIODM_START_EXTSIG_2</td><td>6</td><td>SC connector EXTSIG2</td></tr>
+<tr><td>DIODM_START_EXTSIG_3</td><td>7</td><td>SC connector EXTSIG3</td></tr>
+</table>
+<br>
+EXTSIG1 ~ EXTSIG3 are only valid in the case of slaves.<br>
+<p>
+<h2>Return values</h2>
+Ret [C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>Normal Complete</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>Invalid ID is specified.</td></tr>
+<tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>Driver cannot be called (failed in ioctl).</td></tr>
+<tr><td>DIO_ERR_SYS_DIRECTION</td><td>50000</td><td>I/O direction is outside of the setting range.</td></tr>
+<tr><td>DIO_ERR_SYS_START</td><td>50002</td><td>Outside the range of the start conditions.</td></tr>
+</table>
+The other errors: <a href="../data/error_code.htm" target="contents">(See also: Error code details)</a><br>
+<p>
+<h2>Initial value</h2>
+The default is software start.<br>
+<p>
+<h2>Remarks</h2>
+Start conditions must be set for the application operation to be constant.<br>
+In the case where pattern matching is specified as the start condition, comparison patterns should be set by the DioDmSetStartPattern function.<br>
+<br>
+<p>
+<h2>Example</h2>
+<p>
+<pre>
+C       Ret =DioDmSetStartTrg(Id, DIODM_DIR_IN, DIODM_START_SOFT);
+</pre>
+<h2>See also</h2>
+<a href="DioDmSetStartPattern.htm" target="contents">DioDmSetStartPattern</a><br>
+<p>
+</BODY>
+</HTML>

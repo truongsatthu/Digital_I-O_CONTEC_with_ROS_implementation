@@ -1,0 +1,109 @@
+<html>
+<head>
+<!--見出しと同じものをタイトルにします-->
+<title>DioDmSetMasterCfg</title>
+<!--META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=shift-jis"-->
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<!---------------------------------------------------------------------------------
+ここにコンテンツを記載
+-------------------------------------------------------------------------------->
+
+<!--ページが長くなったときにトップへ戻るジャンプを付ける場合のリンク名です-->
+<a name=TOPIC_TOP>
+<!-===============================================================================-->
+<!-見出し-->
+<!-===============================================================================-->
+<h1>DioDmSetMasterCfg</h1>
+<h2>■機能</h2>
+指定したデバイスをマスタに設定します。また、同期信号として出力する内容を設定します。<br>
+<p>
+<h2>■書式</h2>
+Ret = DioDmSetMasterCfg(Id,ExtSig1,ExtSig2,ExtSig3,MasterHalt,SlaveHalt);<br>
+<p>
+<h2>■引数</h2>
+Id [C:short];<br>
+DioInitで取得したデバイスIDを指定します。<br>
+<br>
+ExtSig1 [C:unsigned long]<br>
+ExtSig2 [C:unsigned long]<br>
+ExtSig3 [C:unsigned long]<br>
+ExtSig1からExtSig3までの信号線に出力する信号を指定してください。<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="250">意味</th>
+</tr>
+<tr><td>&nbsp;</td><td>0</td><td>未使用</td></tr>
+<tr><td>DIODM_EXT_START_SOFT_IN</td><td>1</td><td>ソフトスタート(パターン入力）</td></tr>
+<tr><td>DIODM_EXT_STOP_SOFT_IN</td><td>2</td><td>ソフトストップ(パターン入力）</td></tr>
+<tr><td>DIODM_EXT_CLOCK_IN</td><td>3</td><td>内部クロック(パターン入力）</td></tr>
+<tr><td>DIODM_EXT_EXT_TRG_IN</td><td>4</td><td>外部クロック(パターン入力）</td></tr>
+<tr><td>DIODM_EXT_START_EXT_RISE_IN</td><td>5</td><td>外部スタートトリガ立上り(パターン入力）</td></tr>
+<tr><td>DIODM_EXT_START_EXT_FALL_IN</td><td>6</td><td>外部スタートトリガ立下り(パターン入力）</td></tr>
+<tr><td>DIODM_EXT_START_PATTERN_IN</td><td>7</td><td>パターン一致(パターン入力）</td></tr>
+<tr><td>DIODM_EXT_STOP_EXT_RISE_IN</td><td>8</td><td>外部スタートトリガ立上り(パターン入力）</td></tr>
+<tr><td>DIODM_EXT_STOP_EXT_FALL_IN</td><td>9</td><td>外部スタートトリガ立下り(パターン入力）</td></tr>
+<tr><td>DIODM_EXT_CLOCK_ERROR_IN</td><td>10</td><td>クロックエラー(パターン入力）</td></tr>
+<tr><td>DIODM_EXT_HANDSHAKE_IN</td><td>11</td><td>ハンドシェイク(パターン入力）</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>DIODM_EXT_START_SOFT_OUT</td><td>101</td><td>ソフトスタート(パターン出力）</td></tr>
+<tr><td>DIODM_EXT_STOP_SOFT_OUT</td><td>102</td><td>ソフトストップ(パターン出力）</td></tr>
+<tr><td>DIODM_EXT_CLOCK_OUT</td><td>103</td><td>内部クロック(パターン出力）</td></tr>
+<tr><td>DIODM_EXT_EXT_TRG_OUT</td><td>104</td><td>外部クロック(パターン出力）</td></tr>
+<tr><td>DIODM_EXT_START_EXT_RISE_OUT</td><td>105</td><td>外部スタートトリガ立上り(パターン出力）</td></tr>
+<tr><td>DIODM_EXT_START_EXT_FALL_OUT</td><td>106</td><td>外部スタートトリガ立下り(パターン出力）</td></tr>
+<tr><td>DIODM_EXT_STOP_EXT_RISE_OUT</td><td>107</td><td>外部スタートトリガ立上り(パターン出力）</td></tr>
+<tr><td>DIODM_EXT_STOP_EXT_FALL_OUT</td><td>108</td><td>外部スタートトリガ立下り(パターン出力）</td></tr>
+<tr><td>DIODM_EXT_CLOCK_ERROR_OUT</td><td>109</td><td>クロックエラー(パターン出力）</td></tr>
+<tr><td>DIODM_EXT_HANDSHAKE_OUT</td><td>110</td><td>ハンドシェイク(パターン出力）</td></tr>
+</table>
+<br>
+MasterHalt [C:unsigned long]<br>
+1:固定(有効)<br>
+<br>
+SlaveHalt [C:unsigned long]<br>
+1:固定(有効)<br>
+<br>
+<p>
+<h2>■戻り値</h2>
+Ret [C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="250">意味</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>正常終了</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>無効なIDが指定されました。</td></tr>
+<tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>ドライバを呼び出せません(ioctlに失敗)。</td></tr>
+<tr><td>DIO_ERR_SYS_SIGNAL</td><td>50001</td><td>使用できる信号の範囲外です。</td></tr>
+</table>
+その他のエラー：<a href="../data/error_code.htm" target="contents">（参照：エラーコード詳細）</a><br>
+<p>
+<h2>■初期値</h2>
+スタンドアロン／マスタ／スレーブのうち、デフォルトはスタンドアロンです。<br>
+<p>
+<h2>■説明</h2>
+アプリケーションの動作を一定にするために、スタンドアロン／マスタ／スレーブ設定のうち１つを必ず実行してください。<br>
+マスタとは、同期制御コネクタ（SCコネクタ）を使用して複数枚のボードを同期して動作させる場合の同期信号を出力する側のボードを指します。<br>
+<p>
+<h2>■使用例</h2>
+<p>
+<pre>
+C       Ret = DioDmSetMasterCfg(Id, DIODM_EXT_START_SOFT_IN, DIODM_EXT_CLOCK_IN, DIODM_EXT_STOP_SOFT_IN, 1, 1);
+</pre>
+<h2>■関連項目</h2>
+<a href="DioDmSetSlaveCfg.htm" target="contents">DioDmSetSlaveCfg</a><br>
+<a href="DioDmSetStandAlone.htm" target="contents">DioDmSetStandAlone</a><br>
+<p>
+<!---------------------------------------------------------------------------------
+コンテンツここまで
+-------------------------------------------------------------------------------->
+</BODY>
+</HTML>

@@ -1,0 +1,2 @@
+dio84rd:dio84rd_flag:porter_dio:porter_handy_dio
+-DCATKIN_DEVEL_PREFIX=/home/tim/DIGITAL-INPUT-OUTPUT/devel -DCMAKE_INSTALL_PREFIX=/home/tim/DIGITAL-INPUT-OUTPUT/install -G Unix Makefiles

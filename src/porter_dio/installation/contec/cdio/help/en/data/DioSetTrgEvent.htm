@@ -1,0 +1,83 @@
+<html>
+<head>
+
+<title>DioSetTrgEvent</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+
+<h1>DioSetTrgEvent</h1>
+<h2>Function</h2>
+Sets the factor of trigger event.<br>
+<p>
+<h2>Format</h2>
+Ret = DioSetTrgEvent(Id, BitNo, Logic, Tim);<br> 
+<p>
+<h2>Parameters</h2>
+Id [C:short]<br>
+Specifies the device ID retrieved from DioInit.<br>
+<p>
+BitNo [C:short]<br>
+Specified the bit number of input logic.<br>
+<p>
+Logic [C:short]<br>
+Specify the trigger logic by the logical OR of the following defined value.<br>
+<p>
+Tim [C:long]<br>
+Specify the period for monitoring trigger in ms(milisecond).<br>
+Available range: 10(ms) ~ maximum value of long<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Meaning</th>
+</tr>
+<tr><td>DIO_TRG_NONE</td><td>0</td><td>Mask trigger</td></tr>
+<tr><td>DIO_TRG_RISE</td><td>1</td><td>Input Value 0->1</td></tr>
+<tr><td>DIO_TRG_FALL</td><td>2</td><td>Input Value 1->0</td></tr>
+</table>
+<p>
+<h2>Return Values</h2>
+Ret [C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>Normal Complete</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>Invalid ID is specified.</td></tr>
+<tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>Driver cannot be called (failed in ioctl).</td></tr>
+<tr><td>DIO_ERR_DLL_TRG_KIND</td><td>10300</td><td>Trigger type is outside of the specified range.</td></tr>
+<tr><td>DIO_ERR_SYS_NOT_SUPPORTED</td><td>20001</td><td>This function cannot be used for this device.</td></tr>
+<tr><td>DIO_ERR_SYS_BOARD_EXECUTING</td><td>20002</td><td>It cannot perform because the device is executing.</td></tr>
+<tr><td>DIO_ERR_SYS_TIM</td><td>20300</td><td>Timer value is outside of the specified range.</td></tr>
+</table>
+The other errors: </a><a href="error_code.htm" target="contents">(See also: Error code details)</a><br>
+<p>
+
+<h2>Remarks</h2>
+When starting or stopping trigger event, use this function to specify.<br>
+The function of monitoring trigger is a function that monitor the change of the specified bit's input value by using the system timer.<br>
+When the input value of the bit changes from 0 to 1 or from 1 to 0, the call back notifies the application the change of bit.<br>
+Specifies the call back function by DioSetTrgCallBackProc.<br>
+When triggers occur at same time, it is in-order notified from the low order bit. <br>
+<p>
+<h2>Example</h2>
+<pre>
+C       Ret = DioSetTrgEvent(Id, BitNo, DIO_TRG_RISE | DIO_TRG_RISE, Tim);
+</pre>
+<p>
+<h2>See Also</h2>
+<a href="DioSetTrgEvent.htm" target="contents">DioSetTrgEvent</a><br>
+<a href="DioSetTrgCallBackProc.htm" target="contents">DioSetTrgCallBackProc</a><br>
+<a href="trigger.htm" target="contents">Trigger Function</a><br>
+<p>
+
+</BODY>
+</HTML>

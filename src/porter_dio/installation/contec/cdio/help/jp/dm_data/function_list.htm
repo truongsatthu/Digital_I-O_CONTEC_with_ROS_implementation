@@ -1,0 +1,185 @@
+<html>
+<head>
+<!--見出しと同じものをタイトルにします-->
+<title>関数一覧</title>
+<!--META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=shift-jis"-->
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<!---------------------------------------------------------------------------------
+ここにコンテンツを記載
+-------------------------------------------------------------------------------->
+
+<!--ページが長くなったときにトップへ戻るジャンプを付ける場合のリンク名です-->
+<a name=TOPIC_TOP>
+<!-===============================================================================-->
+<!-見出し-->
+<!-===============================================================================-->
+<h1>関数一覧</h1>
+<p>
+<h2>■共通関数</h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="220">関数名</th>
+<th width="300">機能</th>
+</tr>
+<tr><td><a href="../data/DioInit.htm" target="contents">DioInit</a></td><td>初期化関数</td></tr>
+<tr><td><a href="../data/DioExit.htm" target="contents">DioExit</a></td><td>終了関数</td></tr>
+<tr><td><a href="../data/DioResetDevice.htm" target="contents">DioResetDevice</a></td><td>リセット関数</td></tr>
+<tr><td><a href="../data/DioGetErrorString.htm" target="contents">DioGetErrorString</a></td><td>エラー文字列取得関数</td></tr>
+</table>
+<p>
+<h2>■情報取得関数</h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="220">関数名</th>
+<th width="300">機能</th>
+</tr>
+<tr><td><a href="../data/DioQueryDeviceName.htm" target="contents">DioQueryDeviceName</a></td><td>使用可能なデバイスの一覧取得</td></tr>
+<tr><td><a href="../data/DioGetMaxPorts.htm" target="contents">DioGetMaxPorts</a></td><td>使用可能な入出力ポート数取得関数</td></tr>
+<tr><td><a href="../data/DioGetDeviceInfo.htm" target="contents">DioGetDeviceInfo</a></td><td>情報取得関数</td></tr>
+</table>
+<p>
+<h2>■モード設定関数</h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="220">関数名</th>
+<th width="300">機能</th>
+</tr>
+<tr><td><a href="DioDmSetDirection.htm" target="contents">DioDmSetDirection</a></td><td>入出力方向設定</td></tr>
+</table>
+<p>
+<h2>&lt;バスマスタ転送機能&gt;</h2>
+<h2>■モード設定関数</h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="220">関数名</th>
+<th width="300">機能</th>
+</tr>
+<tr><td><a href="DioDmSetStandAlone.htm" target="contents">DioDmSetStandAlone</a></td><td>スタンドアロン設定</td></tr>
+<tr><td><a href="DioDmSetMasterCfg.htm" target="contents">DioDmSetMasterCfg</a></td><td>マスタ設定</td></tr>
+<tr><td><a href="DioDmSetSlaveCfg.htm" target="contents">DioDmSetSlaveCfg</a></td><td>スレーブ設定</td></tr>
+</table>
+<p>
+<h2>■サンプリング／ジェネレーティング条件設定関数</h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="220">関数名</th>
+<th width="300">機能</th>
+</tr>
+<tr><td><a href="DioDmSetStartTrg.htm" target="contents">DioDmSetStartTrg</a></td><td>スタート条件設定</td></tr>
+<tr><td><a href="DioDmSetStartPattern.htm" target="contents">DioDmSetStartPattern</a></td><td>パターン一致条件設定</td></tr>
+<tr><td><a href="DioDmSetClockTrg.htm" target="contents">DioDmSetClockTrg</a></td><td>クロック条件設定</td></tr>
+<tr><td><a href="DioDmSetInternalClock.htm" target="contents">DioDmSetInternalClock</a></td><td>内部クロック設定</td></tr>
+<tr><td><a href="DioDmSetStopTrg.htm" target="contents">DioDmSetStopTrg</a></td><td>ストップ条件設定</td></tr>
+<tr><td><a href="DioDmSetStopNum.htm" target="contents">DioDmSetStopNum</a></td><td>個数停止設定</td></tr>
+</table>
+<p>
+<h2>■リセット関数</h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="220">関数名</th>
+<th width="300">機能</th>
+</tr>
+<tr><td><a href="DioDmReset.htm" target="contents">DioDmReset</a></td><td>FIFO内容リセット</td></tr>
+</table>
+<p>
+<h2>■バッファ設定関数</h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="220">関数名</th>
+<th width="300">機能</th>
+</tr>
+<tr><td><a href="DioDmSetBuff.htm" target="contents">DioDmSetBuff</a></td><td>バッファ設定</td></tr>
+</table>
+<p>
+<h2>■スタート／ストップ関数</h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="220">関数名</th>
+<th width="300">機能</th>
+</tr>
+<tr><td><a href="DioDmStart.htm" target="contents">DioDmStart</a></td><td>サンプリング／ジェネレーティングスタート</td></tr>
+<tr><td><a href="DioDmStop.htm" target="contents">DioDmStop</a></td><td>サンプリング／ジェネレーティングストップ</td></tr>
+</table>
+<p>
+<h2>■ステータス関数</h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="220">関数名</th>
+<th width="300">機能</th>
+</tr>
+<tr><td><a href="DioDmGetStatus.htm" target="contents">DioDmGetStatus</a></td><td>ステータス取得</td></tr>
+<tr><td><a href="DioDmGetCount.htm" target="contents">DioDmGetCount</a></td><td>転送カウント数取得</td></tr>
+<tr><td><a href="DioDmGetWritePointerUserBuf.htm" target="contents">DioDmGetWritePointerUserBuf</a></td><td>データバッファ上の転送位置取得</td></tr>
+</table>
+<p>
+<h2>■メッセージ通知関数</h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="220">関数名</th>
+<th width="300">機能</th>
+</tr>
+<tr><td><a href="DioDmSetStopEvent.htm" target="contents">DioDmSetStopEvent</a></td><td>転送完了イベント通知</td></tr>
+<tr><td><a href="DioDmSetCountEvent.htm" target="contents">DioDmSetCountEvent</a></td><td>転送個数イベント通知</td></tr>
+</table>
+<p>
+<h2>&lt;基本入出力機能&gt;</h2>
+<b>※ バスマスタ転送機能、及び基本入出力機能を同時に利用することはできません。</b><br>
+<br>
+<h2>■単純入出力関数</h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="220">関数名</th>
+<th width="300">機能</th>
+</tr>
+<tr><td><a href="../data/DioInpByte.htm" target="contents">DioInpByte</a></td><td>1バイト入力関数</td></tr>
+<tr><td><a href="../data/DioInpBit.htm" target="contents">DioInpBit</a></td><td>1ビット入力関数</td></tr>
+<tr><td><a href="../data/DioOutByte.htm" target="contents">DioOutByte</a></td><td>1バイト出力関数</td></tr>
+<tr><td><a href="../data/DioOutBit.htm" target="contents">DioOutBit</a></td><td>1ビット出力関数</td></tr>
+<tr><td><a href="../data/DioEchoBackByte.htm" target="contents">DioEchoBackByte</a></td><td>1バイトエコーバック関数</td></tr>
+<tr><td><a href="../data/DioEchoBackBit.htm" target="contents">DioEchoBackBit</a></td><td>1ビットエコーバック関数</td></tr>
+</table>
+<p>
+<h2>■複数バイト／ビット入出力関数</h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="220">関数名</th>
+<th width="300">機能</th>
+</tr>
+<tr><td><a href="../data/DioInpMultiByte.htm" target="contents">DioInpMultiByte</a></td><td>複数バイト入力関数</td></tr>
+<tr><td><a href="../data/DioInpMultiBit.htm" target="contents">DioInpMultiBit</a></td><td>複数ビット入力関数</td></tr>
+<tr><td><a href="../data/DioOutMultiByte.htm" target="contents">DioOutMultiByte</a></td><td>複数バイト出力関数</td></tr>
+<tr><td><a href="../data/DioOutMultiBit.htm" target="contents">DioOutMultiBit</a></td><td>複数ビット出力関数</td></tr>
+<tr><td><a href="../data/DioEchoBackMultiByte.htm" target="contents">DioEchoBackMultiByte</a></td><td>複数バイトエコーバック関数</td></tr>
+<tr><td><a href="../data/DioEchoBackMultiBit.htm" target="contents">DioEchoBackMultiBit</a></td><td>複数ビットエコーバック関数</td></tr>
+</table>
+<p>
+<h2>■割り込み関数</h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="220">関数名</th>
+<th width="300">機能</th>
+</tr>
+<tr><td><a href="../data/DioSetInterruptEvent.htm" target="contents">DioSetInterruptEvent</a></td><td>割り込みイベント設定関数</td></tr>
+<tr><td><a href="../data/DioSetInterruptCallBackProc.htm" target="contents">DioSetInterruptCallBackProc</a></td><td>割り込みイベントコールバック設定関数</td></tr>
+</table>
+<p>
+<h2>■トリガ関数</h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="220">関数名</th>
+<th width="300">機能</th>
+</tr>
+<tr><td><a href="../data/DioSetTrgEvent.htm" target="contents">DioSetTrgEvent</a></td><td>トリガイベント設定関数</td></tr>
+<tr><td><a href="../data/DioSetTrgCallBackProc.htm" target="contents">DioSetTrgCallBackProc</a></td><td>トリガイベントコールバック設定関数</td></tr>
+</table>
+<p>
+
+
+<!---------------------------------------------------------------------------------
+コンテンツここまで
+-------------------------------------------------------------------------------->
+</BODY>
+</HTML>

@@ -1,0 +1,44 @@
+PLEASE READ THIS SOFTWARE LICENSE AGREEMENT (the "Agreement") CAREFULLY BEFORE USING CONTEC'S SOFTWARE. THIS AGREEMENT SET FORTH TERMS AND CONDITIONS REGARDING THE LICENSE TO USE CONTEC'S SOFTWARE ONTO WHICH THE AGREEMENT IS ATTACHED (the "Software"). BY DOWNLOADING, INSTALLING OR USING THE SOFTWARE OR USING MACHINERY ONTO WHICH THE SOFTWARE HAS BEEN INSTALLED, CUSTOMERS ARE AGREEING TO BE BOUND BY THE AGREEMENT. CUSTOMERS MAY NOT DOWNLOAD, INSTALL OR USE THE SOFTWARE OR ANY MACHINERY ONTO WHICH THE SOFTWARE HAS BEEN INSTALLED WITHOUT AGREEING TO THE AGREEMENT.
+
+Article 1. Intellectual Property Rights
+The copyright, patent right or any other intellectual property right pertaining to the Software (including the Software modified as set forth in Paragraph 4 of Article 2), the source code of the Software (the "Source Code") or any documentary attachments, such as manuals, as well as any copies thereof (the "Software and the Like") shall belong to CONTEC, and customers shall have no rights therefor other than those expressly authorized herein.
+
+Article 2. Permitted License
+1. CONTEC grants customers a non-exclusive right to install and use, free of charge, the Software solely for the purpose of using hardware products onto which the Software has been installed.
+2. Customers may copy the Software for a minimum number of times as necessary solely for emergency backup purposes in using the Software. However, description regarding any of the rights pertaining to the Software supplied by CONTEC shall be attached to any such copies.
+3. Customers may incorporate software provided by CONTEC as a library onto software created by the customer.
+4. Customers may modify the Software by modifying the Source Code for the purpose of using the kernel version different from the kernel version indicated on the product specifications. Customers may also copy and distribute the Software modified as above (the "Modified Software"). However, description prescribed in Paragraph 2 shall be attached to any such copies.
+
+Article 3. Restrictions on Use
+Customers shall not:
+(1) Create any derivative software from the Software other than as set forth herein;
+(2) Copy the Software other than as set forth herein;
+(3) Modify, or adapt the Software other than as set forth herein; 
+(4) Decompile, disassemble or reverse-engineer of the Software;
+(5) Delete or alter the representation or trademark of the rights of the Software; or
+(6) Use the Source Code for the purpose other than as set forth in Paragraph 4 of Article 2.
+
+Article 4. Limited Liabilities
+1. CONTEC HEREBY DISCLAIMS ANY WARRANTY WITH RESPECT TO THE SOFTWARE AND THE MODIFIED SOFTWARE IN ANY EVENT, EITHER EXPRESS, OR IMPLIED, INCLUDING BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, OF SATISFACTORY QUALITY, OR FITNESS FOR A PARTICULAR PURPOSE AND/OR NON-INFRINGEMENT OF THIRD PARTY RIGHTS.
+2. TO THE EXTENT NOT PROHIBITED BY LAW, IN NO EVENT SHALL CONTEC BE LIABLE FOR PERSONAL INJURY, OR ANY INCIDENTAL, SPECIAL, INDIRECT OR ANY OTHER COMMERCIAL DAMAGES OR LOSSES, ARISING OUT OF OR RELATED TO YOUR DOWNROAD, INSTALL, USE OR UTILIZATION OF THE SOFTWARE OR THE MODIFIED SOFTWARE. CONTEC ALSO DISCLAIMS ANY LIABILITY FOR ANY TROUBLE TO THE SOFTWARE WHICH IS COPIED, INCORPORATED OR MODIFIED OR THE SOFTWARE MADE FROM SUCH COPIED, INCORPORATED OR MODIFIED SOFTWARE.
+
+Article 5. Transfer
+1. Customers may transfer their rights authorized them with respect to the Software and the Like and in accordance herein to a third party only when the customer satisfies all of the following conditions: (1) The customer transfers the Agreement and the Software and the Like to such third party; (2) The customer transfers to such third party all CONTEC hardware products onto which the Software has been downloaded; and (3) The recipient of the transfer agrees to the terms and conditions herein.
+
+Article 6. Termination
+1. CONTEC may terminate the Agreement with immediate effect without any notice or demand to the customer if the customer fails to comply with any of the provisions herein. 
+2. Upon the termination of the Agreement, the customer's license shall cease to be effective. The customer shall immediately discontinue using the Software in any way, and shall uninstall and destruct any reproduction of the Software.
+
+Article 7. Export Control
+1. Customers shall comply with the Foreign Exchange and Foreign Trade Act of Japan, the U.S. Export Administration Regulation and the laws and regulations of any other country when taking the Software and the Like outside Japan.
+2. Customers shall not transfer, export or re-export the Software and the Like to any individual or entity that is likely to use the Software and the Like to design, develop or manufacture nuclear weapons, biochemical weapons, or to design, develop or manufacture missiles.
+3. Customers shall not transfer, export or re-export the Software and the Like to any individuals or entities set forth in the following countries or regions: (1) The Republic of Cuba, The Islamic Republic of Iran, the Republic of Iraq, the Great Socialist People's Libyan Arab Jamahiriya or North Korea; (2) Any individuals or entities on the "List of Foreign Users" based on the Import Trade Control Order or the U.S. Department of Commerce Denied Person's List or Entity List; or (3) Any country, region, individual or entity designated by the government of Japan, the U.S. or any other relevant country.
+
+Article 8. Governing Law
+The provisions herein shall be construed and governed in accordance with the laws of Japan. This Agreement shall not be governed by the United Nations Convention on Contracts for the International Sale of Goods, the application of which is expressly excluded.
+
+Article 9. Dispute Resolution
+Upon the occurrence of any dispute in relation to the Agreement or the Software and the Like, if any legal procedures are required, such as the filing of a petition for a lawsuit, the Osaka District Court shall have the exclusive jurisdiction over such dispute.
+
+Article 10. Severability
+If for any reason any portion of the provisions set forth herein is found to be invalid or unenforceable, the remainder of the Agreement shall not be affected in any way and shall be valid and enforceable to the extent permitted by law.

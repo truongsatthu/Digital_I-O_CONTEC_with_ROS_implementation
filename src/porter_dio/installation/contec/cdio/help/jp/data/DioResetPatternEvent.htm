@@ -1,0 +1,68 @@
+<html>
+<head>
+<!--見出しと同じものをタイトルにします-->
+<title>DioResetPatternEvent</title>
+<!--META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=shift-jis"-->
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<!---------------------------------------------------------------------------------
+ここにコンテンツを記載
+-------------------------------------------------------------------------------->
+
+<!--ページが長くなったときにトップへ戻るジャンプを付ける場合のリンク名です-->
+<a name=TOPIC_TOP>
+<!-===============================================================================-->
+<!-見出し-->
+<!-===============================================================================-->
+<h1>DioResetPatternEvent</h1>
+<h2>■機能</h2>
+フェイルセーフ機能のイベント動作中の状態から復帰します。<br>
+<p>
+<h2>■書式</h2>
+Ret = DioResetPatternEvent(Id, &Data[0]);<br>
+<p>
+<h2>■引数</h2>
+Id [C:short]<br>
+DioInitで取得したデバイスIDを指定します。<br>
+<p>
+Data [C:unsigned char *]<br>
+出力データを配列に入れます。配列は、ポート番号順でポート数分指定します。<br>
+出力データは16進数で0HからFFHまで指定します。<br>
+<p>
+<h2>■戻り値</h2>
+Ret [C:long]<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="250">意味</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>正常終了</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>無効なIDが指定されました。</td></tr>
+</table>
+その他のエラー：<a href="error_code.htm" target="contents">（参照：エラーコード詳細）</a><br>
+<p>
+<h2>■初期値</h2>
+なし<br>
+<p>
+<h2>■説明</h2>
+フェイルセーフ機能のイベント処理中の状態から通常の状態へ復帰します。<br>
+関数の第2引数には、復帰時に出力するデータを指定します。<br>
+<p>
+<h2>■使用例</h2>
+<pre>
+C       Ret = DioResetPatternEvent(Id, &Data[0]);
+</pre>
+<p>
+<h2>■関連項目</h2>
+<a href="DioGetPatternEventStatus.htm" target="contents">DioGetPatternEventStatus</a><br>
+<p>
+
+<!---------------------------------------------------------------------------------
+コンテンツここまで
+-------------------------------------------------------------------------------->
+</BODY>
+</HTML>

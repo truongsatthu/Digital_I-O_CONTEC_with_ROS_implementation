@@ -1,0 +1,29 @@
+<html>
+<head>
+
+<title>Logical Port</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+
+<h1>Logical Port</h1>
+<p>
+The configuration of I/O ports for input and output of boards is different according to board.<br>
+For example: Physical Port<br>
+PIO-32/32L(PCI): Input:port +0 ~ port +3, Output:port +4 ~ port +7<br>
+PIO-64/64L(PCI): Input:port +0 ~ port +7, Output:port +8 ~ port +15<br>
+<p>
+As for logical port, you can program without care about the configuration I/O address for each board, input and output from port 0 as the first number. <br>
+When API-DIO(LNX) is used, this logical port is used to input and output.<br>
+If the above-mentioned example is expressed as logical ports, it is like that below.<br>
+<p>
+For example: Logical Port<br>
+PIO-32/32L(PCI): Input:port 0 ~ port 3, Output:port 0 ~ port 3<br>
+PIO-64/64L(PCI): Input:port 0 ~ port 7, Output:port 0 ~ port 7<br>
+<p>
+
+</BODY>
+</HTML>

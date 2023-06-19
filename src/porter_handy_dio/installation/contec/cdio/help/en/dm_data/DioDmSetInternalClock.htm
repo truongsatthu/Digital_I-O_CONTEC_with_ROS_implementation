@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>DioDmSetInternalClock</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+<h1>DioDmSetInternalClock</h1>
+<h2>Function</h2>
+Sets the clock value when using the internal clock.<br>
+<p>
+<h2>Format</h2>
+Ret =DioDmSetInternalClock(Id, Dir, Clock, Unit);<br>
+<p>
+<h2>Parameters</h2>
+Id [C:short]<br>
+Specifies the device ID retrieved from DioInit.<br>
+<br>
+Dir [C:unsigned long]<br>
+Set transfer direction.<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIODM_DIR_IN</td><td>0x01</td><td>Input</td></tr>
+<tr><td>DIODM_DIR_OUT</td><td>0x02</td><td>Output</td></tr>
+</table>
+<br>
+Clock [C:unsigned long]<br>
+Specify a clock value.<br>
+The clock value can be set in combination with the clock value unit within the following range.<br>
+Settable range: 50ns <= Clock <= 107sec (25ns unit)<br>
+<br>
+Unit [C:unsigned long]<br>
+Clock value unit<br>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIODM_TIM_UNIT_S</td><td>1</td><td>1-second unit</td></tr>
+<tr><td>DIODM_TIM_UNIT_MS</td><td>2</td><td>1ms unit</td></tr>
+<tr><td>DIODM_TIM_UNIT_US</td><td>3</td><td>1us unit</td></tr>
+<tr><td>DIODM_TIM_UNIT_NS</td><td>4</td><td>1ns unit</td></tr>
+</table>
+<p>
+<h2>Return values</h2>
+Ret [C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>Normal Complete</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>Invalid ID is specified.</td></tr>
+<tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>Driver cannot be called (failed in ioctl).</td></tr>
+<tr><td>DIO_ERR_SYS_DIRECTION</td><td>50000</td><td>I/O direction is outside of the setting range.</td></tr>
+<tr><td>DIO_ERR_SYS_CLOCK_VAL</td><td>50004</td><td>Clock value is outside of the setting range.</td></tr>
+<tr><td>DIO_ERR_SYS_CLOCK_UNIT</td><td>50005</td><td>Unit of clock value is outside of the setting range.</td></tr>
+</table>
+The other errors: <a href="../data/error_code.htm" target="contents">(See also: Error code details)</a><br>
+<p>
+<h2>Initial value</h2>
+The default is 1us.<br>
+<p>
+<h2>Remarks</h2>
+Clock values must be set for the application operation to be constant.<br>
+Fractions of 25ns units can be rounded using the following formula in the event that ns units are used as the setting.<br>
+SetClock =(Clock/25)<br>
+<br>
+<p>
+<h2>Example</h2>
+<p>
+<pre>
+C       Ret =DioDmSetInternalClock(Id, DIODM_DIR_IN, 1, DIODM_TIM_UNIT_US);
+</pre>
+<h2>See also</h2>
+<a href="DioDmSetClockTrg.htm" target="contents">DioDmSetClockTrg</a><br>
+<p>
+</BODY>
+</HTML>

@@ -1,0 +1,65 @@
+<html>
+<head>
+
+<title>DioGetPatternEventStatus</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+
+<h1>DioGetPatternEventStatus</h1>
+<h2>Function</h2>
+The state of the event of the failsafe function is acquired.<br>
+<p>
+<h2>Format</h2>
+Ret = DioGetPatternEventStatus(Id, &Status);<br> 
+<p>
+<h2>Parameters</h2>
+Id [C:short]<br>
+Specifies the device ID retrieved from DioInit.<br>
+<p>
+Status [C:short *]<br>
+Beginning/stop of the event operation is returned.<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="60">Value[Dec]</th>
+<th width="250">Meaning</th>
+</tr>
+<tr><td>0</td><td>The event has not been generated.</td></tr>
+<tr><td>1</td><td>The event was generated.</td></tr>
+</table>
+<p>
+<h2>Return Values</h2>
+Ret [C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>Normal Complete</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>Invalid ID is specified.</td></tr>
+</table>
+The other errors: </a><a href="error_code.htm" target="contents">(See also: Error code details)</a><br>
+<p>
+<h2>Initial Values</h2>
+None<br>
+<p>
+<h2>Remarks</h2>
+The state of the event operation of the failsafe function is acquired.<br>
+<p>
+<h2>Example</h2>
+<pre>
+C       Ret = DioGetPatternEventStatus(Id, &Status);
+</pre>
+<p>
+<h2>See Also</h2>
+<a href="DioResetPatternEvent.htm" target="contents">DioResetPatternEvent</a><br>
+<p>
+
+</BODY>
+</HTML>

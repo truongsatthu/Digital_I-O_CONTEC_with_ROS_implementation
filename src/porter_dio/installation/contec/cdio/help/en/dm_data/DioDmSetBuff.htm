@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>DioDmSetBuff</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+
+<h1>DioDmSetBuff</h1>
+<h2>Function</h2>
+Sets data buffer to be used for sampling and generating.<br>
+<p>
+<h2>Format</h2>
+Ret = DioDmSetBuff(Id, Dir, Buff, Len, IsRing);<br>
+<p>
+<h2>Parameters</h2>
+Id [C:short]<br>
+Specifies the device ID retrieved from DioInit.<br>
+<br>
+Dir [C:unsigned long]<br>
+Specify transfer direction.<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIODM_DIR_IN</td><td>0x01</td><td>Input</td></tr>
+<tr><td>DIODM_DIR_OUT</td><td>0x02</td><td>Output</td></tr>
+</table>
+<br>
+Buff [C:unsigned long *]<br>
+Specify the front buffer address.<br>
+<br>
+Len [C:unsigned long]<br>
+Specify data number.<br>
+Settable range: (Data number * Data unit <= 64MByte)<br>
+<br>
+IsRing [C:unsigned long]<br>
+Set whether or not the buffer is repeatedly used.<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIODM_WRITE_ONCE</td><td>1</td><td>Single transfer</td></tr>
+<tr><td>DIODM_WRITE_RING</td><td>2</td><td>Unlimited transfer</td></tr>
+</table>
+<p>
+<h2>Return values</h2>
+Ret [C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>Normal Complete</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>Invalid ID is specified.</td></tr>
+<tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>Driver cannot be called (failed in ioctl).</td></tr>
+<tr><td>DIO_ERR_DLL_BUFF_ADDRESS</td><td>10100</td><td>Invalid data buffer address.
+<tr><td>DIO_ERR_SYS_MEMORY</td><td>20000</td><td>Failed in memory.</td></tr>
+<tr><td>DIO_ERR_SYS_DIRECTION</td><td>50000</td><td>I/O direction is outside of the setting range.</td></tr>
+<tr><td>DIO_ERR_DM_BUFFER</td><td>50100</td><td>Buffer was too large and has not secured.</td></tr>
+<tr><td>DIO_ERR_DM_LOCK_MEMORY</td><td>50101</td><td>Memory could not be locked.</td></tr>
+<tr><td>DIO_ERR_DM_SEQUENCE</td><td>50103</td><td>Procedure error of execution</td></tr>
+</table>
+The other errors: <a href="../data/error_code.htm" target="contents">(See also: Error code details)</a><br>
+<p>
+<h2>Initial values</h2>
+None<br>
+<p>
+<h2>Remarks</h2>
+Buffers must be set every time before starting transfer.<br>
+A maximum of 64 Mbytes can be set as the buffer size. But, depending on the mapping status of the physical address space in the buffer area, it may not be possible to set an area of 64 Mbytes.<br>
+<br>
+<p>
+<h2>Example</h2>
+<p>
+<pre>
+C       Ret =DioDmSetBuff(Id, DIODM_DIR_IN, Buff, 1000, DIODM_WRITE_ONCE);
+</pre>
+<h2>See also</h2>
+None
+<p>
+</BODY>
+</HTML>

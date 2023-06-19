@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>DioDmSetStartPattern</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+<h1>DioDmSetStartPattern</h1>
+<h2>Function</h2>
+Sets pattern matching conditions for start conditions.<br>
+<p>
+<h2>Format</h2>
+Ret =DioDmSetStartPattern(Id,Ptn,Mask);<br>
+<p>
+<h2>Parameters</h2>
+Id [C:short]<br>
+Specifies the device ID retrieved from DioInit.<br>
+<br>
+Ptn [C:unsigned long]<br>
+Bit pattern to be compared is set.<br>
+<br>
+Mask [C:unsigned long]<br>
+Execute mask specification on the valid bit for the pattern.<br>
+(Invalid:Bit=0,Valid:Bit=1)<br>
+<p>
+<h2>Return values</h2>
+Ret [C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>Normal Complete</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>Invalid ID is specified.</td></tr>
+<tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>Driver cannot be called (failed in ioctl).</td></tr>
+</table>
+The other errors: <a href="../data/error_code.htm" target="contents">(See also: Error code details)</a><br>
+<p>
+<h2>Initial value</h2>
+None<br>
+<p>
+<h2>Remarks</h2>
+Valid in the case where DIODM_START_PATTERN is specified for the start conditions by the DioDmSetStartTrg functions.<br>
+This function is only valid in the case of input.<br>
+<br>
+<p>
+<h2>Example</h2>
+<p>
+<pre>
+C       Ret =DioDmSetStartPattern(Id, 0x55, 0xFF);
+</pre>
+<h2>See also</h2>
+<a href="DioDmSetStartTrg.htm" target="contents">DioDmSetStartTrg</a><br>
+<p>
+</BODY>
+</HTML>

@@ -1,0 +1,57 @@
+<html>
+<head>
+
+<title>DioResetPatternEvent</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+
+<h1>DioResetPatternEvent</h1>
+<h2>Function</h2>
+It returns from the state of the event.<br>
+<p>
+<h2>Format</h2>
+Ret = DioResetPatternEvent(Id, &Data[0]);<br> 
+<p>
+<h2>Parameters</h2>
+Id [C:short]<br>
+Specifies the device ID retrieved from DioInit.<br>
+<p>
+Data [C:unsigned char *]<br>
+Output data is put in the array. The array is specified for the number of ports in order of port number.<br>
+Output data is specified from 0H to FFH by the hexadecimal number.<br>
+<p>
+<h2>Return Values</h2>
+Ret [C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>Normal Complete</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>Invalid ID is specified.</td></tr>
+</table>
+The other errors: </a><a href="error_code.htm" target="contents">(See also: Error code details)</a><br>
+<p>
+<h2>Initial Values</h2>
+None<br>
+<p>
+<h2>Remarks</h2>
+It returns from the state of the event.<br>
+<p>
+<h2>Example</h2>
+<pre>
+C       Ret = DioResetPatternEvent(Id, &Data[0]);
+</pre>
+<p>
+<h2>See Also</h2>
+<a href="DioGetPatternEventStatus.htm" target="contents">DioGetPatternEventStatus</a><br>
+<p>
+
+</BODY>
+</HTML>

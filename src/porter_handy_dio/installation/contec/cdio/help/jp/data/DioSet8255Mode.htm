@@ -1,0 +1,351 @@
+<html>
+<head>
+<!--見出しと同じものをタイトルにします-->
+<title>DioSet8255Mode</title>
+<!--META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=shift-jis"-->
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<!---------------------------------------------------------------------------------
+ここにコンテンツを記載
+-------------------------------------------------------------------------------->
+
+<!--ページが長くなったときにトップへ戻るジャンプを付ける場合のリンク名です-->
+<a name=TOPIC_TOP>
+<!-===============================================================================-->
+<!-見出し-->
+<!-===============================================================================-->
+<h1>DioSet8255Mode</h1>
+<h2>■機能</h2>
+8255モード設定をチップ単位で行います。<br>
+<p>
+<h2>■書式</h2>
+Ret = DioSet8255Mode(Id, ChipNo, CtrlWord);<br>
+<p>
+<h2>■引数</h2>
+Id [C:short]<br>
+DioInitで取得したデバイスIDを指定します。<br>
+<p>
+ChipNo [C:unsigned short]<br>
+LSIi8255チップ番号を指定してください。<br>
+<p>
+CtrlWord [C:unsigned short]<br>
+コントロールワードを指定してください<br>
+コントロールワードの設定値一覧を以下に示します。
+<p>
+<table border="1" cellspacing="0" cellpadding="2" >
+<tr bgcolor="#eeeeee">
+	<th width="20">D7</th>
+	<th width="20">D6</th>
+	<th width="20">D5</th>
+	<th width="20">D4</th>
+	<th width="20">D3</th>
+	<th width="20">D2</th>
+	<th width="20">D1</th>
+	<th width="20">D0</th>
+	<th width="50">16進数</th>
+	<th width="60">Port A</th>
+	<th width="60">Port C</th>
+	<th width="60">Port B</th>
+	<th width="60">Port C</th>
+</tr>
+<tr>
+	<td align="center">&nbsp;</td>
+	<td align="center">&nbsp;</td>
+	<td align="center">&nbsp;</td>
+	<td align="center">&nbsp;</td>
+	<td align="center">&nbsp;</td>
+	<td align="center">&nbsp;</td>
+	<td align="center">&nbsp;</td>
+	<td align="center">&nbsp;</td>
+	<td align="center">&nbsp;</td>
+	<td align="center">&nbsp;</td>
+	<td align="center">(High 4bit)</td>
+	<td align="center">&nbsp;</td>
+	<td align="center">(Low 4bit)</td>
+</tr>
+<tr>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">80</td>
+	<td align="center">OUTPUT</td>
+	<td align="center">OUTPUT</td>
+	<td align="center">OUTPUT</td>
+	<td align="center">OUTPUT</td>
+</tr>
+<tr>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">1</td>
+	<td align="center">81</td>
+	<td align="center">OUTPUT</td>
+	<td align="center">OUTPUT</td>
+	<td align="center">OUTPUT</td>
+	<td align="center">INPUT</td>
+</tr>
+<tr>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">82</td>
+	<td align="center">OUTPUT</td>
+	<td align="center">OUTPUT</td>
+	<td align="center">INPUT</td>
+	<td align="center">OUTPUT</td>
+</tr>
+<tr>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">1</td>
+	<td align="center">1</td>
+	<td align="center">83</td>
+	<td align="center">OUTPUT</td>
+	<td align="center">OUTPUT</td>
+	<td align="center">INPUT</td>
+	<td align="center">INPUT</td>
+</tr>
+<tr>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">88</td>
+	<td align="center">OUTPUT</td>
+	<td align="center">INPUT</td>
+	<td align="center">OUTPUT</td>
+	<td align="center">OUTPUT</td>
+</tr>
+<tr>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">1</td>
+	<td align="center">89</td>
+	<td align="center">OUTPUT</td>
+	<td align="center">INPUT</td>
+	<td align="center">OUTPUT</td>
+	<td align="center">INPUT</td>
+</tr>
+<tr>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">8A</td>
+	<td align="center">OUTPUT</td>
+	<td align="center">INPUT</td>
+	<td align="center">INPUT</td>
+	<td align="center">OUTPUT</td>
+</tr>
+<tr>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">1</td>
+	<td align="center">1</td>
+	<td align="center">8B</td>
+	<td align="center">OUTPUT</td>
+	<td align="center">INPUT</td>
+	<td align="center">INPUT</td>
+	<td align="center">INPUT</td>
+</tr>
+<tr>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">90</td>
+	<td align="center">INPUT</td>
+	<td align="center">OUTPUT</td>
+	<td align="center">OUTPUT</td>
+	<td align="center">OUTPUT</td>
+</tr>
+<tr>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">1</td>
+	<td align="center">91</td>
+	<td align="center">INPUT</td>
+	<td align="center">OUTPUT</td>
+	<td align="center">OUTPUT</td>
+	<td align="center">INPUT</td>
+</tr>
+<tr>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">92</td>
+	<td align="center">INPUT</td>
+	<td align="center">OUTPUT</td>
+	<td align="center">INPUT</td>
+	<td align="center">OUTPUT</td>
+</tr>
+<tr>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">1</td>
+	<td align="center">1</td>
+	<td align="center">93</td>
+	<td align="center">INPUT</td>
+	<td align="center">OUTPUT</td>
+	<td align="center">INPUT</td>
+	<td align="center">INPUT</td>
+</tr>
+<tr>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">1</td>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">98</td>
+	<td align="center">INPUT</td>
+	<td align="center">INPUT</td>
+	<td align="center">OUTPUT</td>
+	<td align="center">OUTPUT</td>
+</tr>
+<tr>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">1</td>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">1</td>
+	<td align="center">99</td>
+	<td align="center">INPUT</td>
+	<td align="center">INPUT</td>
+	<td align="center">OUTPUT</td>
+	<td align="center">INPUT</td>
+</tr>
+<tr>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">1</td>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">9A</td>
+	<td align="center">INPUT</td>
+	<td align="center">INPUT</td>
+	<td align="center">INPUT</td>
+	<td align="center">OUTPUT</td>
+</tr>
+<tr>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">0</td>
+	<td align="center">1</td>
+	<td align="center">1</td>
+	<td align="center">0</td>
+	<td align="center">1</td>
+	<td align="center">1</td>
+	<td align="center">9B</td>
+	<td align="center">INPUT</td>
+	<td align="center">INPUT</td>
+	<td align="center">INPUT</td>
+	<td align="center">INPUT</td>
+</tr>
+</table>
+<p>
+詳細は、ボード添付の解説書を参照してください<br>
+<p>
+<h2>■戻り値</h2>
+Ret [C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="250">意味</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>正常終了</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>無効なIDが指定されました。</td></tr>
+<tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>ドライバを呼び出せません(ioctlに失敗)。</td></tr>
+<tr><td>DIO_ERR_DLL_BUFF_ADDRESS</td><td>10100</td><td>データバッファアドレスが不正です。</td></tr>
+<tr><td>DIO_ERR_SYS_NOT_SUPPORTED</td><td>20001</td><td>このデバイスではこの関数は使用できません。</td></tr>
+<tr><td>DIO_ERR_SYS_BIT_NO</td><td>20102</td><td>ビット番号が指定可能範囲を超えています。</td></tr>
+<tr><td>DIO_ERR_SYS_8255</td><td>20500</td><td>8255チップ番号が指定可能範囲外です。</td></tr>
+</table>
+その他のエラー：<a href="error_code.htm" target="contents">（参照：エラーコード詳細）</a><br>
+<p>
+<h2>■初期値</h2>
+システム起動時には全ポート入力の設定になっています。<br>
+<p>
+<h2>■説明</h2>
+PIO-48D(PCI), PIO-48D(CB)H, DIO-48DX-USB を使用する場合は、まずDioInitを実行し、<br>
+次にこの関数で入出力ポート(入出力点数)を設定してから、<br>
+入出力関数を使用するようにしてください。<br>
+<p>
+<h2>■使用例</h2>
+<pre>
+C      Ret = DioSet8255Mode(Id, ChipNo, CtrlWord);
+</pre>
+<p>
+<h2>■関連項目</h2>
+<a href="DioGet8255Mode.htm" target="contents">DioGet8255Mode</a><br>
+<p>
+<!---------------------------------------------------------------------------------
+コンテンツここまで
+-------------------------------------------------------------------------------->
+</BODY>
+</HTML>

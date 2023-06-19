@@ -1,0 +1,10 @@
+<!--
+    Copyright @ 2019-2020 Nguyen Thanh Tung - icce. All rights reserved.
+    launch script for dio control
+ -->
+
+<launch >
+    <node name="dio_flag" pkg="dio84rd_flag" type="dio_control_flag" output="screen" >
+        <param name="dioDevName" value="/dev/ttyUSB1" type="string" />        
+    </node >
+</launch >

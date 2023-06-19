@@ -1,0 +1,64 @@
+<html>
+<head>
+
+<title>DioSetInterruptCallBackProc</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+
+<a name=TOPIC_TOP>
+
+<h1>DioSetInterruptCallBackProc</h1>
+<h2>Function</h2>
+Specifies the interrupt event call back function.<br>
+<p>
+<h2>Format</h2>
+Ret = DioSetInterruptCallBackProc(Id, CallBack, Param);<br> 
+<p>
+<h2>Parameters</h2>
+Id [C:short]<br>
+Specifies the device ID retrieved from DioInit.<br>
+<p>
+CallBack [C:PDIO_INT_CALLBACK]<br>
+Specifies address of call back function.<br>
+Please pay attention, call back function is specified by function pointer, but the specification method varies with the language.<br>
+<p>
+Param [C:void *]<br>
+Specifies the optional parameter to be passed to the call back function.<br>
+<p>
+<h2>Return Value</h2>
+Ret [C:long]<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>Normal Complete</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>Invalid ID is specified.</td></tr>
+<tr><td>DIO_ERR_DLL_CALLBACK</td><td>10400</td><td>Address of call back function is invalid.</td></tr>
+</table>
+The other errors: </a><a href="error_code.htm" target="contents">(See also: Error code details)</a><br>
+<p>
+
+<h2>Remarks</h2>
+Interrupt function is a function that uses the hardware function to monitor the change of the specified bit's input value.<br>
+When the input value of the bit changes from 0 to 1 or from 1 to 0, the system notifies the change of bit to application through the call back.<br>
+After the setting of interrupt call back was executed, the interrupt event setting is executed, when interrupt occurs, 
+the set call back function is called.<br>
+<p>
+<h2>Example</h2>
+<pre>
+C       Ret = DioSetInterruptCallBackProc(Id, CallBack, Param);
+</pre>
+<h2>See Also</h2>
+<a href="DioSetInterruptEvent.htm" target="contents">DioSetInterruptEvent</a><br>
+<a href="interrupt.htm" target="contents">Interrupt</a><br>
+<a href="PDIO_INT_CALLBACK.htm" target="contents">PDIO_INT_CALLBACK</a><br>
+<p>
+
+</BODY>
+</HTML>

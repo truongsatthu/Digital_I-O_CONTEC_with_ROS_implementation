@@ -1,0 +1,71 @@
+<html>
+<head>
+
+<title>DioOutByte</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+
+<h1>DioOutByte</h1>
+<h2>Function</h2>
+Outputs a byte (8 Bits) to a output port.<br>
+<p>
+<h2>Format</h2>
+Ret = DioOutByte(Id, PortNo, Data);<br> 
+<p>
+<h2>Parameters</h2>
+Id [C:short]<br>
+Specifies the device ID retrieved from DioInit.<br>
+<p>
+PortNo [C:short]<br>
+Specifies the logical output port number.<br>
+The logical output port number is a number, which is assigned from the first output port of the device as 0 to the last one serially.<br>
+<p>
+Data [C:unsigned char]<br>
+Specifies the output datum.<br>
+<p>
+<h2>Return Value</h2>
+Ret[C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>Normal Complete</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>Invalid ID is specified.</td></tr>
+<tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>Driver cannot be called (failed in ioctl).</td></tr>
+<tr><td>DIO_ERR_SYS_NOT_SUPPORTED</td><td>20001</td><td>This function cannot be used for this device.</td></tr>
+<tr><td>DIO_ERR_SYS_PORT_NO</td><td>20100</td><td>Port number is outside of the available range.</td></tr>
+</table>
+<a name="TOPIC_TOP">The other errors: </a><a href="error_code.htm" target="contents">(See 
+also: Error code details)</a></a><br>
+<p>
+<h2>Initial Values</h2>
+The initial value of the output datum is 0, after the device was reset.<br>
+<p>
+<h2>Remarks</h2>
+Outputs a byte to the output port. The output datum is specified from 0H to FFH in hexadecimal.<br>
+<p>
+<h2>Example</h2>
+<pre>
+C      Ret = DioOutByte(Id, PortNo, Data);
+</pre>
+<p>
+<h2>See Also</h2>
+<a href="DioOutBit.htm" target="contents">DioOutBit</a><br>
+<a href="DioEchoBackByte.htm" target="contents">DioEchoBackByte</a><br>
+<a href="DioEchoBackBit.htm" target="contents">DioEchoBackBit</a><br>
+<a href="DioOutMultiByte.htm" target="contents">DioOutMultiByte</a><br>
+<a href="DioOutMultiBit.htm" target="contents">DioOutMultiBit</a><br>
+<a href="DioEchoBackMultiByte.htm" target="contents">DioEchoBackMultiByte</a><br>
+<a href="DioEchoBackMultiBit.htm" target="contents">DioEchoBackMultiBit</a><br>
+<a href="logical_port.htm" target="contents">Logical Port</a><br>
+<p>
+
+</BODY>
+</HTML>

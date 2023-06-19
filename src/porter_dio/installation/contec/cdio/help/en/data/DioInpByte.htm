@@ -1,0 +1,71 @@
+<html>
+<head>
+
+<title>DioInpByte</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+
+<h1>DioInpByte</h1>
+
+<h2>Function</h2>
+Inputs a byte (8 bits) from an input port.<br>
+<p>
+<h2>Format</h2>
+Ret = DioInpByte(Id, PortNo, &Data);<br> 
+<p>
+<h2>Parameters</h2>
+Id [C:short]<br>
+Specifies the device ID retrieved from DioInit.<br>
+<p>
+PortNo [C:short]<br>
+Specifies the logical input port number. The logical input port number is a number,  
+which is assigned from the first input port of the device as 0 to the last one serially.<br>
+<p>
+Data [C:unsigned char *]<br>
+Specifies the address of variable to store the input datum.<br>
+<p>
+<h2>Return Values</h2>
+Ret[C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>Normal complete</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>Invalid ID is specified.</td></tr>
+<tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>Driver cannot be called (failed in ioctl).</td></tr>
+<tr><td>DIO_ERR_DLL_BUFF_ADDRESS</td><td>10100</td><td>Invalid data buffer address.</td></tr>
+<tr><td>DIO_ERR_SYS_NOT_SUPPORTED</td><td>20001</td><td>This function cannot be used for this device.</td></tr>
+<tr><td>DIO_ERR_SYS_PORT_NO</td><td>20100</td><td>Port number is outside of the specified available range.</td></tr>
+</table>
+The other errors: </a><a href="error_code.htm" target="contents">(See also: Error code details)</a><br>
+<p>
+<h2>Initial Values</h2>
+The initial value of the input datum is 0, if no external device is connected.<br>
+<p>
+<h2>Remarks</h2>
+Inputs a byte (8 bits) from the input port. When getting the necessary information of the bit, please use the bit operators of each language.<br>
+<br>
+In the case of a wireless I/O device, it acquires the data of the slave unit stored in the master unit.<br>
+Please note that it is not real time information of the slave unit.<br>
+Please use the <a href="DioInpByteSR.htm">DioInpByteSR</a> function when acquiring the real time information of the slave unit.<br>
+<p>
+<h2>Example</h2>
+<pre>
+C     Ret = DioInpByte(Id, PortNo, &amp;Data);
+</pre>
+<h2>See Also</h2>
+<a href="DioInpBit.htm" target="contents">DioInpBit</a><br>
+<a href="DioInpMultiByte.htm" target="contents">DioInpMultiByte</a><br>
+<a href="DioInpMultiBit.htm" target="contents">DioInpMultiBit</a><br>
+<a href="logical_port.htm" target="contents">Logical Port</a><br>
+<p>
+
+</BODY>
+</HTML>

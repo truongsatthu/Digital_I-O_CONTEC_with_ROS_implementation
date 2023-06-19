@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+	<node pkg="porter_dio" type="dio" name="porter_dio" output="screen">
+    <param name="device" value="/dev/ttyUSB0" />
+  </node>
+</launch>

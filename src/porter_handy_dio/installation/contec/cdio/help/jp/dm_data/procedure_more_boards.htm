@@ -1,0 +1,71 @@
+<html>
+<head>
+<!--見出しと同じものをタイトルにします-->
+<title>複数枚のボードを同時に使用する場合</title>
+<!--META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=shift-jis"-->
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<!---------------------------------------------------------------------------------
+ここにコンテンツを記載
+-------------------------------------------------------------------------------->
+
+<!--ページが長くなったときにトップへ戻るジャンプを付ける場合のリンク名です-->
+<a name=TOPIC_TOP>
+<!-===============================================================================-->
+<!-見出し-->
+<!-===============================================================================-->
+<h1>複数枚のボードを同時に使用する場合</h1>
+<p>
+<br>
+　複数枚のボードを同時に使用する場合について説明します。<br>
+<br>
+　例えば2枚のボードを全く別々の条件で使用する場合、サンプリングにまつわる各設定はボード毎に<br>
+行ない、別々にスタートを掛けます。<br>
+この場合、モード設定時にスタンドアロン設定にしてご使用ください。<br>
+<br>
+　それとは別に、チャネル数を増やす目的等により複数枚のボードでスタート、クロック、ストップを<br>
+同期させて使用する場合、外部クロックなどを共通で使用する方法もありますが、<br>
+そういった特別な外部配線を必要としない方法として、同期制御コネクタ（SCコネクタ）があります。<br>
+<br>
+　同期制御コネクタには、EXTSIG1～EXTSIG3までの同期信号線が用意されており、<br>
+これらをスタート、クロック、ストップ条件に割り当てることによって、<br>
+マスタからの信号に同期させてスレーブを動作させることができます。<br>
+<br>
+<a href="DioDmSetMasterCfg.htm">DioDmSetMasterCfg</a>関数を使用すれば、ボードをマスタに設定して、EXTSIG1～EXTSIG3までの<br>
+同期信号線に対してどのような信号を出力するかを定義できます。<br>
+<a href="DioDmSetSlaveCfg.htm">DioDmSetSlaveCfg</a>関数を使用すれば、ボードをスレーブに設定して、受け取った<br>
+EXTSIG1～EXTSIG3までの同期信号を使用するかどうかを設定できます。<br>
+EXTSIG1～EXTSIG3までの信号を実際のスタート、クロック、ストップに割り当てるのは、<br>
+スタート条件設定関数（<a href="DioDmSetStartTrg.htm">DioDmSetStartTrg</a>）、クロック条件設定関数（<a href="DioDmSetClockTrg.htm">DioDmSetClockTrg</a>）、<br>
+ストップ条件設定関数（<a href="DioDmSetStopTrg.htm">DioDmSetStopTrg</a>）の役目です。<br>
+<br>
+同期制御コネクタについての詳細は、<a href="sc_connector.htm">同期制御コネクタ（SCコネクタ）について</a>をご参照ください。<br>
+<br>
+以下に、EXTSIG1～EXTSIG3までの信号線に出力可能な信号の種類を示します。<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="80">&nbsp;</th>
+<th width="180">種類</th>
+<th width="220">シンボル</th>
+</tr>
+<tr><td>パターン入力</td><td>ソフトスタート<br>ソフトストップ<br>内部クロック<br>外部クロック<br>外部スタートトリガ立上り<br>外部スタートトリガ立下り<br>パターン一致<br>外部ストップトリガ立上り<br>外部ストップトリガ立下り<br>クロックエラー<br>ハンドシェイク
+</td><td>DIODM_EXT_START_SOFT_IN<br>DIODM_EXT_STOP_SOFT_IN<br>DIODM_EXT_CLOCK_IN<br>DIODM_EXT_EXT_TRG_IN<br>DIODM_EXT_START_EXT_RISE_IN<br>DIODM_EXT_START_EXT_FALL_IN<br>DIODM_EXT_STA|RT_PATTERN_IN<br>DIODM_EXT_STOP_EXT_RISE_IN<br>DIODM_EXT_STOP_EXT_FALL_IN<br>DIODM_EXT_CLOCK_ERROR_IN<br>DIODM_EXT_HANDSHAKE_IN</td></tr>
+<tr><td>パターン出力</td><td>ソフトスタート<br>ソフトストップ<br>内部クロック<br>外部クロック<br>外部スタートトリガ立上り<br>外部スタートトリガ立下り<br>外部ストップトリガ立上り<br>外部ストップトリガ立下り<br>クロックエラー<br>ハンドシェイク
+</td><td>DIODM_EXT_START_SOFT_OUT<br>DIODM_EXT_STOP_SOFT_OUT<br>DIODM_EXT_CLOCK_OUT<br>DIODM_EXT_EXT_TRG_OUT<br>DIODM_EXT_START_EXT_RISE_OUT<br>DIODM_EXT_START_EXT_FALL_OUT<br>DIODM_EXT_STOP_EXT_RISE_OUT<br>DIODM_EXT_STOP_EXT_FALL_OUT<br>DIODM_EXT_CLOCK_ERROR_OUT<br>DIODM_EXT_HANDSHAKE_OUT</td></tr>
+</table>
+<br>
+<br>
+<!---------------------------------------------------------------------------------
+コンテンツここまで
+-------------------------------------------------------------------------------->
+</BODY>
+</HTML>
+
+
+
+
+
+

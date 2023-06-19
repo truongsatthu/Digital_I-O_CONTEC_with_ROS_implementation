@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>Continuous Input/Output Procedure</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+
+<a name=TOPIC_TOP>
+
+<h1>Continuous Input/Output Procedure</h1>
+<p>
+The setting procedures for sampling (input) and generating (output) using the bus master transfer functions are described here.<br>
+<br>
+<br>
+<h2>Setting Sampling/Generating Conditions</h2>
+Set the sampling/generating conditions once the initialization and mode settings are complete.<br>
+There are three types of sampling/generating conditions, namely the start condition setting (<a href="DioDmSetStartTrg.htm"">DioDmSetStartTrg</a>) 
+which sets conditions for starting the input/output (software start, external start, etc.), the clock condition setting (<a href="DioDmSetClockTrg.htm">DioDmSetClockTrg</a>) which sets input/output timing (internal clock, external clock, etc.), and the stop condition setting (<a href="DioDmSetStopTrg.htm">DioDmSetStopTrg</a>) which sets conditions for completing the input/output (software stop, suspension of specified number, etc.).<br>
+<br>
+Also, there are condition setting functions that supplement each setting (i.e. number settings in the case of suspension of number specification).<br>
+<br>
+Once those sampling/generating conditions are set after initialization, subsequent operations are carried out under the same conditions provided that the data is input/output in the same way.
+If data is transferred under different operating conditions per transfer, settings that need to be modified should be reset prior to the start of the transfer.<br>
+<br>
+Sampling/generating patterns can be selected from the following table.<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="60">&nbsp;</th>
+<th width="150">Start conditions</th>
+<th width="150">Clock conditions</th>
+<th width="150">Stop conditions</th>
+</tr>
+<tr><td>Type<br>Symbol</td><td>Software start<br>DIODM_START_SOFT</td><td>Internal clock<br>DIODM_CLK_CLOCK</td><td>Software stop<br>DIODM_STOP_SOFT</td></tr>
+<tr><td>Type<br>Symbol</td><td>External start rising<br>DIODM_START_EXT_RISE</td><td>External clock<br>DIODM_CLK_EXT_TRG</td><td>External stop rising<br>DIODM_STOP_EXT_RISE</td></tr>
+<tr><td>Type<br>Symbol</td><td>External start falling<br>DIODM_START_EXT_FALL</td><td>Handshake<br>DIODM_CLK_HANDSHAKE</td><td>External stop falling<br>DIODM_STOP_EXT_FALL</td></tr>
+<tr><td>Type<br>Symbol</td><td>Pattern matching(input only)<br>DIODM_START_PATTERN</td><td>SC connector EXTSIG1<br>DIODM_CLK_EXTSIG_1</td><td>SC connector EXTSIG1<br>DIODM_STOP_EXTSIG_1</td></tr>
+<tr><td>Type<br>Symbol</td><td>SC connector EXTSIG1<br>DIODM_START_EXTSIG_1</td><td>SC connector EXTSIG2<br>DIODM_CLK_EXTSIG_2</td><td>SC connector EXTSIG2<br>DIODM_STOP_EXTSIG_2</td></tr>
+<tr><td>Type<br>Symbol</td><td>SC connector EXTSIG2<br>DIODM_START_EXTSIG_2</td><td>SC connector EXTSIG3<br>DIODM_CLK_EXTSIG_3</td><td>SC connector EXTSIG3<br>DIODM_STOP_EXTSIG_3</td></tr>
+<tr><td>Type<br>Symbol</td><td>SC connector EXTSIG3<br>DIODM_START_EXTSIG_3</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<br>
+<br>
+<h2>Reset</h2>
+Counter values of the previous transfer and FIFO contents must be reset in accordance with the reset functions (<a href="DioDmReset.htm">DioDmReset</a>).<br>
+<br>
+<br>
+<h2>Buffer setting (Sampling: input)</h2>
+With regard to bus master transfer, set the memory address of the transfer destination on the board and when transfer is started the data is transferred from the board to the memory address.<br>
+Thus, a buffer area where input values are to be received must be set on the board before the start of any transfer (<a href="DioDmSetBuff.htm">DioDmSetBuff</a>).<br>
+<br>
+The buffer area that has been set is locked to prevent physical movement to other addresses. The locked area is unlocked upon completion of the transfer. Transferal to an unlocked area is risky, so a buffer must be set for each transfer.<br>
+<br>
+If a heap-and-stack buffer area is acquired, that area must not be released until the transfer is complete. If the buffer area is released before completion of the transfer, that area will be used for other processes.<br>
+If data is transferred to the area used for other processing, exceptions may be generated with the program.<br>
+It is recommended that the area to be used for the BusMaster transfer be changed to a global area if program safety is deemed important.<br>
+<br>
+Single transfers that complete transferal when all data is transferred into the buffer and unlimited transfers that repeatedly transfer data indefinitely to the same buffer area are prepared for transfer operations.<br>
+<br>
+<br>
+<h2>Buffer setting (Generating: output)</h2>
+The originator's memory address should be set in the hardware for bus master transfer, and data should be transferred from that memory address to the FIFO within the board before executing generation.<br>
+The buffer area in which output data is stored must be set in the hardware to execute output (<a href="DioDmSetBuff.htm">DioDmSetBuff</a>).<br>
+<br>
+The set buffer area is locked to prevent physical movement to another address. The locked area is unlocked on completion of transfer. A buffer must be set for each transfer.<br>
+<br>
+If a heap-and-stack buffer area is acquired, that area must not be released until the transfer is complete. If the buffer area is released before completion of the transfer, that area will be used for other processes, and data other than that to be output is written. If transfer is executed under that status, erroneous data may be output.<br>
+It is recommended that the area to be used for the BusMaster transfer be changed to a global area if program safety is deemed important.<br>
+<br>
+Single transfers that complete transferal when all data is transferred into the buffer and unlimited transfers that repeatedly transfer data indefinitely to the same buffer area are prepared for transfer operations.<br>
+When the same data needs to be repeated for a specific number of times, a size sufficient for that number of times should be prepared and a single transfer used.<br>
+<br>
+<br>
+<h2>Start</h2>
+Operation is started after setting the sampling/generating conditions, and buffers (<a href="DioDmStart.htm">DioDmStart</a>).<br>
+Sampling/generating is started when the start conditions are satisfied while it is operating, and sampling/generating ends when the stop conditions are satisfied. In the case where software start is set, sampling/generating is started when the DioDmStart functions are called.<br>
+<br>
+Input data is first stored into FIFO within the board and then transferred to the applied memory when the bus is available.<br>
+<br>
+Output data is immediately sent to FIFO within the board and output externally when the clock conditions are met.<br>
+<br>
+<br>
+<h2>Stop/Transfer completion</h2>
+Sampling/generating ends when the stop conditions are satisfied.<br>
+There are two ways to catch the end of the operation from the application - one being the status monitoring method (<a href="DioDmGetStatus.htm" title="DioDmGetStatus">DioDmGetStatus</a>) and the other is to confirm the ending with a message (<a href="DioDmSetStopEvent.htm">DioDmSetStopEvent</a>).
+Processing is also possible by confirming the number of transfers during operation (<a href="DioDmGetCount.htm">DioDmGetCount</a>). The locked buffer area is unlocked once sampling/generating has finished.<br>
+<br>
+</BODY>
+</HTML>
+
+
+
+
+

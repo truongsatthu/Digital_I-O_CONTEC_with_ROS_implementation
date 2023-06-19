@@ -1,0 +1,67 @@
+<html>
+<head>
+
+<title>PDIO_INT_CALLBACK</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+
+<h1>PDIO_INT_CALLBACK</h1>
+<h2>Function</h2>
+Interrupt callback type.<br>
+<p>
+<h2>Format</h2>
+CallBackProc(Id, Message, wParam, lParam, Param);<br>
+<p>
+<h2>Parameters</h2>
+Id [C:short]<br>
+The device ID retrieved from DioInit is passed.<br>
+<p>
+Message [C:short]<br>
+The message ID that becomes the cause of invoking the callback function is passed.<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="60">Define</th>
+<th width="60">Value</th>
+</tr>
+<tr><td>DIOM_INTERRUPT</td><td>1300H</td></tr>
+</table>
+wParam [C:long]<br>
+Interrupt bit number is passed.<br>
+<p>
+
+lParam [C:long]<br>
+Interrupt logic is passed.<br>
+<p>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="60">Define</th>
+<th width="60">Value</th>
+<th width="180">Description</th>
+</tr>
+<tr><td>DIO_INT_RISE</td><td>1</td><td>Interrupt: Input value 0->1</td></tr>
+<tr><td>DIO_INT_FALL</td><td>2</td><td>Interrupt: Input value 1->0</td></tr>
+</table>
+<p>
+Param [C:void *]<br>
+The optional parameter passed through DioSetInterruptCallBackProc is passed.<br>
+<p>
+<h2>Return Values</h2>
+None<br>
+<p>
+<h2>Remarks</h2>
+Please define the substance of interrupt call back function in this format.<br>
+<p>
+<h2>See Also</h2>
+<a href="DioSetInterruptEvent.htm" target="contents">DioSetInterruptEvent</a><br>
+<a href="DioSetInterruptCallBackProc.htm" target="contents">DioSetInterruptCallBackProc</a><br>
+<a href="interrupt.htm" target="contents">Interrupt</a><br>
+<p>
+
+</BODY>
+</HTML>

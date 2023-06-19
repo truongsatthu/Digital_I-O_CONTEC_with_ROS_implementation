@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>PDIO_DM_STOP_CALLBACK</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+<h1>PDIO_DM_STOP_CALLBACK</h1>
+<h2>Function</h2>
+Transfer stop callback type.<br>
+<p>
+<h2>Format</h2>
+CallBackProc(Id, Message, Dir, Param);<br>
+<p>
+<h2>Parameters</h2>
+Id [C:short]<br>
+Specifies the device ID retrieved from DioInit.<br>
+<p>
+Message [C:short]<br>
+The message ID that becomes the cause of invoking the callback function is passed.<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="60">Define</th>
+<th width="60">Value</th>
+</tr>
+<tr><td>DIO_DMM_STOP</td><td>1400H</td></tr>
+</table>
+<br>
+Dir [C:unsigned long]<br>
+Transfer direction is passed.<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIODM_DIR_IN</td><td>0x01</td><td>Input</td></tr>
+<tr><td>DIODM_DIR_OUT</td><td>0x02</td><td>Output</td></tr>
+</table>
+<br>
+Param [C:void *]<br>
+The optional parameter passed through DioDmSetStopEvent is passed.<br>
+<br>
+<p>
+<h2>Return values</h2>
+None<br>
+<p>
+<h2>Remarks</h2>
+Execute substance definition of transfer stop callback function at this format.<br>
+<p>
+<h2>See also</h2>
+<a href="DioDmSetStopEvent.htm" target="contents">DioDmSetStopEvent</a><br>
+<p>
+</BODY>
+</HTML>

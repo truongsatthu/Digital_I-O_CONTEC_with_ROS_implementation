@@ -1,0 +1,63 @@
+<html>
+<head>
+
+<title>DioSetTrgCallBackProc</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+
+<h1>DioSetTrgCallBackProc</h1>
+<h2>Function</h2>
+Specifies the trigger event call back function.<br>
+<p>
+<h2>Format</h2>
+Ret = DioSetTrgCallBackProc(Id, CallBack, Param);<br> 
+<p>
+<h2>Parameters</h2>
+Id [C:short]<br>
+Specifies the device ID retrieved from DioInit.<br>
+<p>
+CallBack [C:PDIO_TRG_CALLBACK]<br>
+Specifies the address of callback function.<br>
+Callback function is specified by function pointer, but the specification method varies with the language. Please note it.<br>
+<p>
+Param [C:void *]<br>
+Specifies the optional parameter to be passed to the callback function.<br>
+<p>
+<h2>Return Values</h2>
+Ret [C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>Normal Complete</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>Invalid ID is specified.</td></tr>
+<tr><td>DIO_ERR_DLL_CALLBACK</td><td>10400</td><td>Invalid address of callback function.</td></tr>
+</table>
+The other errors: </a><a href="error_code.htm" target="contents">(See also: Error code details)</a><br>
+<p>
+
+<h2>Remarks</h2>
+After trigger callback setting was executed, executes the trigger event setting, 
+when trigger occurs, the set callback function is called.<br>
+<p>
+<h2>Example</h2>
+<pre>
+C       Ret = DioSetTrgCallBackProc(Id, CallBack, Param);
+</pre>
+<p>
+<h2>See Also</h2>
+<a href="DioSetTrgEvent.htm" target="contents">DioSetTrgEvent</a><br>
+<a href="DioSetTrgCallBackProc.htm" target="contents">DioSetTrgCallBackProc</a><br>
+<a href="trigger.htm" target="contents">Trigger Function</a><br>
+<a href="PDIO_TRG_CALLBACK.htm" target="contents">PDIO_TRG_CALLBACK</a><br>
+<p>
+
+</BODY>
+</HTML>

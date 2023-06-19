@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Mode setting</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+<h1>Mode setting</h1>
+<p>
+After acquiring the device ID, mode setting (<a href="DioDmSetDirection.htm">DioDmSetDirection</a>) to decide the input/output direction should be implemented.<br>
+The input/output direction is selected from 32-point input, 32-point output, 16-point input or 16-point output.<br>
+<br>
+Next, the Stand-alone, Master and Slave settings are implemented.<br>
+<br>
+Stand-alone should be set to use one board only, or for each board to be used independently (<a href="DioDmSetStandAlone.htm">DioDmSetStandAlone</a>).<br>
+When a number of boards are used in synchronization, one of them should be set as the output board (master) (<a href="DioDmSetMasterCfg.htm">DioDmSetMasterCfg</a>), <br>
+and all other boards should be set to receive synchronized signals (Slave) (<a href="DioDmSetSlaveCfg.htm">DioDmSetSlaveCfg</a>).<br>
+<br>
+It is convenient to use a synchronization control connector (SC connector) when using a number of boards synchronously.<br>
+For such a case, refer to the chapter on <a href="sc_connector.htm">synchronization control connectors</a>.<br>
+<p>
+
+</BODY>
+</HTML>

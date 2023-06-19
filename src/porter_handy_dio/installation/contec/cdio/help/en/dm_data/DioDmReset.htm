@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>DioDmReset</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+
+<a name=TOPIC_TOP>
+
+<h1>DioDmReset</h1>
+<h2>Function</h2>
+Resets FIFO.<br>
+<p>
+<h2>Format</h2>
+Ret =DioDmReset(Id, Reset);<br>
+<p>
+<h2>Parameters</h2>
+Id [C:short]<br>
+Specifies the device ID retrieved from DioInit.<br>
+<br>
+Reset  [C:unsigned long]<br>
+Specify reset contents.<br>
+Specify reset contents as the sum of the following bit logic.<br>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIODM_RESET_FIFO_IN</td><td>0x02</td><td>Input FIFO is reset.</td></tr>
+<tr><td>DIODM_RESET_FIFO_OUT</td><td>0x04</td><td>Output FIFO is reset.</td></tr>
+</table>
+<br>
+<p>
+<h2>Return values</h2>
+Ret [C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>Normal Complete</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>Invalid ID is specified.</td></tr>
+<tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>Driver cannot be called (failed in ioctl).</td></tr>
+<tr><td>DIO_ERR_SYS_RESET</td><td>50008</td><td>Reset content is outside of the setting range.</td></tr>
+</table>
+The other errors: <a href="../data/error_code.htm" target="contents">(See also: Error code details)</a><br>
+<p>
+<h2>Initial values</h2>
+None<br>
+<p>
+<h2>Remarks</h2>
+Data may remain in FIFO within the board as a status after the bus master transfer is executed.<br>
+If data remains in FIFO, the expected data may not be input/output, so FIFO should be reset prior to starting any transfer.<br>
+<br>
+<p>
+<h2>Example</h2>
+<p>
+<pre>
+C       Ret =DioDmReset(Id, DIODM_RESET_FIFO_IN);
+</pre>
+<h2>See also</h2>
+None
+<p>
+
+</BODY>
+</HTML>

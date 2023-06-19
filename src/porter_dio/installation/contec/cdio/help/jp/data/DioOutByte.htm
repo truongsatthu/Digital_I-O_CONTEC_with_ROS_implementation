@@ -1,0 +1,80 @@
+<html>
+<head>
+<!--見出しと同じものをタイトルにします-->
+<title>DioOutByte</title>
+<!--META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=shift-jis"-->
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<!---------------------------------------------------------------------------------
+ここにコンテンツを記載
+-------------------------------------------------------------------------------->
+
+<!--ページが長くなったときにトップへ戻るジャンプを付ける場合のリンク名です-->
+<a name=TOPIC_TOP>
+<!-===============================================================================-->
+<!-見出し-->
+<!-===============================================================================-->
+<h1>DioOutByte</h1>
+<h2>■機能</h2>
+出力ポートに1バイト(8ビット)出力します。<br>
+<p>
+<h2>■書式</h2>
+Ret = DioOutByte(Id, PortNo, Data);<br>
+<p>
+<h2>■引数</h2>
+Id [C:short]<br>
+DioInitで取得したデバイスIDを指定します。<br>
+<p>
+PortNo [C:short]<br>
+出力論理ポート番号を指定します。<br>
+出力論理ポート番号は、デバイスの出力ポートの先頭を0として最後の出力ポートまで、
+連続で付けられた番号です。<br>
+<p>
+Data [C:unsigned char]<br>
+出力データを指定します。<br>
+<p>
+<h2>■戻り値</h2>
+Ret[C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="250">意味</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>正常終了</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>無効なIDが指定されました。</td></tr>
+<tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>ドライバを呼び出せません(ioctlに失敗)。</td></tr>
+<tr><td>DIO_ERR_SYS_NOT_SUPPORTED</td><td>20001</td><td>このデバイスではこの関数は使用できません。</td></tr>
+<tr><td>DIO_ERR_SYS_PORT_NO</td><td>20100</td><td>ポート番号が指定可能範囲を超えています。</td></tr>
+</table>
+その他のエラー：<a href="error_code.htm" target="contents">（参照：エラーコード詳細）</a><br>
+<p>
+<h2>■初期値</h2>
+出力データの初期値は、リセット後は0です。<br>
+<p>
+<h2>■説明</h2>
+出力ポートに1バイト出力します。出力データは16進数で0HからFFHまでを指定します。<br>
+<p>
+<h2>■使用例</h2>
+<pre>
+C　　　Ret = DioOutByte(Id, PortNo, Data);
+</pre>
+<p>
+<h2>■関連項目</h2>
+<a href="DioOutBit.htm" target="contents">DioOutBit</a><br>
+<a href="DioEchoBackByte.htm" target="contents">DioEchoBackByte</a><br>
+<a href="DioEchoBackBit.htm" target="contents">DioEchoBackBit</a><br>
+<a href="DioOutMultiByte.htm" target="contents">DioOutMultiByte</a><br>
+<a href="DioOutMultiBit.htm" target="contents">DioOutMultiBit</a><br>
+<a href="DioEchoBackMultiByte.htm" target="contents">DioEchoBackMultiByte</a><br>
+<a href="DioEchoBackMultiBit.htm" target="contents">DioEchoBackMultiBit</a><br>
+<a href="logical_port.htm" target="contents">論理ポート</a><br>
+<p>
+<!---------------------------------------------------------------------------------
+コンテンツここまで
+-------------------------------------------------------------------------------->
+</BODY>
+</HTML>

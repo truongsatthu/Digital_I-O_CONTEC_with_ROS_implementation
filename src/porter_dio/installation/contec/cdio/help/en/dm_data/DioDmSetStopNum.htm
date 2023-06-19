@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>DioDmSetStopNum</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+<h1>DioDmSetStopNum</h1>
+<h2>Function</h2>
+Sets the suspension number for the stop condition.<br>
+<p>
+<h2>Format</h2>
+Ret =DioDmSetStopNum(Id, Dir, StopNum);<br>
+<p>
+<h2>Parameters</h2>
+Id [C:short]<br>
+Specifies the device ID retrieved from DioInit.<br>
+<br>
+Dir [C:unsigned long]<br>
+Set Transfer direction.<br>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIODM_DIR_IN</td><td>0x01</td><td>Input</td></tr>
+<tr><td>DIODM_DIR_OUT</td><td>0x02</td><td>Output</td></tr>
+</table>
+<br>
+StopNum [C:unsigned long]<br>
+Specify a stop number<br>
+Settable range: 1 <= StopNum <= 16777215(24Bit)<br>
+<br>
+<p>
+<h2>Return values</h2>
+Ret [C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>Normal Complete</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>Invalid ID is specified.</td></tr>
+<tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>Driver cannot be called (failed in ioctl).</td></tr>
+<tr><td>DIO_ERR_SYS_DIRECTION</td><td>50000</td><td>I/O direction is outside of the setting range.</td></tr>
+<tr><td>DIO_ERR_SYS_STOP_NUM</td><td>50007</td><td>Stop number is outside of the setting range.</td></tr>
+</table>
+The other errors:<a href="../data/error_code.htm" target="contents">(See also: Error code details)</a><br>
+<p>
+<h2>Initial value</h2>
+The default is 1000.<br>
+<p>
+<h2>Remarks</h2>
+If number suspension is specified as the stop condition, it must be set.<br>
+<p>
+<h2>Example</h2>
+<p>
+<pre>
+C       Ret =DioDmSetStopNum(Id, DIODM_DIR_IN, 1000);
+</pre>
+<h2>See also</h2>
+<a href="DioDmSetStopTrg.htm" target="contents">DioDmSetStopTrg</a><br>
+<p>
+</BODY>
+</HTML>

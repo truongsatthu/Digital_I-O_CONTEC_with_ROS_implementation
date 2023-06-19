@@ -1,0 +1,67 @@
+<html>
+<head>
+<!--見出しと同じものをタイトルにします-->
+<title>DioGetErrorString</title>
+<!--META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=shift-jis"-->
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<!---------------------------------------------------------------------------------
+ここにコンテンツを記載
+-------------------------------------------------------------------------------->
+
+<!--ページが長くなったときにトップへ戻るジャンプを付ける場合のリンク名です-->
+<a name=TOPIC_TOP>
+<!-===============================================================================-->
+<!-見出し-->
+<!-===============================================================================-->
+<h1>DioGetErrorString</h1>
+<h2>■機能</h2>
+エラーコードからエラー文字列を取得します。<br>
+<p>
+<h2>■書式</h2>
+Ret = DioGetErrorString(ErrorCode , ErrorString);<br>
+<p>
+<h2>■引数</h2>
+ErrorCode [C:long]<br>
+各機能関数の戻り値を指定します。<br>
+<p>
+ErrorString [C:char *]<br>
+エラー文字列を格納するバッファの先頭アドレスを指定します。<br>
+文字列の長さは、最大256文字です。<br>
+<p>
+<h2>■戻り値</h2>
+Ret [C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="250">意味</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>正常終了</td></tr>
+<tr><td>DIO_ERR_DLL_BUFF_ADDRESS</td><td>10100</td><td>データバッファアドレスが不正です。</td></tr>
+</table>
+その他のエラー：<a href="error_code.htm" target="contents">（参照：エラーコード詳細）</a><br>
+<p>
+<h2>■初期値</h2>
+なし<br>
+<p>
+<h2>■説明</h2>
+エラーコードから、意味のわかる文字列を返すユーティリティ関数です。<br>
+エラー処理にご使用ください。<br>
+<p>
+<h2>■使用例</h2>
+<pre>
+C       Ret = DioGetErrorString(ErrorCode, &ErrorString[0]);
+</pre>
+<p>
+<h2>■関連項目</h2>
+なし<br>
+<p>
+<!---------------------------------------------------------------------------------
+コンテンツここまで
+-------------------------------------------------------------------------------->
+</BODY>
+</HTML>

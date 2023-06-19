@@ -1,0 +1,28 @@
+<html>
+<head>
+
+<title>Interrupt</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+
+<h1>Interrupt</h1>
+<p>
+When you use our digital input and output boards, interrupt is a function that can notify UP or DOWN of input bits by interrupt.<br>
+<p>
+The position and number of available input bits are different according to device.<br>
+For details, please see the hardware specification of each device. And, for the current device, interrupt logic can be UP or DOWN.<br>
+<p>
+DIO_INT_RISE and DIO_INT_FALL are parameters of software, DIO_INT_RISE expresses that the input value change from 0 to 1, DIO_INT_FALL expresses that the input value change from 1 to 0. Please pay attention, as voltage level, UP and DOWN is different based on the board of positive logic or negative logic.<br>
+<p>
+The interrupt in API-DIO(LNX) is implemented depending on the OS functionality. The interrupt action only gives the notification to application.<br>
+Because the response speed is different according to CPU, kernel version and so on, please understand that the high-speed response in several us is probably not achievable.<br>
+<p>
+If you want to implement a high-speed process by interrupt, please describe optional process you want into the open function in the driver.<br>
+<p>
+
+</BODY>
+</HTML>

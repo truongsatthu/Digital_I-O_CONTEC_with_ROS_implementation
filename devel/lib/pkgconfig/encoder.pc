@@ -1,0 +1,8 @@
+prefix=/home/tim/DIGITAL-INPUT-OUTPUT/devel
+
+Name: encoder
+Description: Description of encoder
+Version: 0.0.0
+Cflags: -I/home/tim/DIGITAL-INPUT-OUTPUT/devel/include -I/home/tim/DIGITAL-INPUT-OUTPUT/src/encoder/include
+Libs: -L/home/tim/DIGITAL-INPUT-OUTPUT/devel/lib -lencoder
+Requires: roscpp rospy std_msgs message_runtime

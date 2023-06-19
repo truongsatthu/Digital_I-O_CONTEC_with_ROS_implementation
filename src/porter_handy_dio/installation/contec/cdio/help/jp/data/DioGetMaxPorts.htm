@@ -1,0 +1,70 @@
+<html>
+<head>
+<!--見出しと同じものをタイトルにします-->
+<title>DioGetMaxPorts</title>
+<!--META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=shift-jis"-->
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<!---------------------------------------------------------------------------------
+ここにコンテンツを記載
+-------------------------------------------------------------------------------->
+
+<!--ページが長くなったときにトップへ戻るジャンプを付ける場合のリンク名です-->
+<a name=TOPIC_TOP>
+<!-===============================================================================-->
+<!-見出し-->
+<!-===============================================================================-->
+<h1>DioGetMaxPorts</h1>
+<h2>■機能</h2>
+デバイスの入出力ポート数を取得します。<br>
+<p>
+<h2>■書式</h2>
+Ret = DioGetMaxPorts(Id, &InPortNum, &OutPortNum);<br>
+<p>
+<h2>■引数</h2>
+Id [C:short]<br>
+DioInitで取得したデバイスIDを指定します。<br>
+<p>
+InPortNum [C:short *]<br>
+入力ポート数を格納する変数のアドレスを指定します。<br>
+<p>
+OutPortNum [C:short *]<br>
+出力ポート数を格納する変数のアドレスを指定します。<br>
+<p>
+<h2>■戻り値</h2>
+Ret [C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="250">意味</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>正常終了</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>無効なIDが指定されました。</td></tr>
+<tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>ドライバを呼び出せません(ioctlに失敗)。</td></tr>
+<tr><td>DIO_ERR_DLL_BUFF_ADDRESS</td><td>10100</td><td>データバッファアドレスが不正です。</td></tr>
+</table>
+その他のエラー：<a href="error_code.htm" target="contents">（参照：エラーコード詳細）</a><br>
+<p>
+<h2>■初期値</h2>
+なし<br>
+<p>
+<h2>■説明</h2>
+デバイスの入力ポート数と出力ポート数を取得します。<br>
+<p>
+<h2>■使用例</h2>
+<pre>
+C       Ret = DioGetMaxPorts(Id, &InPortNum, &OutPortNum);
+</pre>
+<p>
+<h2>■関連項目</h2>
+なし<br>
+<p>
+<!---------------------------------------------------------------------------------
+コンテンツここまで
+-------------------------------------------------------------------------------->
+</BODY>
+</HTML>

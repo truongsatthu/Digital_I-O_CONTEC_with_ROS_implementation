@@ -1,0 +1,89 @@
+<html>
+<head>
+<!--見出しと同じものをタイトルにします-->
+<title>DioGetDeviceInfo</title>
+<!--META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=shift-jis"-->
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<!---------------------------------------------------------------------------------
+ここにコンテンツを記載
+-------------------------------------------------------------------------------->
+
+<!--ページが長くなったときにトップへ戻るジャンプを付ける場合のリンク名です-->
+<a name=TOPIC_TOP>
+<!-===============================================================================-->
+<!-見出し-->
+<!-===============================================================================-->
+<h1>DioGetDeviceInfo</h1>
+<h2>■機能</h2>
+デバイスの情報を取得します。<br>
+<p>
+<h2>■書式</h2>
+Ret = DioGetDeviceInfo(Device, InfoType, Param1, Param2, Param3);<br>
+<p>
+<h2>■引数</h2>
+Device [C:char*]<br>
+デバイス名称を指定します。(例：PIO-32/32L(PCI))<br>
+<p>
+InfoType [C:short]<br>
+取得する情報のタイプを指定します。情報のタイプは以下の定義値の何れかです。<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="250">意味</th>
+<th width="60">引数</th>
+</tr>
+<tr><td>IDIO_DEVICE_TYPE</td><td>0</td><td>デバイスタイプ</td><td>Param1(short)</td></tr>
+<tr><td>IDIO_NUMBER_OF_8255</td><td>1</td><td>8255チップの数</td><td>Param1(int)</td></tr>
+<tr><td>IDIO_IS_8255_BOARD</td><td>2</td><td>8255チップの有無</td><td>Param1(int)</td></tr>
+<tr><td>IDIO_NUMBER_OF_DI_BIT</td><td>3</td><td>入力ビット数</td><td>Param1(short)</td></tr>
+<tr><td>IDIO_NUMBER_OF_DO_BIT</td><td>4</td><td>出力ビット数</td><td>Param1(short)</td></tr>
+<tr><td>IDIO_NUMBER_OF_DI_PORT</td><td>5</td><td>入力ポート数</td><td>Param1(short)</td></tr>
+<tr><td>IDIO_NUMBER_OF_DO_PORT</td><td>6</td><td>出力ポート数</td><td>Param1(short)</td></tr>
+<tr><td>IDIO_IS_POSITIVE_LOGIC</td><td>7</td><td>正論理かどうか</td><td>Param1(int)</td></tr>
+<tr><td>IDIO_IS_ECHO_BACK</td><td>8</td><td>エコーバック可能</td><td>Param1(int)</td></tr>
+<tr><td>IDIO_NUM_OF_PORT</td><td>9</td><td>占有ポート数</td><td>Param1(short)</td></tr>
+</table>
+<p>
+Param1, Param2, Param3 [C:void *]<br>
+情報のタイプに合わせた引数をアドレスで指定します。<br>
+指定する必要のない項目にはNULLを指定してください。<br>
+<p>
+<h2>■戻り値</h2>
+Ret [C:long]
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="250">意味</th>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>正常終了</td></tr>
+<tr><td>DIO_ERR_INFO_INVALID_DEVICE</td><td>10050</td><td>指定したデバイス名称が見つかりません。</td></tr>
+<tr><td>DIO_ERR_INFO_NOT_FIND_DEVICE</td><td>10051</td><td>利用可能なデバイスが見つかりません。</td></tr>
+<tr><td>DIO_ERR_INFO_INVALID_INFOTYPE</td><td>10052</td><td>指定したデバイス情報タイプが範囲外です。</td></tr>
+</table>
+その他のエラー：<a href="error_code.htm" target="contents">（参照：エラーコード詳細）</a><br>
+<p>
+<h2>■初期値</h2>
+なし<br>
+<p>
+<h2>■説明</h2>
+デバイスの情報を取得します。<br>
+<p>
+<h2>■使用例</h2>
+<pre>
+C       Ret = DioGetDeviceInfo("PIO-32/32L(PCI)", IDIO_NUMBER_OF_DI_PORT, &InpPortNum, NULL, NULL);
+</pre>
+<p>
+<h2>■関連項目</h2>
+なし<br>
+<p>
+<!---------------------------------------------------------------------------------
+コンテンツここまで
+-------------------------------------------------------------------------------->
+</BODY>
+</HTML>

@@ -1,0 +1,67 @@
+<html>
+<head>
+<!--見出しと同じものをタイトルにします-->
+<title>DioQueryDeviceName</title>
+<!--META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=shift-jis"-->
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<!---------------------------------------------------------------------------------
+ここにコンテンツを記載
+-------------------------------------------------------------------------------->
+
+<!--ページが長くなったときにトップへ戻るジャンプを付ける場合のリンク名です-->
+<a name=TOPIC_TOP>
+<!-===============================================================================-->
+<!-見出し-->
+<!-===============================================================================-->
+<h1>DioQueryDeviceName</h1>
+<h2>■機能</h2>
+使用可能なデバイスの一覧を取得します。<br>
+<p>
+<h2>■書式</h2>
+Ret = DioQueryDeviceName(Index, DeviceName, Device)<br>
+<p>
+<h2>■引数</h2>
+Index [C:short]<br>
+最初に0を指定し、以降+1づつ値を指定します。<br>
+<p>
+DeviceName [C:char*]<br>
+デバイス名を返します。(例："DIO000")<br>
+<p>
+Device [C:char*]<br>
+デバイス名称を返します。(例：PIO-32/32L(PCI))<br>
+<p>
+<h2>■戻り値</h2>
+Ret [C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="250">意味</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>正常終了</td></tr>
+<tr><td>DIO_ERR_INFO_NOT_FIND_DEVICE</td><td>10051</td><td>利用可能なデバイスが見つかりません。</td></tr>
+</table>
+その他のエラー：<a href="error_code.htm" target="contents">（参照：エラーコード詳細）</a><br>
+<p>
+
+<h2>■説明</h2>
+使用するデバイスを選択させるような、汎用的なアプリケーションを作成する場合に利用できます。<br>
+Indexを0から順に+1していき、エラーになるまで処理を繰り返してください。<br>
+<p>
+<h2>■使用例</h2>
+<pre>
+C       Ret = DioQueryDeviceName(Index, DeviceName, Device);
+</pre>
+<h2>■関連項目</h2>
+なし<br>
+<p>
+
+<!---------------------------------------------------------------------------------
+コンテンツここまで
+-------------------------------------------------------------------------------->
+</BODY>
+</HTML>

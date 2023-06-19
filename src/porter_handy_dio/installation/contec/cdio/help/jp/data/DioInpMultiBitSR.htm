@@ -1,0 +1,107 @@
+<html>
+<head>
+<!--見出しと同じものをタイトルにします-->
+<title>DioInpMultiBitSR</title>
+<!--META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=shift-jis"-->
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<!---------------------------------------------------------------------------------
+ここにコンテンツを記載
+-------------------------------------------------------------------------------->
+
+<!--ページが長くなったときにトップへ戻るジャンプを付ける場合のリンク名です-->
+<a name=TOPIC_TOP>
+<!-===============================================================================-->
+<!-見出し-->
+<!-===============================================================================-->
+<h1>DioInpMultiBitSR</h1>
+<h2>■機能</h2>
+ワイヤレスI/Oデバイスで入力ビットから複数ビット入力します。<br>
+<p>
+<h2>■書式</h2>
+Ret = DioInpMultiBitSR(Id, &BitNo[0], BitNum, &Data[0], &Timestamp, Mode);<br>
+<p>
+<h2>■引数</h2>
+Id [C:short]<br>
+DioInitで取得したデバイスIDを指定します。<br>
+<p>
+BitNo [C:short *]<br>
+入力論理ビット番号を配列に入れて、その配列の先頭アドレスを指定します。<br>
+<p>
+BitNum [C:short]<br>
+BitNoで指定したビット数を指定します。ビット数の最大値は256です。<br>
+<p>
+Data [C:unsigned char *]<br>
+入力データを格納する配列の先頭アドレスを指定します。<br>
+<p>
+Timestamp [C: unsigned short *]<br>
+タイムスタンプを格納するアドレスを指定します。<br>
+Modeで参照先を親機に指定した場合、前回の更新からの時間が格納されます。<br>
+<p>
+Mode [C: unsigned char]<br>
+入力データを参照する先を指定します。<br>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="30">値[Dec]</th>
+<th width="250">意味</th>
+</tr>
+<tr><td>DIONET_MODE_DIRECT</td><td>0</td><td>ターミナルの入力データを参照します。</td></tr>
+<tr><td>DIONET_MODE_AP</td><td>1</td><td>ゲートウェイの入力データを参照します。</td></tr>
+</table>
+<p>
+<h2>■戻り値</h2>
+Ret [C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="250">意味</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>正常終了</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>無効なIDが指定されました。</td></tr>
+<tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>ドライバを呼び出せません(ioctlに失敗)。</td></tr>
+<tr><td>DIO_ERR_DLL_BUFF_ADDRESS</td><td>10100</td><td>データバッファアドレスが不正です。</td></tr>
+<tr><td>DIO_ERR_SYS_NOT_SUPPORTED</td><td>20001</td><td>このデバイスではこの関数は使用できません。</td></tr>
+<tr><td>DIO_ERR_SYS_BIT_NO</td><td>20102</td><td>ビット番号が指定可能範囲を超えています。</td></tr>
+<tr><td>DIO_ERR_SYS_BIT_NUM</td><td>20103</td><td>ビット数が指定可能範囲を超えています。</td></tr>
+</table>
+その他のエラー：<a href="error_code.htm" target="contents">（参照：エラーコード詳細）</a><br>
+<p>
+
+<h2>■初期値</h2>
+入力データの初期値は、外部機器がつながっていない状態では0です。<br>
+<p>
+<h2>■説明</h2>
+入力ビットから複数ビット入力します。<br>
+この関数を呼び出す前に、BitNoで指定する配列に、入力したい論理ビット番号を設定して
+おく必要があります。<br>
+配列Dataには、BitNoで指定した論理ビットの順番に入力データが
+格納されます。入力データは0か1です。<br>
+データ取得の方法として、親機に保存されているデータ取得と子機のデータを直接取得する2種類を選択できます。<br>
+それぞれの取得方法の特徴については<a href="wirelessIO_spec.htm">ワイヤレスI/Oの仕様</a>をご参照ください。</p>
+<br>
+データ取得方法で、親機に保存されているデータ取得を行う場合、親機に保存されているデータのタイムスタンプが取得できます。<br>
+タイムスタンプは前回の更新からの時間を秒単位で返します。<br>
+子機の更新間隔よりもタイムスタンプが長い場合、子機からのデータが何かしらの理由により親機に到達していないことになります。<br>
+親機に保存されているデータの有効性確認にご使用ください。<br>
+<p>
+<h2>■使用例</h2>
+<pre>
+C       Ret = DioInpMultiBitSR(Id, &BitNo[0], BitNum, &Data[0], &Timestamp, Mode);
+</pre>
+<p>
+<h2>■関連項目</h2>
+<a href="DioInpByteSR.htm" target="contents">DioInpByteSR</a><br>
+<a href="DioInpBitSR.htm" target="contents">DioInpBitSR</a><br>
+<a href="DioInpMultiByteSR.htm" target="contents">DioInpMultiByteSR</a><br>
+<a href="logical_bit.htm" target="contents">論理ビット</a><br>
+<p>
+<!---------------------------------------------------------------------------------
+コンテンツここまで
+-------------------------------------------------------------------------------->
+</BODY>
+</HTML>

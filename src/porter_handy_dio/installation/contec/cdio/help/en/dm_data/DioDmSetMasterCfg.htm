@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>DioDmSetMasterCfg</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+<h1>DioDmSetMasterCfg</h1>
+<h2>Function</h2>
+Sets the specified device as a master. Also, sets the contents to be output as the synchronization signal.<br>
+<p>
+<h2>Format</h2>
+Ret = DioDmSetMasterCfg(Id,ExtSig1,ExtSig2,ExtSig3,MasterHalt,SlaveHalt);<br>
+<p>
+<h2>Parameters</h2>
+Id [C:short]<br>
+Specifies the device ID retrieved from DioInit.<br>
+<br>
+ExtSig1 [C:unsigned long]<br>
+ExtSig2 [C:unsigned long]<br>
+ExtSig3 [C:unsigned long]<br>
+Specify signals output to the signal lines from ExtSig1 to ExtSig3.<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>&nbsp;</td><td>0</td><td>Unused</td></tr>
+<tr><td>DIODM_EXT_START_SOFT_IN</td><td>1</td><td>Software start(Pattern input)</td></tr>
+<tr><td>DIODM_EXT_STOP_SOFT_IN</td><td>2</td><td>Software stop(Pattern input)</td></tr>
+<tr><td>DIODM_EXT_CLOCK_IN</td><td>3</td><td>Internal clock(Pattern input)</td></tr>
+<tr><td>DIODM_EXT_EXT_TRG_IN</td><td>4</td><td>External clock(Pattern input)</td></tr>
+<tr><td>DIODM_EXT_START_EXT_RISE_IN</td><td>5</td><td>External rising trigger start(Pattern input)</td></tr>
+<tr><td>DIODM_EXT_START_EXT_FALL_IN</td><td>6</td><td>External falling trigger start(Pattern input)</td></tr>
+<tr><td>DIODM_EXT_START_PATTERN_IN</td><td>7</td><td>Pattern matching(Pattern input)</td></tr>
+<tr><td>DIODM_EXT_STOP_EXT_RISE_IN</td><td>8</td><td>External rising trigger stop(Pattern input)</td></tr>
+<tr><td>DIODM_EXT_STOP_EXT_FALL_IN</td><td>9</td><td>External falling trigger stop(Pattern input)</td></tr>
+<tr><td>DIODM_EXT_CLOCK_ERROR_IN</td><td>10</td><td>Clock error(Pattern input)</td></tr>
+<tr><td>DIODM_EXT_HANDSHAKE_IN</td><td>11</td><td>Handshake(Pattern input)</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>DIODM_EXT_START_SOFT_OUT</td><td>101</td><td>Software start(Pattern output)</td></tr>
+<tr><td>DIODM_EXT_STOP_SOFT_OUT</td><td>102</td><td>Software stop(Pattern output)</td></tr>
+<tr><td>DIODM_EXT_CLOCK_OUT</td><td>103</td><td>Internal clock(Pattern output)</td></tr>
+<tr><td>DIODM_EXT_EXT_TRG_OUT</td><td>104</td><td>External clock(Pattern output)</td></tr>
+<tr><td>DIODM_EXT_START_EXT_RISE_OUT</td><td>105</td><td>External rising trigger start(Pattern output)</td></tr>
+<tr><td>DIODM_EXT_START_EXT_FALL_OUT</td><td>106</td><td>External falling trigger start(Pattern output)</td></tr>
+<tr><td>DIODM_EXT_STOP_EXT_RISE_OUT</td><td>107</td><td>External rising trigger stop(Pattern output)</td></tr>
+<tr><td>DIODM_EXT_STOP_EXT_FALL_OUT</td><td>108</td><td>External falling trigger stop(Pattern output)</td></tr>
+<tr><td>DIODM_EXT_CLOCK_ERROR_OUT</td><td>109</td><td>Clock error(Pattern output)</td></tr>
+<tr><td>DIODM_EXT_HANDSHAKE_OUT</td><td>110</td><td>Handshake(Pattern output)</td></tr>
+</table>
+<br>
+MasterHalt [C:unsigned long]<br>
+1:Fixed(Valid)<br>
+<br>
+SlaveHalt [C:unsigned long]<br>
+1:Fixed(Valid)<br>
+<br>
+<p>
+<h2>Return values</h2>
+Ret [C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>Normal Complete</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>Invalid ID is specified</td></tr>
+<tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>Driver cannot be called (failed in ioctl).</td></tr>
+<tr><td>DIO_ERR_SYS_SIGNAL</td><td>50001</td><td>Outside the range of the signal.</td></tr>
+</table>
+The other errors: <a href="../data/error_code.htm" target="contents">(See also: Error code details)</a><br>
+<p>
+<h2>Initial value</h2>
+Stand-alone should be specified from the choice of Stand-Alone, Master, or Slave.<br>
+<p>
+<h2>Remarks</h2>
+One of the settings must be executed from Stand-Alone, Master, or Slave to fix the application operation.<br>
+Master indicates the board where the synchronization signal is output in the case of operating a number of boards in synchronization using a synchronization control connector (SC connector).<br>
+<p>
+<h2>Example</h2>
+<p>
+<pre>
+C       Ret = DioDmSetMasterCfg(Id, DIODM_EXT_START_SOFT_IN, DIODM_EXT_CLOCK_IN, DIODM_EXT_STOP_SOFT_IN, 1, 1);
+</pre>
+<h2>See also</h2>
+<a href="DioDmSetSlaveCfg.htm" target="contents">DioDmSetSlaveCfg</a><br>
+<a href="DioDmSetStandAlone.htm" target="contents">DioDmSetStandAlone</a><br>
+<p>
+</BODY>
+</HTML>

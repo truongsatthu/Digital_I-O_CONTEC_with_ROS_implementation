@@ -1,0 +1,67 @@
+<html>
+<head>
+
+<title>PDIO_TRG_CALLBACK</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+
+<h1>PDIO_TRG_CALLBACK</h1>
+<h2>Function</h2>
+Trigger callback type.<br>
+<p>
+<h2>Format</h2>
+CallBackProc(Id, Message, wParam, lParam, Param);<br>
+<p>
+<h2>Parameters</h2>
+Id [C:short]<br>
+The device ID retrieved from DioInit is passed.<br>
+<p>
+Message [C:short]<br>
+The message ID that becomes the cause of invoking the call back function is passed.<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="60">Define</th>
+<th width="60">Value</th>
+</tr>
+<tr><td>DIOM_TRIGGER</td><td>1340H</td></tr>
+</table>
+<p>
+wParam [C:long]<br>
+Trigger bit number is passed.<br>
+<p>
+lParam [C:long]<br>
+Trigger logic is passed.<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIO_TRG_RISE</td><td>1</td><td>Trigger: Input value 0->1</td></tr>
+<tr><td>DIO_TRG_FALL</td><td>2</td><td>Trigger: Input value 1->0</td></tr>
+</table>
+<p>
+Param [C:void *]<br>
+The optional parameter passed through DioSetTrgCallBackProc is passed.<br>
+<p>
+<h2>Return Values</h2>
+None<br>
+<p>
+<h2>Remarks</h2>
+The optional parameter passed through DioSetInterruptCallBackProc is passed.<br>
+<p>
+<h2>See Also</h2>
+<a href="DioSetTrgEvent.htm" target="contents">DioSetTrgEvent</a><br>
+<a href="DioSetTrgCallBackProc.htm" target="contents">DioSetTrgCallBackProc</a><br>
+<a href="trigger.htm" target="contents">Trigger Function</a><br>
+<p>
+
+
+</BODY>
+</HTML>

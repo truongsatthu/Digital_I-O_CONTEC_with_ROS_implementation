@@ -1,0 +1,108 @@
+<html>
+<head>
+
+<title>File Structure</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+
+<h1>File Structure</h1>
+<p>
+<pre>
+  /User Directory/contec/cdio
+    cdio_uninstall.sh ................ Shell script for uninstall
+    Makefile ......................... Make file for install
+    readme_jp.txt .................... README Japanese version
+    readme.txt ....................... README English version
+
+    /cgetres_usb
+        Makefile ..................... Make file for compiling and installing
+        cgetres_usb.c ................ USB resource acquisition module source for config
+        cgetres_usb.h ................ USB resource acquisition module header for config
+        gpl-2.0.txt .................. GNU General Public License
+
+    /config
+        config ....................... Setup program
+        contec_dio_start.sh .......... Driver start script: created by executing config.
+        contec_dio_stop.sh ........... Driver stop script: created by executing config.
+
+        contec_dio.conf .............. Setup file: created by executing config,
+                                       It is copied to /proc as the start script.
+
+        cdio.ko ...................... Driver for the starting version
+        cdiousb.ko ................... Driver for the starting version
+
+        /xxxx ........................ Directory that is named after current kernel version: copied here by executing make file.
+            cgetres.ko ............... config PCI, PCI Express resource acquisition driver (corresponding to the current kernel version)
+            cgetres_usb.ko ........... config USB resource acquisition driver (corresponding to the current kernel version)
+        /i386
+            config ................... 32 bit setup program            
+        /amd64
+            config ................... 64 bit setup program            
+
+        cgetres.c .................... PCI, PCI Express resource acquisition module source for config
+        cgetres.h .................... PCI, PCI Express resource acquisition module header for config
+        EULA_JP.txt .................. License Agreement Japanese version
+        EULA_EN.txt .................. License Agreement English version
+
+    /help/
+        /en .......................... English version
+            diohelp.htm .............. html help files
+            dio_dm_help.htm .......... html help files (for BusMaster function)
+            data/ .................... Help data
+            dm_data/ ................. Help data
+
+        /jp .......................... Japnese version
+            diohelp.htm .............. html help files
+            dio_dm_help.htm .......... html help files (for BusMaster function)
+            data/ .................... Help data
+            dm_data/ ................. Help data
+
+        EULA_JP.txt .................. License Agreement Japanese version
+        EULA_EN.txt .................. License Agreement English version
+
+    /library
+        Makefile ..................... Make file for installing
+        Cdio_ctrl.h .................. Common header of library and module
+        Cdio_dm_ctrl.h ............... Common header of library and module
+        EULA_JP.txt .................. License Agreement Japanese version
+        EULA_EN.txt .................. License Agreement English version
+
+        /i386
+            libcdio.so.1.0 ........... 32 bit Shared library
+        /amd64
+            libcdio.so.1.0 ........... 64 bit Shared library
+
+    /module
+        Makefile ..................... Make file for compiling and installing
+        xxxxx.c ...................... Source of module
+        xxxxx.h ...................... Header of module        
+        EULA_JP.txt .................. License Agreement Japanese version
+        EULA_EN.txt .................. License Agreement English version
+
+    /module_usb
+        Makefile ..................... Make file for compiling and installing
+        xxxxx.c ...................... Source of module
+        xxxxx.h ...................... Header of module        
+        gpl-2.0.txt .................. GNU General Public License
+
+    /samples/
+        /en .......................... English version
+            inc/ ..................... header file directory
+            console/ ................. Console sample directory
+            console_curses/ .......... Console sample directory which used curses
+
+        /jp .......................... Japnese version
+            inc/ ..................... header file directory
+            console/ ................. Console sample directory
+            console_curses/ .......... Console sample directory which used curses
+
+        EULA_JP.txt .................. License Agreement Japanese version
+        EULA_EN.txt .................. License Agreement English version
+</pre>
+
+</BODY>
+</HTML>

@@ -1,0 +1,74 @@
+<html>
+<head>
+<!--見出しと同じものをタイトルにします-->
+<title>DioGetPatternEventStatus</title>
+<!--META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=shift-jis"-->
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<!---------------------------------------------------------------------------------
+ここにコンテンツを記載
+-------------------------------------------------------------------------------->
+
+<!--ページが長くなったときにトップへ戻るジャンプを付ける場合のリンク名です-->
+<a name=TOPIC_TOP>
+<!-===============================================================================-->
+<!-見出し-->
+<!-===============================================================================-->
+<h1>DioGetPatternEventStatus</h1>
+<h2>■機能</h2>
+フェイルセーフ機能のイベント動作の状態を取得します。<br>
+<p>
+<h2>■書式</h2>
+Ret = DioGetPatternEventStatus(Id, &Status);<br>
+<p>
+<h2>■引数</h2>
+Id [C:short]<br>
+DioInitで取得したデバイスIDを指定します。<br>
+<p>
+Status [C:short *]<br>
+イベント動作の開始/停止を返します。<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="30">値[Dec]</th>
+<th width="120">意味</th>
+</tr>
+<tr><td>0</td><td>イベント未発生</td></tr>
+<tr><td>1</td><td>イベント動作中</td></tr>
+</table>
+<p>
+<h2>■戻り値</h2>
+Ret [C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="250">意味</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>正常終了</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>無効なIDが指定されました。</td></tr>
+</table>
+その他のエラー：<a href="error_code.htm" target="contents">（参照：エラーコード詳細）</a><br>
+<p>
+<h2>■初期値</h2>
+なし<br>
+<p>
+<h2>■説明</h2>
+フェイルセーフ機能のイベント動作の状態を取得します。関数の第2引数にはイベント発生状態が格納されます。<br>
+<p>
+<h2>■使用例</h2>
+<pre>
+C       Ret = DioGetPatternEventStatus(Id, &Status);
+</pre>
+<p>
+<h2>■関連項目</h2>
+<a href="DioResetPatternEvent.htm" target="contents">DioResetPatternEvent</a><br>
+<p>
+<!---------------------------------------------------------------------------------
+コンテンツここまで
+-------------------------------------------------------------------------------->
+</BODY>
+</HTML>

@@ -1,0 +1,8 @@
+prefix=/home/tim/DIGITAL-INPUT-OUTPUT/devel
+
+Name: porter_dio
+Description: Description of porter_dio
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/tim/DIGITAL-INPUT-OUTPUT/devel/lib 
+Requires: 

@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>Simultaneous use of a number of boards</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+<h1>Simultaneous use of a number of boards</h1>
+<p>
+<br>
+Simultaneous use of a number of boards is explained.<br>
+<br>
+For example, sampling-related settings are carried out per board and started separately if two boards are used under completely different conditions.<br>
+In this case, set stand-alone as the mode setting before use.<br>
+<br>
+Conversely, when a number of boards are used in synchronization for start, clock and stop to increase the number of channels, the external clock can be shared.  Alternatively, a synchronization control connector (SC connector), which does not require such special external cabling, can be used.<br>
+<br>
+Synchronization signal lines from EXTSIG1~EXTSIG3 are prepared for the SC connectors, and slaves can be operated by synchronizing signals from the master by allocating such lines to the start, clock and stop conditions.<br>
+<br>
+When <a href="DioDmSetMasterCfg.htm">DioDmSetMasterCfg</a> functions are used, the kind of signals that are output to the synchronized signal line from EXTSIG1~EXTSIG3 can be defined by setting the board as master.<br>
+When <a href="DioDmSetSlaveCfg.htm">DioDmSetSlaveCfg</a> functions are used, whether or not the synchronized signals from EXTSIG1~EXTSIG3 are used can be set by setting the board as a slave.<br>
+Signals from EXTSIG1~EXTSIG3 are actually allocated for start, clock and stop by the start condition setting functions (<a href="DioDmSetStartTrg.htm">DioDmSetStartTrg</a>), clock condition setting functions (<a href="DioDmSetClockTrg.htm">DioDmSetClockTrg</a>), <br>
+and stop condition setting functions (<a href="DioDmSetStopTrg.htm">DioDmSetStopTrg</a>).<br>
+<br>
+Refer to <a href="sc_connector.htm">Synchronization Control Connectors</a> for details on SC connectors.<br>
+<br>
+Signal types that can be output on the signal lines from EXTSIG1~EXTSIG3 are as displayed below.<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="80">&nbsp;</th>
+<th width="180">Type</th>
+<th width="220">Symbol</th>
+</tr>
+<tr><td>Pattern input</td><td>Software start<br>Software stop<br>Internal clock<br>External clock<br>External start trigger rising<br>External start trigger falling<br>Pattern matching<br>External stop trigger rising<br>External stop trigger falling<br>Clock error<br>Handshake
+</td><td>DIODM_EXT_START_SOFT_IN<br>DIODM_EXT_STOP_SOFT_IN<br>DIODM_EXT_CLOCK_IN<br>DIODM_EXT_EXT_TRG_IN<br>DIODM_EXT_START_EXT_RISE_IN<br>DIODM_EXT_START_EXT_FALL_IN<br>DIODM_EXT_STA|RT_PATTERN_IN<br>DIODM_EXT_STOP_EXT_RISE_IN<br>DIODM_EXT_STOP_EXT_FALL_IN<br>DIODM_EXT_CLOCK_ERROR_IN<br>DIODM_EXT_HANDSHAKE_IN</td></tr>
+<tr><td>Pattern output</td><td>Software start<br>Software stop<br>Internal clock<br>External clock<br>External start trigger rising<br>External start trigger falling<br>External stop trigger rising<br>External stop trigger falling<br>Clock error<br>Handshake
+</td><td>DIODM_EXT_START_SOFT_OUT<br>DIODM_EXT_STOP_SOFT_OUT<br>DIODM_EXT_CLOCK_OUT<br>DIODM_EXT_EXT_TRG_OUT<br>DIODM_EXT_START_EXT_RISE_OUT<br>DIODM_EXT_START_EXT_FALL_OUT<br>DIODM_EXT_STOP_EXT_RISE_OUT<br>DIODM_EXT_STOP_EXT_FALL_OUT<br>DIODM_EXT_CLOCK_ERROR_OUT<br>DIODM_EXT_HANDSHAKE_OUT</td></tr>
+</table>
+<br>
+<br>
+</BODY>
+</HTML>
+
+
+
+
+
+

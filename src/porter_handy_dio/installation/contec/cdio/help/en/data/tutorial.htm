@@ -1,0 +1,32 @@
+<html>
+<head>
+
+<title>Tutorial</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+
+<h1>Tutorial</h1>
+<p>
+Create the application by using API-DIO(LNX) as follows.<br>
+<p>
+Don't edit the header files.<br>
+<p>
+<h2>gcc</h2><br>
+- Copy the header file of C language(cdio/samples/inc/cdio.h) to the directory of creating application.<br>
+- Add the following to the source code, include the header file.<br>
+#include "cdio.h"<br> 
+- When compiling, please specify linker options shown as below to link.<br>
+<pre>
+gcc -Wall filename.c -o filename -lcdio
+                                  ~~~~~~
+
+</pre>
+<p>
+For details, refer to the source code of sample program and Makefile.<br>
+
+</BODY>
+</HTML>

@@ -1,0 +1,76 @@
+<html>
+<head>
+<!--見出しと同じものをタイトルにします-->
+<title>PDIO_TRG_CALLBACK</title>
+<!--META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=shift-jis"-->
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<!---------------------------------------------------------------------------------
+ここにコンテンツを記載
+-------------------------------------------------------------------------------->
+
+<!--ページが長くなったときにトップへ戻るジャンプを付ける場合のリンク名です-->
+<a name=TOPIC_TOP>
+<!-===============================================================================-->
+<!-見出し-->
+<!-===============================================================================-->
+<h1>PDIO_TRG_CALLBACK</h1>
+<h2>■機能</h2>
+トリガコールバックの形式です。<br>
+<p>
+<h2>■書式</h2>
+CallBackProc(Id, Message, wParam, lParam, Param);<br>
+<p>
+<h2>■引数</h2>
+Id [C:short]<br>
+DioInitで取得したデバイスIDが渡されます。<br>
+<p>
+Message [C：short]<br>
+コールバック関数呼び出しの原因となるメッセージ番号が渡されます。<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="60">定義</th>
+<th width="60">値</th>
+</tr>
+<tr><td>DIOM_TRIGGER</td><td>1340H</td></tr>
+</table>
+<p>
+wParam [C:long]<br>
+トリガビット番号が渡されます。<br>
+<p>
+lParam [C:long]<br>
+トリガ論理が渡されます。<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="250">意味</th>
+</tr>
+<tr><td>DIO_TRG_RISE</td><td>1</td><td>トリガ：入力値0->1</td></tr>
+<tr><td>DIO_TRG_FALL</td><td>2</td><td>トリガ：入力値1->0</td></tr>
+</table>
+<p>
+Param [C:void *]<br>
+DioSetTrgCallBackProcで渡した任意の引数が渡されます。<br>
+<p>
+<h2>■戻り値</h2>
+なし<br>
+<p>
+<h2>■説明</h2>
+トリガコールバック関数の実体定義は、この書式で行ってください。<br>
+<p>
+<h2>■関連項目</h2>
+<a href="DioSetTrgEvent.htm" target="contents">DioSetTrgEvent</a><br>
+<a href="DioSetTrgCallBackProc.htm" target="contents">DioSetTrgCallBackProc</a><br>
+<a href="trigger.htm" target="contents">トリガ機能</a><br>
+<p>
+
+<!---------------------------------------------------------------------------------
+コンテンツここまで
+-------------------------------------------------------------------------------->
+</BODY>
+</HTML>

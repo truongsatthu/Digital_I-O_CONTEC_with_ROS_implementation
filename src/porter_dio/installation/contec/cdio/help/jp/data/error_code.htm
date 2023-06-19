@@ -1,0 +1,137 @@
+<html>
+<head>
+<!--見出しと同じものをタイトルにします-->
+<title>戻り値一覧</title>
+<!--META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=shift-jis"-->
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<!---------------------------------------------------------------------------------
+ここにコンテンツを記載
+-------------------------------------------------------------------------------->
+
+<!--ページが長くなったときにトップへ戻るジャンプを付ける場合のリンク名です-->
+<a name=TOPIC_TOP>
+<!-===============================================================================-->
+<!-見出し-->
+<!-===============================================================================-->
+<h1>戻り値一覧</h1>
+<p>
+<h2>■初期化エラー</h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="400">意味</th>
+</tr>
+<tr>
+<td>DIO_ERR_SUCCESS</td>
+<td>0</td>
+<td>正常終了</td>
+</tr>
+</tr><td>DIO_ERR_INI_RESOURCE</td><td>1</td><td>リソースの取得に失敗しました。</td></tr>
+</tr><td>DIO_ERR_INI_INTERRUPT</td><td>2</td><td>割り込みルーチンの登録に失敗しました。<br>
+IRQが他のデバイスと重複していないかを確認してください。</td></tr>
+</tr><td>DIO_ERR_INI_MEMORY</td><td>3</td><td>メモリの割り当てに失敗しました。このエラーは殆ど発生しません。<br>もし発生した場合は、メモリを増設してみてください。</td></tr>
+</tr><td>DIO_ERR_INI_REGISTRY</td><td>4</td><td>設定ファイルのアクセスに失敗しました。</td></tr>
+</tr><td>DIO_ERR_INI_BOARD_ID</td><td>5</td><td>ボードIDが重複しています。</td></tr>
+</table>
+<p>
+<h2>■ライブラリエラー</h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="400">意味</th>
+</tr>
+<tr>
+</tr><td>DIO_ERR_DLL_DEVICE_NAME</td><td>10000</td><td>設定ファイルに登録されていないデバイス名が指定されました。</td></tr>
+</tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>無効なIDが指定されました。初期化関数が正常に終了しているかを確認してください。<br>また、IDを格納する変数のスコープを確認してください。</td></tr>
+</tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>ドライバを呼び出せません(ioctlに失敗)。<br>
+初期化関数が正常に終了しているかを確認してください。<br>
+また、IDを格納する変数のスコープを確認してください。</td></tr>
+</tr><td>DIO_ERR_DLL_CREATE_FILE</td><td>10003</td><td>ファイルの作成に失敗しました(open失敗)。<br>
+デバイスドライバが起動しているかどうかをlsmodで確認してください。</td></tr>
+</tr><td>DIO_ERR_DLL_CLOSE_FILE</td><td>10004</td><td>ファイルのクローズに失敗しました(close失敗)。<br>
+初期化されていないデバイスに対して終了処理を実行した可能性があります。</td></tr>
+</tr><td>DIO_ERR_DLL_CREATE_THREAD</td><td>10005</td><td>スレッドの作成に失敗しました。</td></tr>
+</tr><td>DIO_ERR_INFO_INVALID_DEVICE</td><td>10050</td><td>指定したデバイス名称が見つかりません。スペルを確認してください。</td></tr>
+</tr><td>DIO_ERR_INFO_NOT_FIND_DEVICE</td><td>10051</td><td>利用可能なデバイスが見つかりません。</td></tr>
+</tr><td>DIO_ERR_INFO_INVALID_INFOTYPE</td><td>10052</td><td>指定したデバイス情報タイプが範囲外です。<br>
+情報取得関数でのエラーです。パラメータを確認してください。</td></tr>
+</tr><td>DIO_ERR_DLL_BUFF_ADDRESS</td><td>10100</td><td>データバッファアドレスが不正です。<br>
+バッファのアドレスがNULL(0)です。アプリケーションのソースコードを確認してください。</td></tr>
+</tr><td>DIO_ERR_DLL_TRG_KIND</td><td>10300</td><td>トリガ種類が指定範囲外です。<br>
+トリガ関数のパラメータエラーです。定義値を使用してください。</td></tr>
+</tr><td>DIO_ERR_DLL_CALLBACK</td><td>10400</td><td>コールバック関数のアドレスが無効です。</td></tr>
+</tr><td>DIO_ERR_DLL_DIRECTION</td><td>10500</td><td>入出力方向が設定範囲外です。</td></tr>
+
+</table>
+<p>
+
+<h2>■ドライバエラー</h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="400">意味</th>
+</tr><td>DIO_ERR_SYS_MEMORY</td><td>20000</td><td>メモリの確保に失敗しました。このエラーは殆ど発生しません。もし発生した場合は、メモリを増設してみてください。</td></tr>
+</tr><td>DIO_ERR_SYS_NOT_SUPPORTED</td><td>20001</td><td>このデバイスではこの関数は使用できません。<br>
+入力ポートのないデバイスに対する入力関数の実行、および出力ポートのないデバイスに対する出力関数、エコーバック関数の実行でもこのエラーが発生します。</td></tr>
+</tr><td>DIO_ERR_SYS_BOARD_EXECUTING</td><td>20002</td><td>デバイスが動作中のため実行できません。<br>
+バックグラウンドでデバイスに対するアクセスが行なわれているときに、
+フォアグラウンドの処理が実行できない場合のエラーです。現在は発生しません。</td></tr>
+</tr><td>DIO_ERR_SYS_USING_OTHER_PROCESS</td><td>20003</td><td>他のプロセスがデバイスを使用しているため、実行できません。<br>
+複数プロセスでの使用における制限事項を確認してください。</td></tr>
+</tr><td>DIO_ERR_SYS_NOT_SUPPORT_KERNEL</td><td>20004</td><td>対応外のカーネルです。</td></tr>
+</tr><td>DIO_ERR_SYS_PORT_NO</td><td>20100</td><td>ポート番号が指定可能範囲を超えています。<br>
+デバイスの入出力ポート数とプログラムで使用しているパラメータを確認してください。</td></tr>
+</tr><td>DIO_ERR_SYS_PORT_NUM</td><td>20101</td><td>ポート数が指定可能範囲を超えています。<br>
+入出力可能な最大ポート数は、256です。</td></tr>
+</tr><td>DIO_ERR_SYS_BIT_NO</td><td>20102</td><td>ビット番号が指定可能範囲を超えています。<br>
+デバイスの入出力ビット数とプログラムで使用しているパラメータを確認してください。</td></tr>
+</tr><td>DIO_ERR_SYS_BIT_NUM</td><td>20103</td><td>ビット数が指定可能範囲を超えています。<br>
+入出力可能な最大ビット数は、256です。</td></tr>
+</tr><td>DIO_ERR_SYS_BIT_DATA</td><td>20104</td><td>ビットデータが0か1以外です。<br>
+ビット出力でのエラーです。プログラムで使用しているパラメータを確認してください。</td></tr>
+</tr><td>DIO_ERR_SYS_INT_BIT</td><td>20200</td><td>割り込みビットが指定可能範囲外です。</td></tr>
+</tr><td>DIO_ERR_SYS_INT_LOGIC</td><td>20201</td><td>割り込み論理が指定可能範囲外です。<br>
+割り込み論理は、立ち上がりもしくは立下りです。定義値を使用してください。</td></tr>
+</tr><td>DIO_ERR_SYS_TIM</td><td>20300</td><td>タイマ値が指定範囲外です。トリガ関数でのエラーです。</td></tr>
+</tr><td>DIO_ERR_SYS_TRG_LOGIC</td><td>20202</td><td>トリガ論理が指定可能範囲外です。</td></tr>
+</tr><td>DIO_ERR_SYS_FILTER</td><td>20400</td><td>フィルタ時定数が指定範囲外です。</td></tr>
+</tr><td>DIO_ERR_SYS_8255</td><td>20500</td><td>8255チップ番号が指定可能範囲外です。</td></tr>
+</tr><td>DIO_ERR_SYS_DIRECTION</td><td>50000</td><td>入出力方向が設定範囲外です。</td></tr>
+</tr><td>DIO_ERR_SYS_SIGNAL</td><td>50001</td><td>使用できる信号の範囲外です。</td></tr>
+</tr><td>DIO_ERR_SYS_START</td><td>50002</td><td>使用できるスタート条件の範囲外です。</td></tr>
+</tr><td>DIO_ERR_SYS_CLOCK</td><td>50003</td><td>クロック条件が設定範囲外です。</td></tr>
+</tr><td>DIO_ERR_SYS_CLOCK_VAL</td><td>50004</td><td>クロック値が設定範囲外です。</td></tr>
+</tr><td>DIO_ERR_SYS_CLOCK_UNIT</td><td>50005</td><td>クロック値単位が設定範囲外です。</td></tr>
+</tr><td>DIO_ERR_SYS_STOP</td><td>50006</td><td>ストップ条件が設定範囲外です。</td></tr>
+</tr><td>DIO_ERR_SYS_STOP_NUM</td><td>50007</td><td>停止個数が設定範囲外です。</td></tr>
+</tr><td>DIO_ERR_SYS_RESET</td><td>50008</td><td>リセット内容が設定範囲外です。</td></tr>
+</tr><td>DIO_ERR_SYS_LEN</td><td>50009</td><td>データ個数が設定範囲外です。</td></tr>
+</tr><td>DIO_ERR_SYS_RING</td><td>50010</td><td>バッファ繰り返し使用設定が設定範囲外です。</td></tr>
+</tr><td>DIO_ERR_SYS_COUNT</td><td>50011</td><td>データ転送個数が設定範囲外です。</td></tr>
+</tr><td>DIO_ERR_DM_BUFFER</td><td>50100</td><td>バッファが大きすぎて確保できませんでした。<br>
+バッファが大きすぎてボードに設定できません。<br>
+バッファサイズを小さくしてください。</td></tr>
+</tr><td>DIO_ERR_DM_LOCK_MEMORY</td><td>50101</td><td>メモリがロックできませんでした。<br>
+メモリをロックできません。<br>
+実装メモリを増やすか、バッファサイズを小さくして実行してください。</td></tr>
+</tr><td>DIO_ERR_DM_PARAM</td><td>50102</td><td>パラメータエラー<br>
+関数パラメータのいずれかが、指定可能な範囲を超えています。<br>
+パラメータの値を確認してください。</td></tr>
+</tr><td>DIO_ERR_DM_SEQUENCE</td><td>50103</td><td>実行手順エラー<br>
+関数の実行手順が間違っています。<br>サンプルを参考にして、実行手順を書きなおしてください。</td></tr>
+</table>
+<p>
+
+
+
+<!---------------------------------------------------------------------------------
+コンテンツここまで
+-------------------------------------------------------------------------------->
+</BODY>
+</HTML>

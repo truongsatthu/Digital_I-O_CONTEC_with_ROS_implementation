@@ -1,0 +1,78 @@
+<html>
+<head>
+
+<title>DioOutMultiByte</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+
+<a name=TOPIC_TOP>
+
+<h1>DioOutMultiByte</h1>
+<h2>Function</h2>
+Outputs multiple bytes to the output ports.<br>
+<p>
+<h2>Format</h2>
+Ret = DioOutMultiByte(Id, &PortNo[0], PortNum, &Data[0]);<br> 
+<p>
+<h2>Parameters</h2>
+Id [C:short]<br>
+Specifies the device ID retrieved from DioInit.<br>
+<p>
+PortNo [C:short *]<br>
+Stores the logical output port numbers into an array. Specifies the base address of this array.<br>
+<p>
+PortNum [C:short]<br>
+Specifies the number of ports which are specified by PortNo. The maximum number of ports is 256.<br>
+<p>
+Data [C:unsigned char *]<br>
+Stores the output data into a array. Specifies the base address of this array.<br>
+The output data are specified from 0H to FFH in hexadecimal.<br>
+<p>
+<h2>Return Values</h2>
+Ret [C:long]<br>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>Normal Complete</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>Invalid ID is specified.</td></tr>
+<tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>Driver cannot be called (failed in ioctl).</td></tr>
+<tr><td>DIO_ERR_DLL_BUFF_ADDRESS</td><td>10100</td><td>Invalid data buffer address.</td></tr>
+<tr><td>DIO_ERR_SYS_NOT_SUPPORTED</td><td>20001</td><td>This function cannot be used for this device.</td></tr>
+<tr><td>DIO_ERR_SYS_PORT_NO</td><td>20100</td><td>Port number is outside of the available range.</td></tr>
+<tr><td>DIO_ERR_SYS_PORT_NUM</td><td>20101</td><td>Number of ports is outside of the available range.</td></tr>
+</table>
+The other errors: </a><a href="error_code.htm" target="contents">(See also: Error code details)</a><br>
+<p>
+
+<h2>Initail Values</h2>
+The initial value of the output data is 0, after the device was reset.<br>
+<p>
+<h2>Remarks</h2>
+Outputs multiple bytes to the output ports. Before this function is called, it is necessary that the logical ports numbers to be output are set into the array specified by PortNo.<br>
+The data to be output are stored in the array Data in the order that the logical port are specified by PortNo.<br>
+<p>
+When you want to output data to the same port continuously, the same port numbers are stored in the array PortNo and the data which are to be continuously output are stored in the array Data sequentially.<br>
+In this case, the maximum number of ports and the maximum number of data are 256.<br>
+When the type of the device is isolation, before output the data, it need to wait the data are really output. Therefore, only with the output device of TTL level, this usage is valid.<br>
+<p>
+<h2>Example</h2>
+<pre>
+C       Ret = DioOutMultiByte(Id, &amp;PortNo[0], PortNum, &amp;Data[0]);
+</pre>
+<p>
+<h2>See Also</h2>
+<a href="DioOutByte.htm" target="contents">DioOutByte</a><br>
+<a href="DioOutBit.htm" target="contents">DioOutBit</a><br>
+<a href="DioOutMultiBit.htm" target="contents">DioOutMultiBit</a><br>
+<a href="logical_port.htm" target="contents">Ligical Port</a><br>
+<p>
+
+</BODY>
+</HTML>

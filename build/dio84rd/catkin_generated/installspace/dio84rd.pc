@@ -1,0 +1,8 @@
+prefix=/home/tim/DIGITAL-INPUT-OUTPUT/install
+
+Name: dio84rd
+Description: Description of dio84rd
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/tim/DIGITAL-INPUT-OUTPUT/install/lib 
+Requires: 

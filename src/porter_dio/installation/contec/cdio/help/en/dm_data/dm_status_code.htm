@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Status list</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+
+<a name=TOPIC_TOP>
+
+<h1>Status list</h1>
+<p>
+Statuses acquired by the status acquisition function (DioDmGetStatus) are explained.<br>
+Statuses are expressed as the logical sums shown below.<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="70">Value</th>
+<th width="80">Input/output</th>
+<th width="60">Types</th>
+<th width="400">Contents</th>
+</tr>
+</tr><td>DIODM_STATUS_BMSTOP</td><td>00000001h</td><td>Input/output</td><td>Information</td><td>Indicates that BusMaster transfer is complete.</td></tr>
+</tr><td>DIODM_STATUS_PIOSTART</td><td>00000002h</td><td>Input/output</td><td>Information</td><td>Indicates that PIO input/output has started.</td></tr>
+</tr><td>DIODM_STATUS_PIOSTOP</td><td>00000004h</td><td>Input/output</td><td>Information</td><td>Indicates that PIO input/output has stopped.</td></tr>
+</tr><td>DIODM_STATUS_TRGIN</td><td>00000008h</td><td>Input/output</td><td>Information</td><td>Indicates that the start signal is inserted by external start.</td></tr>
+</tr><td>DIODM_STATUS_OVERRUN</td><td>00000010h</td><td>Input/output</td><td>Warning</td><td>Indicates that start signals are inserted twice or more by external start.<br>
+																						Transfer can be continued without difficulty.<br>
+																						Ignore it if there is no problem with the external connection signal specification.</td></tr>
+
+</table>
+<p>
+
+</BODY>
+</HTML>

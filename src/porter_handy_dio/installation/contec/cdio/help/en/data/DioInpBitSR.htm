@@ -1,0 +1,91 @@
+<html>
+<head>
+
+<title>DioInpBitSR</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+
+<a name=TOPIC_TOP>
+
+<h1>DioInpBitSR</h1>
+
+<h2>Function</h2>
+Inputs a bit from a input port on the wireless I/O device.<br>
+<p>
+<h2>Format</h2>
+Ret = DioInpBitSR(Id, BitNo, &Data, &Timestamp, Mode)<br> 
+<p>
+<h2>Paramters</h2>
+Id [C:short]<br>
+Specifies the device ID retrieved from DioInit.<br>
+<p>
+BitNo [C:short]<br>
+Specifies the logical input bit number.<br>
+The logical input bit number is a number, which is assigned from the first input bit of the device as 0 to the last one serially.<br>
+<p>
+Data [C: unsigned char *]<br>
+Specifies the address of variable to store the input datum.<br>
+<p>
+Timestamp [C: unsigned short *]<br>
+Specify the address of the variable to store the timestamp.<br>
+<p>
+Mode [C: unsigned char]<br>
+Specify where to refer to the input data.<br>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Definition</th>
+<th width="30">Value[Dec]</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIONET_MODE_DIRECT</td><td>0</td><td>Refer to the input data of Terminal.</td></tr>
+<tr><td>DIONET_MODE_AP</td><td>1</td><td>Refer to the input data of Gateway.</td></tr>
+</table>
+<p>
+<h2>Return Values</h2>
+Ret[C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>Normal Complete</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>Invalid ID is specified.</td></tr>
+<tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>Driver cannot be called (failed in ioctl).</td></tr>
+<tr><td>DIO_ERR_DLL_BUFF_ADDRESS</td><td>10100</td><td>Invalid data buffer address.</td></tr>
+<tr><td>DIO_ERR_SYS_NOT_SUPPORTED</td><td>20001</td><td>This function cannot be used for this device.</td></tr>
+<tr><td>DIO_ERR_SYS_BIT_NO</td><td>20102</td><td>Bit number is outside of the available range.</td></tr>
+</table>
+The other errors: </a><a href="error_code.htm" target="contents">(See also: Error code details)</a><br>
+<p>
+<h2>Initial Values</h2>
+The initial value of the input datum is 0, if no external device is connected.<br>
+<p>
+<h2>Remarks</h2>
+Inputs a bit from the input port. The returned bit datum is either 0 or 1.<br>
+To acquire data, there are two methods. One is acquiring data stored in master unit, the other one is acquiring data directly from slave unit.<br>
+Please refer to the <a href="wirelessIO_spec.htm">wireless I/O specification</a> for features of each acquisition method.</p>
+<br>
+For the data acquisition method, when acquiring the data stored in the master unit, you can acquire the time stamp of the data stored in the master unit.<br>
+The time stamp returns the time since the last update in seconds.<br>
+If the time stamp is longer than the update interval of the slave unit, the data from the slave unit is not reaching the master unit for some reason.<br>
+Please use it to check the validity of the data saved in the master unit.<br>
+<p>
+<h2>Example</h2>
+<pre>
+C       Ret = DioInpBitSR(Id, BitNo, &amp;Data, &amp;Timestamp, Mode);
+</pre>
+<p>
+<h2>See Also</h2>
+<a href="DioInpByteSR.htm" target="contents">DioInpByteSR</a><br>
+<a href="DioInpMultiByteSR.htm" target="contents">DioInpMultiByteSR</a><br>
+<a href="DioInpMultiBitSR.htm" target="contents">DioInpMultiBitSR</a><br>
+<a href="logical_bit.htm" target="contents">Logical Bit</a><br>
+<p>
+
+</BODY>
+</HTML>

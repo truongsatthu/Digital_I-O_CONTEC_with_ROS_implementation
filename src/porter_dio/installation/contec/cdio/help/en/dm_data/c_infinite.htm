@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Console: infinite</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+<h1>Console: infinite</h1>
+<p>
+This is a program that executes the sampling of infinite transfer.<br>
+Input a number of the menu list for selecting the menu.<br>
+The menu is arranged by executing sequence.<br>
+The sampling data is written to "infinite.txt".<br>
+The data is appended into this file.<br>
+<br>
+<h2>Supplement</h2>
+"Overrun Error!" may be displayed in transferring.<br>
+It expresses that the data is invalid which is written to buffer more than once time<br>
+after last performance "DioDmGetCount()".<br>
+Data transfer is continuing, but data are not written to file.<br>
+In this case, you try to increase the buffer size.<br>
+<br>
+<h2>*Notice</h2>
+Please do not change a terminal in size with the sample which used the curses library.<br>
+A hang-up or a segmentation error may be caused under the influence of a curses library.<br>
+<p>
+</BODY>
+</HTML>

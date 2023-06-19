@@ -1,0 +1,71 @@
+<html>
+<head>
+<!--見出しと同じものをタイトルにします-->
+<title>PDIO_DM_STOP_CALLBACK</title>
+<!--META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=shift-jis"-->
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<!---------------------------------------------------------------------------------
+ここにコンテンツを記載
+-------------------------------------------------------------------------------->
+
+<!--ページが長くなったときにトップへ戻るジャンプを付ける場合のリンク名です-->
+<a name=TOPIC_TOP>
+<!-===============================================================================-->
+<!-見出し-->
+<!-===============================================================================-->
+<h1>PDIO_DM_STOP_CALLBACK</h1>
+<h2>■機能</h2>
+転送完了コールバックの形式です。<br>
+<p>
+<h2>■書式</h2>
+CallBackProc(Id, Message, Dir, Param);<br>
+<p>
+<h2>■引数</h2>
+Id [C:short]<br>
+DioInitで取得したデバイスIDが渡されます。<br>
+<p>
+Message [C：short]<br>
+コールバック関数呼び出しの原因となるメッセージ番号が渡されます。<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="60">定義</th>
+<th width="60">値</th>
+</tr>
+<tr><td>DIO_DMM_STOP</td><td>1400H</td></tr>
+</table>
+<br>
+Dir [C:unsigned long]<br>
+転送方向が渡されます。<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="250">意味</th>
+</tr>
+<tr><td>DIODM_DIR_IN</td><td>0x01</td><td>入力</td></tr>
+<tr><td>DIODM_DIR_OUT</td><td>0x02</td><td>出力</td></tr>
+</table>
+<br>
+Param [C:void *]<br>
+DioDmSetStopEventで渡した任意の引数が渡されます。<br>
+<br>
+<p>
+<h2>■戻り値</h2>
+なし<br>
+<p>
+<h2>■説明</h2>
+転送完了コールバック関数の実体定義は、この書式で行ってください。<br>
+<p>
+<h2>■関連項目</h2>
+<a href="DioDmSetStopEvent.htm" target="contents">DioDmSetStopEvent</a><br>
+<p>
+<!---------------------------------------------------------------------------------
+コンテンツここまで
+-------------------------------------------------------------------------------->
+</BODY>
+</HTML>

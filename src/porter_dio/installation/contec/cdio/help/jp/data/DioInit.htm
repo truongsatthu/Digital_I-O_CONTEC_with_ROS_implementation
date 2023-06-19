@@ -1,0 +1,82 @@
+<html>
+<head>
+<!--見出しと同じものをタイトルにします-->
+<title>DioInit</title>
+<!--META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=shift-jis"-->
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<!---------------------------------------------------------------------------------
+ここにコンテンツを記載
+-------------------------------------------------------------------------------->
+
+<!--ページが長くなったときにトップへ戻るジャンプを付ける場合のリンク名です-->
+<a name=TOPIC_TOP>
+<!-===============================================================================-->
+<!-見出し-->
+<!-===============================================================================-->
+<h1>DioInit</h1>
+<h2>■機能</h2>
+デバイスIDを取得して、デバイスをアクセス可能にします。<br>
+<p>
+<h2>■書式</h2>
+Ret = DioInit(DeviceName, &Id);<br>
+<p>
+<h2>■引数</h2>
+DeviceName [C:char *]<br>
+設定ツール(config)で設定したデバイス名を指定します。<br>
+デバイス名は最大50文字(NULL含む)までです。<br>
+<p>
+Id [C:short *]<br>
+デバイスIDを返します。以降の関数では、このデバイスIDを使用して、デバイスにアクセスします。<br>
+<p>
+<h2>■戻り値</h2>
+Ret [C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="250">意味</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>正常終了</td></tr>
+<tr><td>DIO_ERR_INI_MEMORY</td><td>3</td><td>メモリの割り当てに失敗しました。</td></tr>
+<tr><td>DIO_ERR_INI_REGISTRY</td><td>4</td><td>設定ファイルのアクセスに失敗しました。</td></tr>
+<tr><td>DIO_ERR_INI_BOARD_ID</td><td>5</td><td>ボードIDが重複しています。</td></tr>
+<tr><td>DIO_ERR_DLL_DEVICE_NAME</td><td>10000</td><td>設定ファイルに登録されていないデバイス名が指定されました。</td></tr>
+<tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>ドライバを呼び出せません(ioctlに失敗)。</td></tr>
+<tr><td>DIO_ERR_DLL_CREATE_FILE</td><td>10003</td><td>ファイルの作成に失敗しました(openに失敗)。</td></tr>
+<tr><td>DIO_ERR_INFO_INVALID_DEVICE</td><td>10050</td><td>指定したデバイス名称が見つかりません。スペルを確認してください。</td></tr>
+<tr><td>DIO_ERR_INFO_NOT_FIND_DEVICE</td><td>10051</td><td>利用可能なデバイスが見つかりません。</td></tr>
+</table>
+その他のエラー：<a href="error_code.htm" target="contents">（参照：エラーコード詳細）</a><br>
+<p>
+<h2>■初期値</h2>
+なし<br>
+<p>
+<h2>■説明</h2>
+デバイスIDを取得して、デバイスをアクセス可能にします。<br>
+以降の関数では、このデバイスIDを使用して、デバイスにアクセスします。<br>
+複数のデバイスをアクセスする場合、Idを格納する変数を複数用意してください。<br>
+DioInitが正常終了した後、DioExitが呼び出されるまで、各機能関数が使用できます。<br>
+<p>
+<h2>■使用例</h2>
+デバイス"DIO000"を初期化して、Idを取得します。<br>
+<p>
+<pre>
+C     Ret = DioInit("DIO000", &Id);
+</pre>
+<h2>■制限事項</h2>
+ひとつのボードに対してアクセスできるのは16プロセスまでです。<br>
+BusMaster対応ボードの場合は1プロセスのみアクセスできます。<br>
+同一プロセスで複数のスレッドからアクセスする場合には制限はありません。<br>
+<p>
+<h2>■関連項目</h2>
+<a href="DioExit.htm" target="contents">DioExit</a><br>
+
+<!---------------------------------------------------------------------------------
+コンテンツここまで
+-------------------------------------------------------------------------------->
+</BODY>
+</HTML>

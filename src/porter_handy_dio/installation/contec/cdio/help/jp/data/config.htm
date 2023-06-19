@@ -1,0 +1,149 @@
+<html>
+<head>
+<!--見出しと同じものをタイトルにします-->
+<title>設定ツール(コンフィグレーション)について</title>
+<!--META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=shift-jis"-->
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<!---------------------------------------------------------------------------------
+ここにコンテンツを記載
+-------------------------------------------------------------------------------->
+
+<!--ページが長くなったときにトップへ戻るジャンプを付ける場合のリンク名です-->
+<a name=TOPIC_TOP>
+<!-===============================================================================-->
+<!-見出し-->
+<!-===============================================================================-->
+<h1>設定ツール(コンフィグレーション)について</h1>
+<p>
+コンフィグレーションは、デバイスにアクセスする際に使用するデバイス名を設定するツールで、
+一部デバイスのハードウェア設定やファームウェア更新にも使用します。<br>
+キャラクタベースで、メニューから数字またはアルファベットでコマンドを選択することにより、設定操作を行います。<br>
+<p>
+API-DIO(LNX)は、ドライバを起動して、設定ファイル(contec_dio.conf)を/procにコピー
+することにより、デバイスを使用可能になります。<br>
+デバイスドライバの起動と停止は、ドライバ起動スクリプト(contec_dio_start.sh)と
+ドライバ停止スクリプト(contec_dio_stop.sh)によって行います。<br>
+コンフィグレーションは、設定ファイルと共に、これらのスクリプトファイルを生成します。<br>
+<p>
+<h2 style="color: #800040;">■起動オプション</h2>
+設定メニューは、環境変数LANGの値により日本語と英語を切り替えていますが、起動時にオプション
+を指定することで、メニューの言語を選択できます。
+<pre style="padding-left:2em">
+-j : メニューを日本語で表示
+-e : メニューを英語で表示
+</pre>
+<p>
+<h2 style="color: #800040;">■起動画面例</h2>
+コンフィグレーションを起動すると、以下のような画面が表示されます。
+<pre style="padding-left:2em">
+#./config
+----------------------------------
+CONTEC API-DIO(LNX) Configuration
+----------------------------------
+メッセージ： デバイスを検出中です。
+............................................................................
+-------------------------------------------------------------------------------
+ デバイス一覧
+-------------------------------------------------------------------------------
+    DeviceName  Product Name        ID            IP/Master IP    Status
+[1]:  DIO000    PIO-32/32L(PCI)H    0
+[2]:  DIO001    CPSN-DI-08L         0             192.168.0.101
+-------------------------------------------------------------------------------
+[#]:デバイス選択     [o]:リスト並べ替え      [r]:デバイスリスト再検出
+[d]:デバイス削除     [a]:デバイス手動追加
+[s]:設定の保存       [q]:終了
+設定を行うデバイスを選択してください。
+コマンド入力:
+</pre>
+<h2 style="color: #800040;">■設定コマンド</h2>
+コンフィグレーションで使用するコマンドを紹介します。<br>
+<u>実行できるコマンドは、対象のデバイスにより異なります。</u></p>
+
+<h2 style="padding-left:1em">
+DeviceNameの変更</h2>
+<div style="padding-left:2em">
+デバイス名を設定します。<br>
+他のデバイスと同じ名前を付けることはできません。<br>
+アプリケーションからデバイスを指定する際は、このデバイス名を指定します。</div>
+
+<h2 style="padding-left:1em">
+ネットワーク設定</h2>
+<div style="padding-left:2em">
+有線LANネットワークの設定を行います。</div>
+
+<h2 style="padding-left:1em">
+920MHz無線設定</h2>
+<div style="padding-left:2em">
+920MHz無線通信に関連する設定を行います。<br>
+<b>Wireless Channel</b><br><div style="padding-left:1em">
+920MHz帯通信の使用チャンネルを設定します。<br></div>
+<b>PAN ID</b><br><div style="padding-left:1em">
+920MHz帯通信の使用PAN IDを設定します。<br>
+「その他の設定」のDevice Modeを「CONPROSYS mode」に設定する場合は 0 固定になります。<br></div>
+<b>Tx Power</b><br><div style="padding-left:1em">
+送信出力を設定します。<br>
+通常は初期値の 20(mW) で使用します。<br></div>
+<b>Bit Rate</b><br><div style="padding-left:1em">
+ビットレート（通信速度）を設定します。<br>
+通常は初期値の 100(Kbps) で使用します。<br></div>
+<b>Request Timeout</b><br><div style="padding-left:1em">
+親機と子機間の通信タイムアウト時間を設定します。<br>
+通常は初期値の 3000(ミリ秒) で使用します。<br></div>
+<b>Encryption Key</b><br><div style="padding-left:1em">
+親機と子機間の通信で使用する暗号化キーを設定します。<br>
+32桁の16進数で指定し、初期値はすべて 0 です。<br>
+親機と子機が通信するには、Encryption Keyに同じ値が設定されている必要があります。<br></div>
+</div>
+
+<h2 style="padding-left:1em">
+フェイルセーフ設定</h2>
+<div style="padding-left:2em">
+フェイルセーフ機能の設定を行います。<br>
+<b>Event Trigger</b><br><div style="padding-left:1em">
+フェイルセーフ状態を発動する条件を設定します。<br>
+LinkdownはLANケーブルが断線するなどネットワークのリンクダウンを条件にします。<br>
+NoAccessは一定時間アクセスが無かった場合を条件にします。<br></div>
+<b>Failsafe OutBit</b><br><div style="padding-left:1em">
+フェイルセーフ機能で出力を行う出力端子を指定します。<br>
+16進数で指定し、ビットが1の出力端子から出力を行います。<br>
+※設定例：　出力端子0,1,2,3を使用する場合、Fを指定します<br></div>
+<b>Pattern Setting</b><br><div style="padding-left:1em">
+フェイルセーフ機能で出力する出力データを指定します。<br>
+16進数で指定し、FailSafe OutBit で1が指定されている出力端子から0または1の出力を行います。<br>
+※設定例：　出力端子0,1,2,3の出力を「0,1,0,1」にする場合、Aを指定します<br></div>
+<b>Start wait time</b><br><div style="padding-left:1em">
+電源投入後、フェイルセーフ機能を無効にする時間を設定します。<br>
+ここで設定した時間が経過後に、フェイルセーフ機能が有効になります。<br></div>
+</div>
+
+<h2 style="padding-left:1em">
+その他の設定</h2>
+<div style="padding-left:2em">
+<b>Unit ID</b><br><div style="padding-left:1em">
+同じ製品を複数使用する場合、番号が重複しないように値を設定します。<br></div>
+<b>Device ID</b><br><div style="padding-left:1em">
+1台の親機で子機を複数使用する場合、子機の番号が重複しないように値を設定します。<br></div>
+<b>Digital Filter</b><br><div style="padding-left:1em">
+電源投入時のデジタルフィルタ値を設定します。<br>
+API-DIO(WDM)ドライバで使用する場合、本設定とは別に、API関数でも随時設定が可能です。<br></div>
+<b>Data Interval</b><br><div style="padding-left:1em">
+デバイスの入力値を自身の親機へ送信する時間間隔を設定します。<br></div>
+<b>Device Mode</b><br><div style="padding-left:1em">
+通常は初期値の「Wireless I/O mode」で使用します。<br>
+当社製品CONPROSYSシリーズの子機として使用する場合「CONPROSYS mode」を選択します。<br></div>
+<b>Modbus Function</b><br><div style="padding-left:1em">
+Modbus機能の有効無効を設定します。<br>
+Modbus TCP Slaveに対応し、Modbusマスター機能を持つ上位通信機器からのデータ収集や制御を行うことができます。<br>
+初期値は Enabled（有効） です。<br></div>
+</div>
+
+<p>&nbsp;</p>
+
+<!---------------------------------------------------------------------------------
+コンテンツここまで
+-------------------------------------------------------------------------------->
+</BODY>
+</HTML>

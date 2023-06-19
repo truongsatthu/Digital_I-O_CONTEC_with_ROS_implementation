@@ -1,0 +1,111 @@
+<html>
+<head>
+
+<title>DioSetDigitalFilter</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+
+<h1>DioSetDigitalFilter</h1>
+<h2>Function</h2>
+Sets digital filter.<br> 
+<p>
+<h2>Format</h2>
+Ret = DioSetDigitalFilter(Id, FilterValue);<br>  
+<p>
+<h2>Parameters</h2>
+Id [C:short]<br> 
+Specifies the device ID retrieved from DioInit.<br> 
+<p>
+FilterValue [C:short]<br>
+Specifies the filter coefficient.<br>
+Selects the filter coefficient in the following list depending on the device type.<br>
+<p>
+PIO multi-series: PIO-64/64L(PCI), PI-128L(PCI)<br>
+PIO H series: PIO-XX(XX)H(except PIO-32/32B(PCI)H), PI-XX(XX)H, PIO-16/16RY(PCI), DIO-XXXX-PE, DI-XX-PE<br>
+DIO-XXXXLX-USB<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="60">Coefficient</th>
+<th width="60">Value</th>
+<th width="60">Coefficient</th>
+<th width="60">Value</th>
+</tr>
+<tr><td>0</td><td>No Filter</td><td>  &nbsp;  </td><td>  &nbsp;  </td></tr>
+<tr><td>1</td><td>0.25[us]</td><td>11</td><td>256[us]</td></tr>
+<tr><td>2</td><td>0.50[us]</td><td>12</td><td>512[us]</td></tr>
+<tr><td>3</td><td>1.0[us]</td><td>13</td><td>1.024[ms]</td></tr>
+<tr><td>4</td><td>2.0[us]</td><td>14</td><td>2.048[ms]</td></tr>
+<tr><td>5</td><td>4.0[us]</td><td>15</td><td>4.096[ms]</td></tr>
+<tr><td>6</td><td>8.0[us]</td><td>16</td><td>8.192[ms]</td></tr>
+<tr><td>7</td><td>16[us]</td><td>17</td><td>16.384[ms]</td></tr>
+<tr><td>8</td><td>32[us]</td><td>18</td><td>32.768[ms]</td></tr>
+<tr><td>9</td><td>64[us]</td><td>19</td><td>65.536[ms]</td></tr>
+<tr><td>10</td><td>128[us]</td><td>20</td><td>131.072[ms]</td></tr>
+</table>
+<p>PCI bus board with <a name=TOPIC_TOP>
+
+ASIC</a>:	PIO-32/32L(PCI), PIO-32/32T(PCI), PIO-32/32F(PCI),PIO-32/32B(PCI)H,<br> 
+			PIO-16/16L(PCI), PIO-16/16T(PCI), PIO-16/16TB(PCI), PIO-16/16B(PCI),<br> 
+			PI-64L(PCI), PI-32L(PCI), PI-32B(PCI)<br> 
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="60">Coefficient</th>
+<th width="60">Value</th>
+<th width="60">Coefficient</th>
+<th width="60">Value</th>
+</tr>
+<tr><td>0</td><td>No Filter</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>1</td><td>0.125[us]</td><td>11</td><td>128[us]</td></tr>
+<tr><td>2</td><td>0.25[us]</td><td>12</td><td>256[us]</td></tr>
+<tr><td>3</td><td>0.50[us]</td><td>13</td><td>512[us]</td></tr>
+<tr><td>4</td><td>1.0[us]</td><td>14</td><td>1.024[ms]</td></tr>
+<tr><td>5</td><td>2.0[us]</td><td>15</td><td>2.048[ms]</td></tr>
+<tr><td>6</td><td>4.0[us]</td><td>16</td><td>4.096[ms]</td></tr>
+<tr><td>7</td><td>8.0[us]</td><td>17</td><td>8.192[ms]</td></tr>
+<tr><td>8</td><td>16[us]</td><td>18</td><td>16.384[ms]</td></tr>
+<tr><td>9</td><td>32[us]</td><td>19</td><td>32.768[ms]</td></tr>
+<tr><td>10</td><td>64[us]</td><td>20</td><td>65.536[ms]</td></tr>
+</table>
+
+<h2>Return Values</h2>
+Ret[C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>Normal Complete</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>Invalid ID is specified.</td></tr>
+<tr><td>DIO_ERR_SYS_FILTER</td><td>20400</td><td>Filter time constant is outside of the specified range.</td></tr>
+</table>
+The other errors: <a href="error_code.htm" target="contents">(See also: Error code details)</a><br>
+
+<h2>Initial Values</h2>
+Filter coefficient is 0. Digital filter is invalid.<br> 
+<p>
+<h2>Remarks</h2>
+Digital filter is a hardware function that makes the input value not change when the input bit doesn't remain ON or OFF in a certain period of time.<br> 
+By using digital filter, the invalid input signals produced by the noise and chattering could be cut.<br> 
+After considering the length of the device's chattering connecting at the external and the length of valid signals and so on, you could select which digit of time should be specified to be the coefficient.<br> 
+<p>
+<h2>Example</h2>
+<pre>
+C       Ret = DioSetDigitalFilter(Id, FilterValue);
+</pre>
+<h2>See Also</h2>
+<a href="DioInpByte.htm" target="contents">DioInpByte</a><br>
+<a href="DioInpBit.htm" target="contents">DioInpBit</a><br>
+<a href="DioInpMultiByte.htm" target="contents">DioInpMultiByte</a><br>
+<a href="DioInpMultiBit.htm" target="contents">DioInpMultiBit</a><br>
+<a href="DioSetInterruptEvent.htm" target="contents">DioSetInterruptEvent</a><br>
+
+</BODY>
+</HTML>

@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>DioGetIoDirection</title>
+<!--META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=shift-jis"-->
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+<h1>DioGetIoDirection</h1>
+
+<h2>Function</h2>
+Retrieves I/O direction of I/O ports.<br>
+<p>
+<h2>Format</h2>
+Ret = DioGetIoDirection(Id, Dir)<br>
+<p>
+<h2>Parameters</h2>
+Id [C:short]<br>
+Specify the device ID retrieved from DioInit.<br>
+<p>
+Dir [C: long *]<br>
+Specify the address of the variable to store the I/O direction.<br>
+<p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="60">D7</th>
+<th width="60">D6</th>
+<th width="60">D5</th>
+<th width="60">D4</th>
+<th width="60">D3</th>
+<th width="120">D2</th>
+<th width="120">D1</th>
+<th width="120">D0</th>
+</tr>
+<tr><td align="center">&nbsp;</td><td align="center">&nbsp;</td><td align="center">&nbsp;</td><td align="center">&nbsp;</td><td align="center">&nbsp;</td><td align="center">Port2</td><td align="center">Port1</td><td align="center">Port0</td></tr>
+<tr><td align="center">&nbsp;</td><td align="center">&nbsp;</td><td align="center">&nbsp;</td><td align="center">&nbsp;</td><td align="center">&nbsp;</td><td align="center">&nbsp;</td><td align="center">&nbsp;</td><td align="center">0:Input</td></tr>
+<tr><td align="center">&nbsp;</td><td align="center">&nbsp;</td><td align="center">&nbsp;</td><td align="center">&nbsp;</td><td align="center">&nbsp;</td><td align="center">&nbsp;</td><td align="center">&nbsp;</td><td align="center">1:Output</td></tr>
+</table>
+
+<p>
+Bit = 0: Input<br>
+Bit = 1: Output<br>
+<p>
+
+<h2>Return Values</h2>
+Ret[C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>Normal Complete</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>Invalid ID is specified.</td></tr>
+<tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>Driver cannot be called (failed in ioctl).</td></tr>
+<tr><td>DIO_ERR_SYS_NOT_SUPPORTED</td><td>20001</td><td>This function cannot be used for this device.</td></tr>
+</table>
+The other errors: </a><a href="error_code.htm" target="contents">(See also: Error code details)</a><br>
+<p>
+<h2>Remarks</h2>
+Please use the DioGet8255Mode function for the board with 8255.<br>
+<p>
+<h2>Example</h2>
+<pre>
+C       Ret = DioGetIoDirection(Id, &Data);
+</pre>
+<p>
+<h2>See Also</h2>
+<a href=DioSetIoDirection .htm" target="contents">DioSetIoDirection</a><br>
+<p>
+</BODY>
+</HTML>

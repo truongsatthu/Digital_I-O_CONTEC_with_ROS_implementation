@@ -1,0 +1,100 @@
+<html>
+<head>
+<!--見出しと同じものをタイトルにします-->
+<title>DioDmSetStartTrg</title>
+<!--META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=shift-jis"-->
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<!---------------------------------------------------------------------------------
+ここにコンテンツを記載
+-------------------------------------------------------------------------------->
+
+<!--ページが長くなったときにトップへ戻るジャンプを付ける場合のリンク名です-->
+<a name=TOPIC_TOP>
+<!-===============================================================================-->
+<!-見出し-->
+<!-===============================================================================-->
+<h1>DioDmSetStartTrg</h1>
+<h2>■機能</h2>
+サンプリング、ジェネレーティングのスタート条件を設定します。<br>
+<p>
+<h2>■書式</h2>
+Ret =DioDmSetStartTrg(Id, Dir, Start);<br>
+<p>
+<h2>■引数</h2>
+Id [C:short];<br>
+DioInitで取得したデバイスIDを指定します。<br>
+<br>
+Dir [C:unsigned long]<br>
+転送方向を設定してください。<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="250">意味</th>
+</tr>
+<tr><td>DIODM_DIR_IN</td><td>0x01</td><td>入力</td></tr>
+<tr><td>DIODM_DIR_OUT</td><td>0x02</td><td>出力</td></tr>
+</table>
+<br>
+Start [C:unsigned long]<br>
+スタート条件を設定してください。<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="250">意味</th>
+</tr>
+<tr><td>DIODM_START_SOFT</td><td>1</td><td>ソフトスタート</td></tr>
+<tr><td>DIODM_START_EXT_RISE</td><td>2</td><td>外部トリガ立ち上がり</td></tr>
+<tr><td>DIODM_START_EXT_FALL</td><td>3</td><td>外部トリガ立ち下り</td></tr>
+<tr><td>DIODM_START_PATTERN</td><td>4</td><td>パターン一致(入力のみ）</td></tr>
+<tr><td>DIODM_START_EXTSIG_1</td><td>5</td><td>SCコネクタEXTSIG1</td></tr>
+<tr><td>DIODM_START_EXTSIG_2</td><td>6</td><td>SCコネクタEXTSIG2</td></tr>
+<tr><td>DIODM_START_EXTSIG_3</td><td>7</td><td>SCコネクタEXTSIG3</td></tr>
+</table>
+<br>
+EXTSIG1～EXTSIG3はスレーブ時のみ有効です。<br>
+<p>
+<h2>■戻り値</h2>
+Ret [C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">定義</th>
+<th width="60">値</th>
+<th width="250">意味</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>正常終了</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>無効なIDが指定されました。</td></tr>
+<tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>ドライバを呼び出せません(ioctlに失敗)。</td></tr>
+<tr><td>DIO_ERR_SYS_DIRECTION</td><td>50000</td><td>入出力方向が設定範囲外です。</td></tr>
+<tr><td>DIO_ERR_SYS_START</td><td>50002</td><td>使用できるスタート条件の範囲外です。</td></tr>
+</table>
+その他のエラー：<a href="../data/error_code.htm" target="contents">（参照：エラーコード詳細）</a><br>
+<p>
+<h2>■初期値</h2>
+デフォルトはソフトスタートです。<br>
+<p>
+<h2>■説明</h2>
+アプリケーションの動作を一定にするために、スタート条件は必ず設定してください。<br>
+スタート条件にパターン一致を指定した場合、DioDmSetStartPattern関数で比較パターンを設定してください。<br>
+<br>
+<p>
+<h2>■使用例</h2>
+<p>
+<pre>
+C       Ret =DioDmSetStartTrg(Id, DIODM_DIR_IN, DIODM_START_SOFT);
+</pre>
+<h2>■関連項目</h2>
+<a href="DioDmSetStartPattern.htm" target="contents">DioDmSetStartPattern</a><br>
+<p>
+<!---------------------------------------------------------------------------------
+コンテンツここまで
+-------------------------------------------------------------------------------->
+</BODY>
+</HTML>

@@ -1,0 +1,58 @@
+<html>
+<head>
+
+<title>DioQueryDeviceName</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+
+<h1>DioQueryDeviceName</h1>
+<h2>Function</h2>
+Retrieves the list of the devices which are available for use.<br>
+<p>
+<h2>Format</h2>
+Ret = DioQueryDeviceName(Index, DeviceName, Device)<br> 
+<p>
+<h2>Parameters</h2>
+Index [C:short]<br>
+This parameter should be zero for the first call and then be incremented for subsequent calls.<br>
+<p>
+DeviceName [C:char*]<br>
+Returns device name. (For example: &quot;DIO000&quot;)<br>
+<p>
+Device [C:char*]<br>
+Returns board name. (For example: PIO-32/32L(PCI))<br>
+<p>
+<h2>Return Values</h2>
+Ret [C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>Normal Complete</td></tr>
+<tr><td>DIO_ERR_INFO_NOT_FIND_DEVICE</td><td>10051</td><td>The usable device isn't found.</td></tr>
+</table>
+The other errors: </a><a href="error_code.htm" target="contents">(See also: Error code details)</a><br>
+<p>
+
+<h2>Remarks</h2>
+This function can be used when you are creating a general-purpose application about the selected device to be used.<br>
+The Index is set to zero for the first call. And then it should be incremented for subsequent calls until the function returns error.<br>
+<p>
+<h2>Example</h2>
+<pre>
+C       Ret = DioQueryDeviceName(Index, DeviceName, Device);
+</pre>
+<h2>See Also</h2>
+None<br>
+<p>
+
+
+</BODY>
+</HTML>

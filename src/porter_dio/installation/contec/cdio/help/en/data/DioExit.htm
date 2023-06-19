@@ -1,0 +1,56 @@
+<html>
+<head>
+
+<title>DioExit</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+
+<h1>DioExit</h1>
+<h2>Function</h2>
+Device cannot be accessed after the exit processing is performed.<br>
+<p>
+<h2>Format</h2>
+Ret = DioExit(Id);<br>  
+<p>
+<h2>Parameters</h2>
+Id [C:short]<br> 
+Specifies the device ID retrieved from DioInit.<br>
+<p>
+<h2>Return Values</h2>
+Ret [C:long]<br> 
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>Normal Complete</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>Invalid ID is specified.</td></tr>
+<tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>Driver cannot be called (failed in ioctl).</td></tr>
+<tr><td>DIO_ERR_DLL_CLOSE_FILE</td><td>10004</td><td>Failed in closing file (close failed).</td></tr>
+</table>
+The other errors: </a><a href="error_code.htm" target="contents">(See also: Error code details)</a><br>
+<p>
+<h2>Initial Values</h2>
+None<br>
+<p>
+<h2>Remarks</h2>
+If the device ID retrieved from DioInit is invalid, the device cannot be accessed.<br>
+Each function except DioInit cannot be used after this function is called.<br>
+<p>
+<h2>Example</h2>
+<p>
+<pre>
+C       Ret = DioExit(Id);
+</pre>
+<h2>See Also</h2>
+<a href="DioInit.htm" target="contents">DioInit</a><br>
+<p>
+
+</BODY>
+</HTML>

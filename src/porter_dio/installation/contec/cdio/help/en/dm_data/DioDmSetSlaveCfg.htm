@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>DioDmSetSlaveCfg</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+<h1>DioDmSetSlaveCfg</h1>
+<h2>Function</h2>
+Sets the specified device to slave. Sets whether the synchronization control signal is used or not.<br>
+<p>
+<h2>Format</h2>
+Ret =DioDmSetSlaveCfg(Id,ExtSig1,ExtSig2,ExtSig3,MasterHalt,SlaveHalt);<br>
+<p>
+<h2>Parameters</h2>
+Id [C:short]<br>
+Specifies the device ID retrieved from DioInit.<br>
+<br>
+ExtSig1 [C:unsigned long]<br>
+ExtSig2 [C:unsigned long]<br>
+ExtSig3 [C:unsigned long]<br>
+Specify whether the synchronization signal line is valid or not.<br>
+<br>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="60">Value</th>
+<th width="60">Description</th>
+</tr>
+<tr><td>0</td><td>Invalid</td></tr>
+<tr><td>1</td><td>Valid</td></tr>
+</table>
+<br>
+MasterHalt [C:unsigned long]<br>
+1:Fixed(Valid)<br>
+<br>
+SlaveHalt [C:unsigned long]<br>
+1:Fixed(Valid)<br>
+<p>
+<h2>Return values</h2>
+Ret [C:long]<br>
+<p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr bgcolor="#eeeeee">
+<th width="180">Define</th>
+<th width="60">Value</th>
+<th width="250">Description</th>
+</tr>
+<tr><td>DIO_ERR_SUCCESS</td><td>0</td><td>Normal Complete</td></tr>
+<tr><td>DIO_ERR_DLL_INVALID_ID</td><td>10001</td><td>Invalid ID is specified.</td></tr>
+<tr><td>DIO_ERR_DLL_CALL_DRIVER</td><td>10002</td><td>Driver cannot be called (failed in ioctl).</td></tr>
+<tr><td>DIO_ERR_SYS_SIGNAL</td><td>50001</td><td>Outside the range of the signal.</td></tr>
+</table>
+The other errors: <a href="../data/error_code.htm" target="contents">(See also: Error code details)</a><br>
+<p>
+<h2>Initial value</h2>
+Stand-alone should be specified from the choice of Stand-Alone, Master, or Slave.<br>
+<p>
+<h2>Remarks</h2>
+One of the settings must be executed from Stand-Alone, Master, or Slave to fix the application operation.<br>
+Slave indicates the board where the synchronization signal is output in the case of operating a number of boards in synchronization using a synchronization control connector (SC connector).
+<br>
+<p>
+<h2>Example</h2>
+<p>
+<pre>
+C       Ret = DioDmSetSlaveCfg(Id, 1, 1, 1, 1, 1);
+</pre>
+<h2>See also</h2>
+<a href="DioDmSetMasterCfg.htm" target="contents">DioDmSetMasterCfg</a><br>
+<a href="DioDmSetStandAlone.htm" target="contents">DioDmSetStandAlone</a><br>
+<p>
+</BODY>
+</HTML>

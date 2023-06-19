@@ -1,0 +1,91 @@
+<html>
+<head>
+
+<title>Q&A</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel=StyleSheet href=default.css>
+</head>
+<body>
+
+<a name=TOPIC_TOP>
+
+<h1>Q&A</h1>
+<p>
+<h2>Q: How to verify whether the board is normally recognized?</h2>
+A: If you want to check the state before the driver is installed, you can read the /proc/pci file.<br>
+If you want to check the state after the driver is installed, verify that I/O address and IRQ is displayed in the board list in configuration.<br>
+Or, verify that I/O address and IRQ is displayed in /proc/ioports and /proc/interrupts.<br>
+And, execute the initialization function, if the return value is "normal complete", you can confirm that the board is normally recognized.<br>
+<p>
+<h2>Q: Board is recognized, but the action is abnormal.</h2>
+A: In BIOS setting, verify Plug & Play OS setting is No.<br> 
+If Plug & Play OS is Yes, it is possible that BIOS doesn't normally setup PCI bus board.<br> 
+Even if BIOS doesn't normally setup PCI bus board, the board could be found in /proc/pci.<br>
+<p>
+<h2>Q: Error has occurred when the application is started without the shared libraries?</h2>
+A: It is possible that the install is failed. Please install with root authority.<br>
+If you only copy shared library to /usr/lib, it couldn't be activated.<br>
+The shared library is valid when ldconfig command is executed after the file is copied and the symbolic link is made.<br>
+For details, refer to explanation of the install cdio/library/Makefile.<br>
+<p>
+<h2>Q: Can I put the shared library to /usr/local/lib and manage it?</h2>
+A: Rewrite /etc/ld.so.conf and execute ldconfig, or add LD_LIBRARY_PATH setting to the shell start script(For example.bash).<br>
+The contents vary with the shell you use.<br>
+For details, check with man command.<br>
+<pre>
+(For example).bash_profile
+LD_LIBRARY_PATH=/usr/local/lib
+export LD_LIBRARY_PATH
+</pre>
+<p>
+<h2>Q: How long does it take to input or output one time?</h2>
+A: The value depends on the system you use, the following result reference value is based on the state which the other application isn't run.<br>
+<p>
+<pre>
+CPU:PentiumII333MHz
+Condition: The average measure value of system time to 1000 loops.
+Result: Input  1 port  : 3us
+        Input  4 ports : 6us
+        Output 1 port  : 4us
+        Output 4 ports : 7us
+</pre>
+<p>
+<h2>Q: How long does the notification of interrupt take?</h2>
+A: The value depends on the system you use, the following result reference value is based on the state which the other application isn't run.<br>
+<p>
+<pre>
+CPU: PentiumII333MHz
+Condition: The average measure value of system time to 1000 repeats of the callback 
+in application that can occur next interrupt.<br>
+Result: 10ms
+</pre>
+<p>
+Notice: The times of interrupt can be correctly notified even if the interrupts occur in a period less than 10ms.<br>
+In practice, the correct times were retrieved in the test of getting the 1000 pulses in the period of 100us for TTL Level boards.<br>
+Several times of 1000 times are failed to get in the period of 50us.<br>
+<p>
+<h2>Q: Interrupt function do not operate normally.</h2>
+<p>
+<pre>
+There is a possibility that the IRQ resource is not normally allocated. 
+Please add acpi=noirq by the boot loader such as GRUB as a boot prompt parameter. 
+</pre>
+<p>
+<h2>Q: About the case where the LAN cable connection device can not be detected</h2>
+A: LAN cable connection device performs multicast communication when detecting a device.<br>
+ Multicast communication may not be possible depending on the usage environment.<br>
+ If the device is not detected, try Add device manually.<br>
+<br>
+You may be able to detect the device by changing the network settings, such as stopping the firewall.<br>
+ An example of changing the network setting is described below, so please try it.<br>
+<br>
+Add the following to [/etc/hosts] configuration file.<br>
+ -----------------------------------------<br>
+ /etc/hosts<br>
+ -----------------------------------------<br>
+ 10.xxx.yyy.zzz    (New Machine Name)  <- add<br>
+ 127.0.0.1    localdomein.localName    local<br>
+ -----------------------------------------<br>
+ *[New Machine Name] is PC name.<br>
+</BODY>
+</HTML>
